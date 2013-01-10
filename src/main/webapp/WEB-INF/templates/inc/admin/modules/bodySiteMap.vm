@@ -1,0 +1,24 @@
+<textarea id="templateSiteMapComponent" rows="0" cols="0" style="display:none">
+    <!--
+    <div class="component" style="width:100%;margin:2px auto;" id="compItem_0_8_3">
+        <div class="componentTitle">
+            <span class="left">网站地图</span>
+            <span class="close"><a href="javascript:void(0)" onclick="javascript:if(confirm('确定删除网站地图'))$(this).parents('div:first').parents('div:first').parents('div:first').remove();">删除</a></span>
+        </div>
+        <div class="comItemContent">
+            <table name="fieldsTable" width="100%" border="0">
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="hidden" id="componentType" name="componentType" value="SiteMapComponent" />
+                            <input type="hidden" id="sequence" name="sequence" value="{$T.sequence}" />
+                            <input type="hidden" id="position" name="position" value="{$T.position}" />
+							选择网站地图后,前端页面会显示出网站地图
+                        </td>
+                    </tr>          
+                </tbody>
+            </table>
+        </div>
+    </div>
+    -->
+</textarea>

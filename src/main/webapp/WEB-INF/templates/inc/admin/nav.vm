@@ -1,0 +1,19 @@
+<script type="text/javascript">	
+    var tree = new dzTree('tree');
+    #if($tabIndex==0)
+	    tree.addNode(0, -1, '文章内容管理', '', 'main', true);
+		    tree.addNode(128, 0, '文章列表', '$!{contextPath}/admin/article/articleList.html', 'main', false);
+		    tree.addNode(129, 0, '文章分类列表', '$!{contextPath}/admin/article/catalog.html', 'main', false);
+    #elseif($tabIndex==1)
+        tree.addNode(0, -1, '资源文件管理', '', 'main', true);
+		    tree.addNode(128, 0, '文件列表', '$!{contextPath}/admin/resource/resource.html', 'main', false);
+    #elseif($tabIndex==2)
+        tree.addNode(0, -1, '用户管理', '', 'main', true);
+		    tree.addNode(128, 0, '用户列表', '$!{contextPath}/admin/user/user.html', 'main', false);
+    #elseif($tabIndex==3)
+        tree.addNode(0, -1, '系统设置', '', 'main', true);
+		    tree.addNode(128, 0, '导航设置', '$!{contextPath}/admin/setting/navAdmin.html', 'main', false);
+		    tree.addNode(129, 0, '全局设置', '$!{contextPath}/admin/setting/configAdmin.html', 'main', false);
+    #end
+	tree.show();
+</script>

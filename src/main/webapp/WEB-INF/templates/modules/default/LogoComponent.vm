@@ -1,0 +1,19 @@
+<!-- MASTHEAD_BEGIN -->
+<div id="ibm-logo">
+    <a href="$!{systemUrl}">
+        <img src="${component.image}" alt="鲁朗®"></a>
+</div>
+<ul id="ibm-geo">
+    <li id="ibm-country" class="ibm-first">中文</li>
+    <li id="ibm-change-country">[ <a href="/select/selector.html">选择</a>
+        ]</li>
+</ul>
+<form method="get" action="$!{contextPath}/" id="ibm-search-form">
+    <p>
+        <span id="ibm-search-scope">
+        </span>
+        <label for="q"></label>
+        <input id="q" maxlength="100" type="text">
+        <input value="搜索" class="ibm-btn-search" id="ibm-search" type="submit">
+    </p>
+</form>

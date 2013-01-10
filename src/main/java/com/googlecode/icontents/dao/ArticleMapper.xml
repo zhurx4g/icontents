@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.googlecode.icontents.dao.ArticleMapper">
+	<insert id="insert" parameterType="com.googlecode.icontents.bean.Article">
+        <![CDATA[
+			insert into ICONTENTS_ARTICLE 
+			values(null,
+			#{obj.title},
+			#{obj.summary},
+			#{obj.visits},
+			#{obj.image},
+			#{obj.weight},
+			now(),
+			now(),
+			#{obj.createUserId},
+			#{obj.rating},
+			#{obj.ratingCount},
+			#{obj.published},
+			#{obj.updateUserId},
+			#{obj.catalogId},
+			#{obj.supportCount},
+			#{obj.opposeCount},
+			#{obj.metaKeywords},
+			#{obj.metaDescription},
+			#{obj.layout},
+			#{obj.name},
+			#{obj.alias}
+			)
+		]]>
+	</insert>
+	<select id="getCurrentId" resultType="long">
+	   <![CDATA[ SELECT max(id) from ICONTENTS_ARTICLE]]>
+	</select>
+	<delete id="removeObjectById">
+		<![CDATA[
+			delete from ICONTENTS_article where id=#{id}
+		]]>
+	</delete>
+	<update id="update">
+		<![CDATA[
+			update ICONTENTS_ARTICLE 
+			set  
+			title=#{obj.title},
+			summary=#{obj.summary},
+			visits=#{obj.visits},
+			image=#{obj.image},
+			weight=#{obj.weight},
+			updateTime=now(),
+			rating=#{obj.rating},
+			ratingCount=#{obj.ratingCount},
+			published=#{obj.published},
+			updateUserId=#{obj.updateUserId},
+			catalogId=#{obj.catalogId},
+			supportCount=#{obj.supportCount},
+			opposeCount=#{obj.opposeCount},
+			metaKeywords=#{obj.metaKeywords},
+			metaDescription=#{obj.metaDescription},
+			layout=#{obj.layout}, 
+			name=#{obj.name},
+			alias=#{obj.alias} 
+			where id=#{obj.id}
+		]]>
+	</update>
+	<select id="getObjectById" resultType="com.googlecode.icontents.bean.Article" parameterType="java.util.Map">
+		<![CDATA[
+			SELECT * FROM ICONTENTS_ARTICLE WHERE ID=#{id}
+		]]>
+	</select>
+	<select id="select" resultType="com.googlecode.icontents.bean.Article" parameterType="java.util.Map">
+		<![CDATA[
+			SELECT 
+			A.*,
+			(SELECT USERNAME FROM ICONTENTS_USER U  WHERE a.CREATEUSERID=U.ID) CREATOR,
+			(SELECT USERNAME FROM ICONTENTS_USER U  WHERE a.UPDATEUSERID=U.ID) UPDATER, 
+			(SELECT NAME FROM ICONTENTS_CATALOG C  WHERE A.CATALOGID=C.ID) CATALOG 
+			FROM ICONTENTS_article a 
+			ORDER BY updateTime DESC
+			LIMIT #{offset},#{size}
+		]]>
+	</select>
+	<select id="getTotal" resultType="java.lang.Integer" parameterType="java.util.Map">
+		<![CDATA[
+			SELECT COUNT(1) FROM ICONTENTS_ARTICLE
+		]]>
+	</select>
+	<select id="getArticleIdByAlias" resultType="java.lang.Integer" parameterType="java.util.Map">
+		<![CDATA[
+			SELECT IFNULL(MAX(ID),-1) FROM ICONTENTS_ARTICLE WHERE ALIAS=#{alias}
+		]]>
+	</select>
+</mapper>

@@ -1,0 +1,15 @@
+<playlist version="1">
+<trackList>
+#foreach($track in $trackList)
+<track>
+<title>|</title>
+<creator/>
+<location>${track.image}</location>
+<info>${track.link}</info>
+</track>
+#end
+</trackList>
+</playlist>
+<!--
+$trackList
+-->

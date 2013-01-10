@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+	<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta content="$!{article.metaKeywords},$!{config_meta_keywords}" name="keywords" />
+    <meta content="$!{article.metaDescription},$!{config_meta_description}" name="description" />
+    <title>$!{article.title}_$!{config_name}</title>
+    <link href="favicon.ico" rel="SHORTCUT ICON">
+	<link rel="stylesheet" type="text/css" href="$!{contextPath}/css/common.css" />
+    <link type="text/css" rel="stylesheet" media="screen,projection" href="$!{contextPath}/css/css3buttons.css">
+    <link type="text/css" title="www" rel="stylesheet" media="screen,projection" href="$!{contextPath}/css/${skin}/style.css">
+    <link type="text/css" title="www" rel="stylesheet" media="screen,projection" href="$!{contextPath}/css/${skin}/nav.css">
+    <link type="text/css" title="www" rel="stylesheet" media="screen,projection" href="$!{contextPath}/css/${skin}/menu.css">
+    <link type="text/css" title="www" rel="stylesheet" media="screen,projection" href="$!{contextPath}/css/${skin}/footer.css">
+    <!--<link type="text/css" rel="stylesheet" href="$!{contextPath}/css/syntaxhighlighter/shCoreDefault.css"/>-->
+    <style type="text/css">div.to-bgstyle, div.to-dk-bgstyle{ cursor:pointer; }</style>
+	<script type="text/javascript" src="$!{contextPath}/js/jquery-1.4.2.min.js" ></script>
+	<script type="text/javascript" src="$!{contextPath}/js/jquery.md5.js" ></script>
+	<script type="text/javascript" src="$!{contextPath}/js/jquery.metadata.js" ></script>
+	<script type="text/javascript" src="$!{contextPath}/js/jquery.validate.min.js" ></script>
+	<script type="text/javascript" src="$!{contextPath}/js/jquery.tools.min.js"></script>
+    <!--
+    <script type="text/javascript" src="$!{contextPath}/js/syntaxhighlighter/shCore.js"></script>
+    <script type="text/javascript" src="$!{contextPath}/js/syntaxhighlighter/shBrushJava.js"></script>
+    <script type="text/javascript">SyntaxHighlighter.all();</script>
+    -->
+</head>
+<body style="align:center;">
+<!--HEADER START-->
+<div id="headerCompontentList">
+    <div class="logoComponent">
+        <div>
+        <a id="bannerLeft" href="/">
+            <img alt="" src="${config_logo}" height="70px" style="padding-top: 12px;" />
+        </a>
+        </div>
+        <div style="width: 728; height: 90px; float: right;">
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+#foreach($component in $article.headerComponentList)
+#set($width="960px")
+#parse("modules/${skin}/${component.componentType}.vm")
+#end
+</div>
+<!--HEADER END-->
+
+<div id="bodyCompontentList">
+<!-- MASTHEAD_END -->
+#if($article.layout==1)
+<div id="leftColumn">
+    
+#foreach($component in $article.leftComponentList)
+#set($width="240px")
+#parse("modules/${skin}/${component.componentType}.vm")
+#end
+#parse("modules/${skin}/ad.vm")
+</div>
+<div id="bodyColumn">
+    <div id="contentBox">
+#foreach($component in $article.bodyComponentList)
+#set($width="720px")
+#parse("modules/${skin}/${component.componentType}.vm")
+#end
+    </div>
+#if("true"==$config_uyan)
+#parse("modules/uyan.vm")
+#end
+</div>
+#elseif($article.layout==2)
+<div id="bodyColumn">
+    <div id="contentBox">
+#foreach($component in $article.bodyComponentList)
+#set($width="720px")
+#parse("modules/${skin}/${component.componentType}.vm")
+#end
+#if("true"==$config_uyan)
+#parse("modules/uyan.vm")
+#end
+</div>
+    </div>
+</div>
+<div id="rightColumn">
+#foreach($component in $article.rightComponentList)
+#parse("modules/${skin}/${component.componentType}.vm")
+#end
+</div>
+#else
+	#foreach($component in $article.bodyComponentList)
+    #parse("modules/${skin}/${component.componentType}.vm")
+    #end
+#end
+</div>
+
+<!-- FOOTER_BEGIN -->
+<div id="footerCompontentList">
+#foreach($component in $article.footerComponentList)
+#parse("modules/${skin}/${component.componentType}.vm")
+#end
+</div>
+<!-- FOOTER_END -->
+        <div style="display:none;" class="back-to" id="toolBackTop">
+            <a title="返回顶部" onclick="window.scrollTo(0,0);return false;" href="#top" class="back-top">返回顶部</a>
+        </div>
+        <script type="text/javascript">
+        $(document).ready(function () {
+                var bt = $('#toolBackTop');
+                var sw = $(document.body)[0].clientWidth;
+        
+                var limitsw = (sw - 1000) / 2 - 80;
+                if (limitsw > 0){
+                        limitsw = parseInt(limitsw);
+                        bt.css("right",limitsw);
+                }
+        
+                $(window).scroll(function() {
+                        var st = $(window).scrollTop();
+                        if(st > 30){
+                                bt.show();
+                        }else{
+                                bt.hide();
+                        }
+                });
+        })
+        </script>
+#parse("modules/JiaThisComponent.vm")
+	</body>
+</html>

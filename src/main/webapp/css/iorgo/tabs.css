@@ -1,0 +1,109 @@
+
+/* everything is constructed with a single background image */
+
+/* root element for tabs */
+#flowtabs {
+	
+	/* dimensions */
+	width:960px;
+	height:24px !important;
+	margin:0 !important; 
+	padding:0;	
+	
+	/* IE6 specific branch (prefixed with "_") */
+	_margin-bottom:-2px;
+}
+
+/* single tab */
+#flowtabs li { 
+	float:left; 
+	margin:0; 
+	padding:0; 
+	text-indent:0; 
+	list-style-type:none;
+}
+
+/* a- tag inside single tab */
+#flowtabs li a {
+	background: #E0E0E0;
+	display:block;
+	width: 238px; 	
+	padding: 3px 0px 5px 0px;
+	margin:0px;
+	
+	/* font decoration */
+	color:#293D6B;
+	font-size:12px;
+	font-weight:bold;
+	line-height:13px;
+	text-align:center;
+	text-decoration:none;
+	border: 1px solid #3D474E;
+}
+
+/* adjust the background image position on each tab */
+#flowtabs #t1 			{ background:#BDCEDC;}
+#flowtabs #t2 			{ background:#BDCEDC;}
+#flowtabs #t3 			{ background:#BDCEDC;}
+#flowtabs #t4 			{ background:#BDCEDC;}
+ 
+/* mouseover state */
+#flowtabs a:hover 		{ color:#293D6B;	 }
+#flowtabs #t1:hover 	{ background:#C8D7E3;border-bottom: 0px solid #3D474E;}
+#flowtabs #t2:hover 	{ background:#C8D7E3;border-bottom: 0px solid #3D474E;}
+#flowtabs #t3:hover 	{ background:#C8D7E3;border-bottom: 0px solid #3D474E;}
+#flowtabs #t4:hover 	{ background:#C8D7E3;border-bottom: 0px solid #3D474E;}
+
+/* currently selected tabs */
+#flowtabs a.current		{ cursor:default; color:#293D6B; line-height:13px; }
+#flowtabs #t1.current { background:#FFFFFF;border-bottom: 0px solid #FFFFFF;}
+#flowtabs #t2.current { background:#FFFFFF;border-bottom: 0px solid #FFFFFF;}
+#flowtabs #t3.current { background:#FFFFFF;border-bottom: 0px solid #FFFFFF;}
+#flowtabs #t4.current { background:#FFFFFF;border-bottom: 0px solid #FFFFFF;}
+
+
+/* panes */
+#flowpanes {
+	background: #FFFFFF;		
+	width:960px;
+	height:120px;	
+}
+
+
+/* single pane */
+#flowpanes div {
+	display:none;	
+	color:#000000;	
+}
+
+/* some decorations for elements inside single pane */
+#flowpanes div h2 {
+	font-weight:normal;
+	color:#ddd;
+	letter-spacing:1px;
+	margin:10px 0 0 0;
+	font-size:22px;	
+}
+
+#flowpanes a {
+	color:#cc9;		
+	font-size:14px;
+}
+
+#flowpanes p, #flowpanes samp {
+	color:#ccc;		
+}
+
+#flowpanes .narrow {
+	padding-right:160px;		
+}
+.homeTel {
+    background: url("../../upload/images/home_40.jpg") no-repeat scroll 0 0 transparent;
+    color: #36506D;
+    float: right;
+    font-weight: bold;
+    height: 54px;
+    padding-left: 29px;
+    padding-top: 62px;
+    width: 200px;
+}

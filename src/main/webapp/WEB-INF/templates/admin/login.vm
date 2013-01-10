@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>${systemName} - 登录</title>
+    <script type="text/javascript" src="$!{contextPath}/js/jquery-1.4.2.min.js" ></script>
+    <script type="text/javascript" src="$!{contextPath}/js/jquery.md5.js" ></script>
+	<script type="text/javascript" src="$!{contextPath}/js/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="$!{contextPath}/js/jquery-ui-1.8.5.custom.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="$!{contextPath}/admin/css/common.css" />
+	<link rel="stylesheet" type="text/css" href="$!{contextPath}/css/css3buttons.css" />
+    <style type="text/css">
+    body{padding:0; margin:0; text-align:center; font-size:14px; background:#fff;color:#000000;}
+    ul,li,form{padding:0; margin:0;}
+    .loginBox{margin:120px auto 0; width:500px;background:#F7F7F7; border:1px solid #BDC6D3;}
+    .title{ height:36px; clear:both;border-bottom:1px solid #BDC6D3; background:#1E50A2; color:#fff; font-weight:bold; line-height:36px;}
+    .loginBlock{margin:0 auto; width:370px; clear:both; padding:12px 0 0;}
+    .loginBlock li{text-align:left; padding:15px 0 0; list-style-type:none;}
+    .input{width:180px; border:1px solid #ccc; height:19px;}
+    .button{width:80px; padding:2px 0 0; cursor:pointer;}
+    .text{margin: 0 auto; width:320px; padding:15px 0 0;}
+    .list_of_channels{background:#CCC; font-size:14px;}
+    .list_of_channels a{background:#FFF; display:block; float:left; width:120px; padding:5px; color:#333; text-decoration:none; overflow:hidden;}
+    .list_of_channels a:hover{text-decoration:underline; color:#CC0000; background:#EEE;}
+	.loginTable td, tr, th {font-size:14px;}
+    </style>
+    <script type="text/javascript">
+	jQuery(document).ready(function(){
+		jQuery("#loginBox").draggable();
+		jQuery("#loginForm").validate({
+            submitHandler:function(form){
+				form.submit();
+            }    
+        });
+		jQuery("#username").focus();
+	});
+    </script>
+</head>
+
+<body>
+<div class="loginBox" id="loginBox">
+<div class="title" style="cursor:pointer;">请输入用户名和密码登录</div>
+<form name="loginForm" id="loginForm" action="${contextPath}/admin/login.html" method="post" style="padding: 10px;">
+    <table class="loginTable" style="width:100%;">
+        <tr>
+    		<td width="80px" align="right">账号<font color="red">*</font>：</td><td colspan="2" align='left'><input name="username" id="username" type="text" class="input required" value=""/></td>
+        </tr>
+        <tr>
+    		<td width="80px" align="right">密码<font color="red">*</font>：</td>
+			<td colspan="2" align='left'>
+				<input id="password1" name="password1" type="password" onblur="jQuery('#password').val(jQuery.md5(jQuery('#password1').val()));" class="input required" value=""/>
+				<input name="password" id="password" type="hidden" class="input" value=""/>
+			</td>
+        </tr>
+        <tr>
+			<td>验证码:</td>
+			<td align="left"><input id="vcode" name="vcode" type="password" class="input required" value=""/><img height="20px" src="$!{contextPath}/user/image"/></td>
+		</tr>
+        <tr>
+    		<td></td>
+			<td colspan="2" align='left'>
+				<a onclick="jQuery('#loginButton').trigger('click');" style="padding: 5px 2px;" class="button" href="#"><span class="user icon"></span>登录</a>
+				<input id="loginButton" type="submit" value="登　录" class="button" style="display:none;"/>
+				<a onclick="jQuery('#loginForm').reset();" style="padding: 5px 2px;" class="negative button" href="#"><span class="cross icon"></span>取消</a>
+				#if($error)<label generated="true" class="error">$error</label>#end
+			</td>
+    	</tr>
+	</table>
+</form>
+
+</div>
+</body>
+</html>
+
+

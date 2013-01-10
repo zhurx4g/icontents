@@ -1,0 +1,8 @@
+<div id="ibm-footer" style=" width: 960px;margin: 0 auto;">
+    <ul>
+		<li><b style="color:#000000">快速导航:</b></li>
+#foreach($article in $component.articleList)
+		<li #if($velocityCount==1)class="ibm-first"#end><a href="${contextPath}/article/$!{article.id}.html">$!{article.name}</a></li>
+#end
+    </ul>
+</div>

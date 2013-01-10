@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.googlecode.icontents.dao.CatalogMapper">
+	<insert id="insert" parameterType="com.googlecode.icontents.bean.Catalog">
+		<![CDATA[
+			insert into ICONTENTS_CATALOG
+			values(null,
+			#{obj.parentId},
+			#{obj.name},
+			#{obj.sequence},
+			#{obj.weight},
+			#{obj.icon},
+			#{obj.image},
+			#{obj.description},
+			#{obj.createUserId},
+			#{obj.updateUserId},
+			now(),
+			now(),
+			#{obj.link},
+			#{obj.templateArticleId}
+			);
+		]]>
+	</insert>
+    <select id="getCurrentId" resultType="long">
+       <![CDATA[ SELECT max(id) from ICONTENTS_CATALOG]]>
+    </select>
+    <select id="getObjectById" resultType="com.googlecode.icontents.bean.Catalog">
+       <![CDATA[ SELECT * FROM ICONTENTS_CATALOG WHERE ID=#{id}]]>
+    </select>
+	<delete id="removeObjectById">
+		<![CDATA[
+		delete from ICONTENTS_CATALOG where id=#{id}
+		]]>
+	</delete>
+	<update id="update">
+		<![CDATA[
+			update ICONTENTS_CATALOG 
+			set 
+			parentId=#{obj.parentId},
+			name=#{obj.name},
+			sequence=#{obj.sequence},
+			weight=#{obj.weight},
+			icon=#{obj.icon},
+			image=#{obj.image},
+			description=#{obj.description},
+			updateUserId=#{obj.updateUserId}, 
+			link=#{obj.link}, 
+			templateArticleId=#{obj.templateArticleId}
+			where id=#{obj.id}
+		]]>
+	</update>
+	<select id="select" resultType="com.googlecode.icontents.bean.Catalog" parameterType="java.util.Map">
+		<![CDATA[
+			SELECT 
+			C.*,
+			(SELECT COUNT(1) FROM ICONTENTS_CATALOG WHERE PARENTID=C.ID) SUBCATALOG,
+			(SELECT USERNAME FROM ICONTENTS_USER U  WHERE C.CREATEUSERID=U.ID) CREATOR,
+			(SELECT USERNAME FROM ICONTENTS_USER U  WHERE C.UPDATEUSERID=U.ID) UPDATER 
+			FROM ICONTENTS_CATALOG C 
+			WHERE PARENTID=0 
+			ORDER BY SEQUENCE DESC
+			LIMIT #{offset},#{size}
+		]]>
+	</select>
+	<select id="selectSubCatalog" resultType="com.googlecode.icontents.bean.Catalog" parameterType="java.util.Map">
+		<![CDATA[
+			SELECT 
+			C.*,
+			(SELECT COUNT(1) FROM ICONTENTS_CATALOG WHERE PARENTID=C.ID) SUBCATALOG,
+			(SELECT USERNAME FROM ICONTENTS_USER U  WHERE C.CREATEUSERID=U.ID) CREATOR,
+			(SELECT USERNAME FROM ICONTENTS_USER U  WHERE C.UPDATEUSERID=U.ID) UPDATER 
+			FROM ICONTENTS_CATALOG C 
+			WHERE PARENTID=#{parentId} 
+			ORDER BY SEQUENCE DESC
+		]]>
+	</select>
+</mapper>

@@ -1,0 +1,168 @@
+<div style="font-size: 12px;">
+    1. 在安装试用版软件之前, 需要您填写以下申请表内容；填写完成后，请点击“提交”按钮。<br>
+    2. 为了确保我们能尽快和您取得联系，请您务必保证以下所填写内容完整、真实、有效。<br>
+    3. 本公司将在收到申请后在一星期之内发放试用版License。<br>
+    4. 带<font color="red">*</font>的是必填项目。<br>
+    <img src="$!{contextPath}/upload/images/lic.jpg">
+	<form id="licenseForm" method="post">
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" style="font-size: 12px;">
+        <tbody>
+            <tr>
+                <td align="center" colspan="2"><h2>使用者信息</h2></td>
+			</tr>
+            <tr>
+                <td align="right"><font color="red">*</font>公司/单位名称：</td>
+                <td><input type="text" style="width: 270px;" id="companyName" maxlength="60" name="companyName" class="{required:true,maxlength:60,messages:{required:'请输入公司/单位名称'}}"/></td>
+			</tr>
+            <tr>
+                <td align="right">公司/单位名称（英文）：</td>
+                <td><input type="text" style="width: 270px;" id="companyNameEn" maxlength="60" name="companyNameEn" class=""></td>
+            </tr>
+            <tr>
+                <td align="right"><font color="red">*</font>公司/单位地址：</td>
+                <td><input type="text" style="width: 270px;" id="companyAddress" maxlength="60" name="companyAddress" class="{required:true,maxlength:60,messages:{required:'请输入公司/单位地址'}}"></td>
+            </tr>
+            <tr>
+                <td align="right"><font color="red">*</font> 邮政编码：</td>
+                <td><input type="text" style="width: 54px;" id="postCode" maxlength="6" name="postCode" class="{required:true,maxlength:60,messages:{required:'请输入邮政编码'}}"></td>
+            </tr>
+            <tr>
+                <td align="right"><font color="red">*</font>联系人：</td>
+                <td><input type="text" style="width: 270px;" id="contacts" maxlength="30" name="contacts" class="{required:true,maxlength:60,messages:{required:'请输入联系人'}}"></td>
+            </tr>
+            <tr>
+                <td align="right"><font color="red">*</font>联系人所属部门：</td>
+                <td>
+                    <input type="text" style="width: 270px;" id="department" maxlength="30" name="department" class="{required:true,maxlength:60,messages:{required:'请输入联系人所属部门'}}">
+				</td>
+            </tr>
+            <tr>
+                <td align="right"><font color="red">*</font>电话：</td>
+				<td>
+					<input type="text" style="width: width: 145px;" id="telephone" maxlength="4" name="telephone">区号-电话号码</td>
+            </tr>
+            <tr>
+                <td align="right">手机：</td>
+                <td>
+                    <input type="text" style="width: 270px;" id="phone" maxlength="11" name="phone" />
+				</td>
+            </tr>
+            <tr>
+                <td align="right">传真：</td>
+                <td><input type="text" style="width: 145px;" id="fax" maxlength="4" name="fax">区号-传真号码</td>
+            </tr>
+            <tr>
+                <td align="right"><font color="red">*</font>电子邮件：</td>
+                <td>
+                    <input type="text" style="width: 270px;" id="email" maxlength="30" name="email" class="{required:true,maxlength:60,messages:{required:'请输入电子邮件'}}">
+            	</td>
+            </tr>
+                <tr>
+                    <td align="right"><span style="color: rgb(255, 0, 0);">*</span>产品系列：</td>
+                    <td>
+                        <select id="productType" name="productType" class="{required:true,maxlength:60,messages:{required:'请输入联系人所属部门'}}">
+                            <option value="" selected="selected">请选择所申请License的产品系列</option>
+                            <option value="204">[Windows]:EXPRESSCLUSTER X 3.0</option>
+                            <option value="104">[Windows]:EXPRESSCLUSTER X 2.0</option>
+                            <option value="105">[Windows]:EXPRESSCLUSTER X 1.0</option>
+                            <option value="205">[ Linux ]:EXPRESSCLUSTER X 3.0</option>
+                            <option value="107">[ Linux ]:EXPRESSCLUSTER X 2.0</option>
+                            <option value="108">[ Linux ]:EXPRESSCLUSTER X 1.0</option>
+                        </select>
+                </td>
+                </tr>
+                <tr>
+                    <td width="171" align="right">服务器品牌/型号：</td>
+                    <td>
+                        <input type="text" style="width: 270px;" id="serverType" maxlength="30" name="serverType">
+                	</td>
+                </tr>
+                <tr>
+                <td width="171" align="right">每台服务器的CPU数量：</td>
+                <td>
+                    <select id="cpuCount" name="cpuCount">
+                        <option value="" selected="selected">请选择CPU数量</option>
+                        <option value="1">1CPU</option>
+                        <option value="2">2CPU</option>
+                        <option value="4">4CPU</option>
+                        <option value="8">8CPU</option>
+                        <option value="16">16CPU</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td align="right" style="height: 26px;">操作系统版本：</td>
+                <td style="height: 26px;">
+                    <input type="text" style="width: 270px;" id="osVersion" maxlength="30" name="osVersion">
+            	</td>
+            </tr>
+            <tr>
+                <td align="right">内核版本(linux用户填写)：</td>
+                <td>
+                    <input type="text" style="width: 270px;" id="coreVersion" maxlength="30" name="coreVersion">
+            	</td>
+            </tr>
+            <tr>
+                <td align="right">外部存储设备品牌/型号：</td>
+                <td>
+                    <input type="text" style="width: 270px;" id="ioName" maxlength="30" name="ioName">
+            	</td>
+            </tr>
+            <tr>
+                <td align="right">存储设备类型：</td>
+                <td>
+            		<select id="ioType" name="ioType">
+                        <option value="0" selected="selected">请选择存储设备类型</option>
+                        <option value="1">未使用</option>
+                        <option value="2">直连</option>
+                        <option value="4">FC-SAN</option>
+                        <option value="8">iSCSI</option>
+                        <option value="16">NAS</option>
+                    </select>
+            	</td>
+            </tr>
+            <tr>
+                <td align="right">需要保护的应用：</td>
+                <td>
+                    <input type="text" style="width: 270px;" id="app" maxlength="30" name="app">
+            	</td>
+            </tr>
+            <tr>
+                <td align="right">是否使用了虚拟机：</td>
+                <td>
+            		<select id="virtualMachine" name="virtualMachine">
+                        <option value="0" selected="selected">请选择CPU数量</option>
+                        <option value="1">未使用</option>
+                        <option value="2">VMware</option>
+                        <option value="4">Xen</option>
+                        <option value="8">Hyper-V</option>
+                        <option value="16">其他</option>
+                    </select>
+				</td>
+            </tr>
+            <tr>
+                <td align="right"></td>
+                <td>
+            	</td>
+            </tr>
+    	</tbody>
+    </table>
+	</form>
+    <input type="button" value="提交" onclick="return submitForm();"/>
+</div>
+<script>
+function submitForm(){
+	var validater = jQuery('#licenseForm').validate();
+	
+	if(validater.valid()){
+    	jQuery.post('$!{contextPath}/licenseApply.html', jQuery('#licenseForm').serialize(),
+        	function(data) {
+              if(data.result){
+			  	alert("提交成功。");
+			  }
+            }, 'json');
+	}
+	
+	return false;
+}
+</script>

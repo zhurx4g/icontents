@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.googlecode.icontents.dao.UserMapper">
+    <resultMap type="com.googlecode.icontents.bean.User" id="User"></resultMap>
+	<insert id="insert" parameterType="java.util.Map">
+		<![CDATA[
+			insert into ICONTENTS_USER 
+			(id,username,password,registrationDate,email)
+			values(#{id},#{userName},#{password},now(),#{email});
+		]]>
+	</insert>
+	<select id="select" parameterType="java.util.Map" resultType="User">
+		<![CDATA[
+			SELECT * FROM ICONTENTS_USER 
+			ORDER BY REGISTRATIONDATE DESC
+			LIMIT #{offset},#{size}
+		]]>	
+	</select>
+	<delete id="deleteByEmail" parameterType="java.util.Map">
+		<![CDATA[
+			DELETE FROM ICONTENTS_USER WHERE EMAIL=#{email}
+		]]>
+	</delete>
+	<delete id="deleteById" parameterType="java.util.Map">
+		<![CDATA[
+			DELETE FROM ICONTENTS_USER WHERE ID=#{id}
+		]]>
+	</delete>
+	<update id="update">
+		<![CDATA[
+			update ICONTENTS_USER 
+			set  
+			title=#{title},
+			summary=#{summary},
+			visits=#{visits},
+			image=#{image},
+			weight=#{weight},
+			updateTime=now(),
+			rating=#{rating},
+			ratingCount=#{ratingCount},
+			published=#{published},
+			updateUserId=#{updateUserId},
+			catalogId=#{catalogId},
+			supportCount=#{supportCount},
+			opposeCount=#{opposeCount},
+			metaKeywords=#{metaKeywords},
+			metaDescription=#{metaDescription},
+			layout=#{layout}, 
+			name=#{name} 
+			where id=#{id}
+		]]>
+	</update>
+	<select id="getUserByEmail" resultType="User" parameterType="java.util.Map">
+		<![CDATA[
+			SELECT * FROM ICONTENTS_USER WHERE EMAIL=#{email}
+		]]>
+	</select>
+	<select id="getUserByUserName" resultType="User" parameterType="java.util.Map">
+		<![CDATA[
+			SELECT * FROM ICONTENTS_USER WHERE USERNAME=#{userName}
+		]]>
+	</select>
+	<select id="getTotal" resultType="java.lang.Integer">
+		<![CDATA[
+			SELECT COUNT(1) FROM ICONTENTS_USER
+		]]>
+	</select>
+	<select id="searchUser" resultType="User" parameterType="java.util.Map">
+		<![CDATA[
+			SELECT * FROM ICONTENTS_USER WHERE EMAIL LIKE #{email}
+		]]>
+	</select>
+	<select id="searchUserCount" resultType="java.lang.Integer" parameterType="java.util.Map">
+		<![CDATA[
+			SELECT COUNT(1) FROM ICONTENTS_USER WHERE EMAIL LIKE #{email}
+		]]>
+	</select>
+	<select id="isExist" resultType="java.lang.Integer" parameterType="java.util.Map">
+		<![CDATA[
+			SELECT COUNT(1) FROM ICONTENTS_USER WHERE EMAIL = #{email} OR USERNAME=#{username}
+		]]>
+	</select>
+	<update id="updateUserLevel" parameterType="java.util.Map">
+		<![CDATA[
+			UPDATE ICONTENTS_USER SET LEVEL=#{level} WHERE ID=#{id}
+		]]>
+	</update>
+	<update id="updateUserPassword" parameterType="java.util.Map">
+		<![CDATA[
+			UPDATE ICONTENTS_USER SET PASSWORD=#{password} WHERE ID=#{id}
+		]]>
+	</update>
+</mapper>

@@ -1,0 +1,490 @@
+<div id="ibm-home-tasks">
+    <ul id="ibm-home-task-nav">
+        <li id="ibm-home-tab-learn" class="ibm-active-first-previous-tab">
+            <a onmouseover="IBMHomePageTabs.delayedSetActive(this, 'ibm-tab-content-0');return false;" onmouseout="IBMHomePageTabs.cancelSetActive(this);return false;" onclick="IBMHomePageTabs.setActive(this, 'ibm-tab-content-0');return false;" href="#ibm-tab-content-0">了解</a>
+        </li>
+        <li id="ibm-home-tab-shop" class="ibm-active">
+            <a onmouseover="IBMHomePageTabs.delayedSetActive(this, 'ibm-tab-content-1');return false;" onmouseout="IBMHomePageTabs.cancelSetActive(this);return false;" onclick="IBMHomePageTabs.setActive(this, 'ibm-tab-content-1');return false;" href="#ibm-tab-content-1">选购</a>
+        </li>
+        <li class="ibm-active-next-tab" id="ibm-home-tab-support">
+            <a onmouseover="IBMHomePageTabs.delayedSetActive(this, 'ibm-tab-content-2');return false;" onmouseout="IBMHomePageTabs.cancelSetActive(this);return false;" onclick="IBMHomePageTabs.setActive(this, 'ibm-tab-content-2');return false;" href="#ibm-tab-content-2">获取支持</a>
+        </li>
+        <li class="" id="ibm-home-tab-my-ibm">
+            <a onmouseover="IBMHomePageTabs.delayedSetActive(this, 'ibm-tab-content-3');return false;" onmouseout="IBMHomePageTabs.cancelSetActive(this);return false;" onclick="IBMHomePageTabs.setActive(this, 'ibm-tab-content-3');return false;" href="#ibm-tab-content-3">个性化服务</a>
+        </li>
+        <li id="ibm-home-tab-resources" class="ibm-last-tab">
+            <a onmouseover="IBMHomePageTabs.delayedSetActive(this, 'ibm-tab-content-4');return false;" onmouseout="IBMHomePageTabs.cancelSetActive(this);return false;" onclick="IBMHomePageTabs.setActive(this, 'ibm-tab-content-4');return false;" href="#ibm-tab-content-4">关于 IBM</a>
+        </li>
+    </ul>
+    <div style="display: none;" id="ibm-tab-content-0" class="ibm-columns">
+        <a class="ibm-access"><!--access tag holder--></a>
+        <div class="ibm-column">
+            <h3>特色主题</h3>
+            <ul>
+                <li>
+                    <a href="http://www.ibm.com/smarterplanet/cn/zh/overview/visions/index.html?re=learnabout" onfocus="ibmHomePageTabs.hideAllHPT();return false;">欢迎进入智慧的十年</a>
+                </li>
+                <li>
+                    <a href="http://www.ibm.com/software/cn/data/cognos/products/cognos-8-business-intelligence/" onfocus="ibmHomePageTabs.hideAllHPT();return false;">获得更智能的商业管理</a>
+                </li>
+                <li>
+                    <a href="http://www.ibm.com/systems/cn/dihub/" onfocus="ibmHomePageTabs.hideAllHPT();return false;">探索 IBM 动态架构</a>
+                </li>
+                <li>
+                    <a href="http://www.ibm.com/services/cn/cio/" onfocus="ibmHomePageTabs.hideAllHPT();return false;">CIO 互动频道</a>
+                </li>
+            </ul>
+        </div>
+        <div class="ibm-column ibm-no-header">
+            <ul>
+                <li>
+                    <a href="http://www.ibm.com/smarterplanet/cn/zh/?re=learnabout" onfocus="ibmHomePageTabs.hideAllHPT();return false;">智慧的地球</a>
+                </li>
+                <li>
+                    <a href="http://www.ibm.com/cn/promotion/raq/index.shtml" onfocus="ibmHomePageTabs.hideAllHPT();return false;">产品询价</a>
+                </li>
+                <li>
+                    <a href="http://www.ibm.com/cn/event/" onfocus="ibmHomePageTabs.hideAllHPT();return false;">市场活动及视频</a>
+                </li>
+                <li>
+                    <a href="http://www.ibm.com/city/cn/index.shtml?re=learnabout" onfocus="ibmHomePageTabs.hideAllHPT();return false;">IBM 在线分公司</a>
+                </li>
+            </ul>
+        </div>
+        <div class="ibm-column">
+            <h3>我们的业务范围</h3>
+            <ul>
+                <li>
+                    <a href="#" id="ibm-610-3-1-dd1-trigger" class="ibm-tab-content-submenu-trigger" onclick="ibmHomePageTabs.showHPT(this, 'ibm-610-3-1-dd1');return false;" onmouseout="ibmHomePageTabs.delayedHideHPT('ibm-610-3-1-dd1');return false;">行业<span onmouseover="ibmHomePageTabs.cancelDelayedHideHPT('ibm-610-3-1-dd1');return false;" class="ibm-submenu-icon">&nbsp;</span>
+                    </a>
+                    <div style="background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); display: none; position: absolute; width: 208px; z-index: 9;" onmouseout="ibmHomePageTabs.delayedHideHPT('ibm-610-3-1-dd1');return false;" onmouseover="ibmHomePageTabs.showHPT(null, 'ibm-610-3-1-dd1');return false;" class="ibm-tab-content-submenu" id="ibm-610-3-1-dd1">
+                        <ul>
+                            <li>
+                                <a href="http://www.ibm.com/software/cn/solution/industry/banking/?ca=hp">银行</a>
+                            </li>
+                            <li>
+                                <a href="http://www.ibm.com/cn/industry/finance/insurance/">保险业</a>
+                            </li>
+                            <li>
+                                <a href="http://www.ibm.com/software/cn/solution/industry/retail/?ca=hp">零售业</a>
+                            </li>
+                            <li>
+                                <a href="http://www.ibm.com/smb/cn/industries/manufacture/index.shtml?re=cnhomepage">制造业</a>
+                            </li>
+                            <li>
+                                <a href="http://www.ibm.com/software/cn/solution/industry/electronics/?ca=hp">电子</a>
+                            </li>
+                            <li>
+                                <a href="http://www.ibm.com/software/cn/solution/industry/telecommunications/?ca=hp">电信</a>
+                            </li>
+                            <li>
+                                <a href="http://www.ibm.com/cn/smb/industries/media/">媒体与娱乐业</a>
+                            </li>
+                            <li>
+                                <a href="http://www.ibm.com/software/cn/solution/industry/transportation/?ca=hp">交通运输</a>
+                            </li>
+                            <li>
+                                <a href="http://www.ibm.com/software/cn/solution/industry/aerospace_defense/?ca=hp">航空航天</a>
+                            </li>
+                            <li>
+                                <a href="http://www.ibm.com/software/cn/solution/industry/automotive/?ca=hp">汽车制造</a>
+                            </li>
+                            <li>
+                                <a href="http://www.ibm.com/software/cn/solution/industry/chemicals_petroleum/?ca=hp">石油石化</a>
+                            </li>
+                            <li>
+                                <a href="http://www.ibm.com/software/cn/solution/industry/government/?ca=hp">政府与公众事业</a>
+                            </li>
+                            <li>
+                                <a href="http://www.ibm.com/cn/industry/education/index.shtml">教育</a>
+                            </li>
+                            <li>
+                                <a href="http://www.ibm.com/cn/public/healthcare/index.shtml">医疗与生命科学</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="http://www.ibm.com/products/cn/zh/" id="ibm-610-3-2-dd1-trigger" class="ibm-tab-content-submenu-trigger" onclick="ibmHomePageTabs.showHPT(this, 'ibm-610-3-2-dd1');return false;" onmouseout="ibmHomePageTabs.delayedHideHPT('ibm-610-3-2-dd1');return false;">产品<span onmouseover="ibmHomePageTabs.cancelDelayedHideHPT('ibm-610-3-2-dd1');return false;" class="ibm-submenu-icon">&nbsp;</span>
+                    </a>
+                    <div style="background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); display: none; position: absolute; width: 208px; z-index: 9;" onmouseout="ibmHomePageTabs.delayedHideHPT('ibm-610-3-2-dd1');return false;" onmouseover="ibmHomePageTabs.showHPT(null, 'ibm-610-3-2-dd1');return false;" class="ibm-tab-content-submenu" id="ibm-610-3-2-dd1">
+                        <ul>
+                            <li>
+                                <a href="http://www.ibm.com/cn/promotion/raq/index.shtml?ca=raq&amp;re=product">特别询价区</a>
+                            </li>
+                            <li>
+                                <a href="http://www.ibm.com/cn/software/">软件产品</a>
+                            </li>
+                            <li>
+                                <a href="http://www.ibm.com/systems/cn/">Systems 和服务器产品</a>
+                            </li>
+                            <li>
+                                <a href="http://www.ibm.com/cn/printers/">打印机 (InfoPrint Solutions Company)</a>
+                            </li>
+                            <li>
+                                <a href="http://www.ibm.com/cn/products/pos/">零售终端</a>
+                            </li>
+                            <li>
+                                <a href="http://www.ibm.com/cn/financing/icue/">IBM 认证的二手设备</a>
+                            </li>
+                            <li>
+                                <a href="http://www.ibm.com/products/cn/zh/">更多产品</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="http://www.ibm.com/smb/cn/index.shtml" onfocus="ibmHomePageTabs.hideAllHPT();return false;">中型企业及机构</a>
+                </li>
+            </ul>
+        </div>
+        <div class="ibm-column ibm-no-header">
+            <ul>
+                <li>
+                    <a href="http://www.ibm.com/cn/ibm/partner/index.shtml" onfocus="ibmHomePageTabs.hideAllHPT();return false;">业务合作伙伴</a>
+                </li>
+                <li>
+                    <a href="http://www.ibm.com/developerworks/cn/" onfocus="ibmHomePageTabs.hideAllHPT();return false;">开发人员</a>
+                </li>
+                <li>
+                    <a href="http://www.ibm.com/services/cn/index.wss" onfocus="ibmHomePageTabs.hideAllHPT();return false;">全球服务部</a>
+                </li>
+            </ul>
+        </div>
+        <div class="ibm-column ibm-promo-column">
+            <div class="ibm-promo-container">
+                <a onfocus="ibmHomePageTabs.hideAllHPT();return false;" href="http://www.ibm.com/ibm100/us/en/icons/?sa_campaign=message/cnhomepage/tabmodule/20110221_learnabout"><img alt="了解“IBM 进步100”
+                        请访问 IBM100.com 网站 （英文）" src="res/cn_tab1_0126.jpg" class="ibm-no-mobile" width="178" height="125"><img alt="了解“IBM 进步100”
+                        请访问 IBM100.com 网站 （英文）" src="res/cn_tab1_0126.jpg" class="ibm-mobile" width="178" height="125"></a>
+                    </div>
+</div>
+<div class="ibm-home-tasks-cw">
+    <hr></div>
+</div>
+<div style="display: block;" id="ibm-tab-content-1" class="ibm-columns ibm-active">
+    <a class="ibm-access"><!--access tag holder--></a>
+    <div class="ibm-column">
+        <h3>产品</h3>
+        <ul>
+            <li>
+                <a href="http://www.ibm.com/products/shop/software/cn/zh/index.html" onfocus="ibmHomePageTabs.hideAllHPT();return false;">软件产品</a>
+            </li>
+            <li>
+                <a href="http://www.ibm.com/products/shop/servers/cn/index.html" onfocus="ibmHomePageTabs.hideAllHPT();return false;">Systems、服务器和存储</a>
+            </li>
+            <li>
+                <a href="http://www.ibm.com/cn/promotion/esg/xseries/" onfocus="ibmHomePageTabs.hideAllHPT();return false;">中低端产品特惠商城</a>
+            </li>
+            <li>
+                <a href="#" id="ibm-620-1-4-dd1-trigger" class="ibm-tab-content-submenu-trigger" onclick="ibmHomePageTabs.showHPT(this, 'ibm-620-1-4-dd1');return false;" onmouseout="ibmHomePageTabs.delayedHideHPT('ibm-620-1-4-dd1');return false;">更多产品<span onmouseover="ibmHomePageTabs.cancelDelayedHideHPT('ibm-620-1-4-dd1');return false;" class="ibm-submenu-icon">&nbsp;</span>
+                </a>
+                <div style="background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); display: none; position: absolute; width: 208px; z-index: 9;" onmouseout="ibmHomePageTabs.delayedHideHPT('ibm-620-1-4-dd1');return false;" onmouseover="ibmHomePageTabs.showHPT(null, 'ibm-620-1-4-dd1');return false;" class="ibm-tab-content-submenu" id="ibm-620-1-4-dd1">
+                    <ul>
+                        <li>
+                            <a href="http://www.ibm.com/cn/printers/">打印机 (InfoPrint Solutions Company)</a>
+                        </li>
+                        <li>
+                            <a href="http://appserver.lenovo.com.cn/Lenovo_Brand_List.aspx?CategoryID=3">Lenovo ThinkPad 笔记本电脑</a>
+                        </li>
+                        <li>
+                            <a href="http://appserver.lenovo.com.cn/Lenovo_Brand_List.aspx?CategoryID=15">Lenovo ThinkCentre 台式电脑</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="ibm-column">
+        <h3>服务</h3>
+        <ul>
+            <li>
+                <a href="http://www.ibm.com/cn/services/bcs/" onfocus="ibmHomePageTabs.hideAllHPT();return false;">业务咨询</a>
+            </li>
+            <li>
+                <a href="http://www.ibm.com/services/cn/index.wss/gen_itservice" onfocus="ibmHomePageTabs.hideAllHPT();return false;">IT 服务</a>
+            </li>
+            <li>
+                <a href="http://www.ibm.com/services/cn/igs/html/ma/" onfocus="ibmHomePageTabs.hideAllHPT();return false;">维护与支持服务</a>
+            </li>
+            <li>
+                <a href="http://www.ibm.com/services/learning/ites.wss/cn/zh?pageType=page&amp;c=a0012325" onfocus="ibmHomePageTabs.hideAllHPT();return false;">培训服务</a>
+            </li>
+        </ul>
+    </div>
+    <div class="ibm-column">
+        <h3>特色推荐</h3>
+        <ul>
+            <li>
+                <a href="http://www.ibm.com/cn/promotion/raq/index.shtml?ca=raq&amp;re=shopfor" onfocus="ibmHomePageTabs.hideAllHPT();return false;">特别询价区</a>
+            </li>
+            <li>
+                <a href="http://www.ibm.com/cn/shop/special.html" onfocus="ibmHomePageTabs.hideAllHPT();return false;">特惠方案</a>
+            </li>
+            <li>
+                <a href="http://www.ibm.com/cn/financing/" onfocus="ibmHomePageTabs.hideAllHPT();return false;">融资租赁</a>
+            </li>
+        </ul>
+    </div>
+    <div class="ibm-column">
+        <h3>在线订购</h3>
+        <ul>
+            <li>
+                <a href="http://www.ibm.com/cn/promotion/esg/xseries/" onfocus="ibmHomePageTabs.hideAllHPT();return false;">服务器与存储</a>
+            </li>
+            <li>
+                <a href="http://www.ibm.com/cn/servers/eserver/xseries/options.shtml" onfocus="ibmHomePageTabs.hideAllHPT();return false;">选件</a>
+            </li>
+            <li>
+                <a href="http://www.ibm.com/cn/webapp/xmaorder.jsp" onfocus="ibmHomePageTabs.hideAllHPT();return false;">x 系列服务器维护服务</a>
+            </li>
+            <li>
+                <a href="http://www.ibm.com/services/learning/ites.wss/cn/zh?pageType=page&amp;c=a0012325" onfocus="ibmHomePageTabs.hideAllHPT();return false;">培训课程</a>
+            </li>
+        </ul>
+    </div>
+    <div class="ibm-column ibm-promo-column">
+        <div class="ibm-promo-container">
+            <a onfocus="ibmHomePageTabs.hideAllHPT();return false;" href="http://www.ibm.com/cn/promotion/esg/xseries/newgeneration/index.shtml?sa_campaign=message/cnhomepage/tabmodule/20110221_shopfor"><img alt="现在购买 IBM System x3550 M3 易捷版服务器，即可免费享受 3年 7x24小时售后服务
+                    即刻行动" src="res/cn_tab2_0222.jpg" class="ibm-no-mobile" width="178" height="125"><img alt="现在购买 IBM System x3550 M3 易捷版服务器，即可免费享受 3年 7x24小时售后服务
+                    即刻行动" src="res/cn_tab2_0222.jpg" class="ibm-mobile" width="178" height="125"></a>
+                </div>
+</div>
+<div class="ibm-home-tasks-cw">
+    <hr></div>
+</div>
+<div style="display: none;" id="ibm-tab-content-2" class="ibm-columns">
+    <a class="ibm-access"><!--access tag holder--></a>
+    <div class="ibm-column">
+        <h3>驱动程序与软件下载</h3>
+        <ul>
+            <li>
+                <a href="http://www.ibm.com/cn/support/productsupport/sw_support.shtml" onfocus="ibmHomePageTabs.hideAllHPT();return false;">软件产品</a>
+            </li>
+            <li>
+                <a href="#" id="ibm-630-1-2-dd1-trigger" class="ibm-tab-content-submenu-trigger" onclick="ibmHomePageTabs.showHPT(this, 'ibm-630-1-2-dd1');return false;" onmouseout="ibmHomePageTabs.delayedHideHPT('ibm-630-1-2-dd1');return false;">Systems、服务器和存储<span onmouseover="ibmHomePageTabs.cancelDelayedHideHPT('ibm-630-1-2-dd1');return false;" class="ibm-submenu-icon">&nbsp;</span>
+                </a>
+                <div style="background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); display: none; position: absolute; width: 208px; z-index: 9;" onmouseout="ibmHomePageTabs.delayedHideHPT('ibm-630-1-2-dd1');return false;" onmouseover="ibmHomePageTabs.showHPT(null, 'ibm-630-1-2-dd1');return false;" class="ibm-tab-content-submenu" id="ibm-630-1-2-dd1">
+                    <ul>
+                        <li>
+                            <a href="http://www.ibm.com/cn/support/productsupport/s390.shtml">System z 大型机服务器</a>
+                        </li>
+                        <li>
+                            <a href="http://www.ibm.com/cn/support/viewdoc/uprosupport?pageid=0&amp;category=2131&amp;docordown=down">System x（x 系列）服务器</a>
+                        </li>
+                        <li>
+                            <a href="http://www.ibm.com/cn/support/viewdoc/uprosupport?pageid=0&amp;category=2131">专业图形工作站</a>
+                        </li>
+                        <li>
+                            <a href="http://www.ibm.com/cn/support/productsupport/bladecenter.shtml">BladeCenter 刀片服务器</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a href="http://www.ibm.com/cn/support/download/download.shtml" onfocus="ibmHomePageTabs.hideAllHPT();return false;">更多驱动程序与软件下载</a>
+            </li>
+        </ul>
+    </div>
+    <div class="ibm-column">
+        <h3>技术帮助</h3>
+        <ul>
+            <li>
+                <a href="http://www.ibm.com/cn/support/viewdoc/knowledgebase" onfocus="ibmHomePageTabs.hideAllHPT();return false;">技术知识库</a>
+            </li>
+            <li>
+                <a href="http://www.ibm.com/support/troubleshooting/cn/index.html" onfocus="ibmHomePageTabs.hideAllHPT();return false;">故障诊断与排除</a>
+            </li>
+            <li>
+                <a href="#" id="ibm-630-2-3-dd1-trigger" class="ibm-tab-content-submenu-trigger" onclick="ibmHomePageTabs.showHPT(this, 'ibm-630-2-3-dd1');return false;" onmouseout="ibmHomePageTabs.delayedHideHPT('ibm-630-2-3-dd1');return false;">电子化工具<span onmouseover="ibmHomePageTabs.cancelDelayedHideHPT('ibm-630-2-3-dd1');return false;" class="ibm-submenu-icon">&nbsp;</span>
+                </a>
+                <div style="background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); display: none; position: absolute; width: 208px; z-index: 9;" onmouseout="ibmHomePageTabs.delayedHideHPT('ibm-630-2-3-dd1');return false;" onmouseover="ibmHomePageTabs.showHPT(null, 'ibm-630-2-3-dd1');return false;" class="ibm-tab-content-submenu" id="ibm-630-2-3-dd1">
+                    <ul>
+                        <li>
+                            <a href="http://www.ibm.com/support/electronic/uprtransition.wss?category=2&amp;locale=zh_CN">提交服务请求</a>
+                        </li>
+                        <li>
+                            <a href="https://www.ibm.com/support/electronic/portal/%21ut/p/kcxml/04_Sj9SPykssy0xPLMnMz0vM0Y_QjzKLt4y3dAXJgFku-pHIIgbxjnABX4_83FT9IKBEpDlQxCVQPyonNT0xuVI_WN9bP0C_IDc0otzb0REAowWZNg%21%21/delta/base64xml/L2dJQSEvUUt3QS80SVVFLzZfOV85RQ%21%21?category=4&amp;locale=zh_CN">专项服务</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a href="http://www.ibm.com/cn/support/forum/app/tscforum/default" onfocus="ibmHomePageTabs.hideAllHPT();return false;">IBM 技术交流论坛</a>
+            </li>
+        </ul>
+    </div>
+    <div class="ibm-column">
+        <h3>产品资料中心</h3>
+        <ul>
+            <li>
+                <a href="http://www.ibm.com/cn/support/nav/navigator.shtml" onfocus="ibmHomePageTabs.hideAllHPT();return false;">蓝色航标™</a>
+            </li>
+        </ul>
+    </div>
+    <div class="ibm-column">
+        <h3>更多支持</h3>
+        <ul>
+            <li>
+                <a href="http://www.ibm.com/services/cn/igs/html/ma/" onfocus="ibmHomePageTabs.hideAllHPT();return false;">维护与支持服务</a>
+            </li>
+            <li>
+                <a href="http://www.ibm.com/cn/support/mysupport/" onfocus="ibmHomePageTabs.hideAllHPT();return false;">个性化支持</a>
+            </li>
+            <li>
+                <a href="https://www.ibm.com/cn/support/product/OnlineQA" onfocus="ibmHomePageTabs.hideAllHPT();return false;">在线咨询</a>
+            </li>
+            <li>
+                <a href="http://www.ibm.com/support/warranties/cn/" onfocus="ibmHomePageTabs.hideAllHPT();return false;">保修查询</a>
+            </li>
+        </ul>
+    </div>
+    <div class="ibm-column ibm-promo-column">
+        <div class="ibm-promo-container">
+            <a onfocus="ibmHomePageTabs.hideAllHPT();return false;" href="http://www.ibm.com/cn/promotion/esg/xseries/come2uitclass/?sa_campaign=message/cnhomepage/tabmodule/20110221_getsupport"><img alt="IBM System x IT 充值学院已经来到您身边
+                    拓展应用 实践增值" src="res/zh_CN_tab3_20110117.jpg" class="ibm-no-mobile" width="178" height="125"><img alt="IBM System x IT 充值学院已经来到您身边
+                    拓展应用 实践增值" src="res/zh_CN_tab3_20110117.jpg" class="ibm-mobile" width="178" height="125"></a>
+                </div>
+</div>
+<div class="ibm-home-tasks-cw">
+    <hr></div>
+</div>
+<div style="display: none;" id="ibm-tab-content-3" class="ibm-columns">
+    <a class="ibm-access"><!--access tag holder--></a>
+    <div class="ibm-column">
+        <h3>在线客户支持</h3>
+        <ul>
+            <li>
+                <a href="http://www.ibm.com/support/operations/cn/zh" onfocus="ibmHomePageTabs.hideAllHPT();return false;">在线客户支持主页</a>
+            </li>
+            <li>
+                <a href="http://www.ibm.com/support/operations/cn/zh/orderdelivery" onfocus="ibmHomePageTabs.hideAllHPT();return false;">订单与发货</a>
+            </li>
+            <li>
+                <a href="http://www.ibm.com/support/operations/cn/zh/invoicespayments" onfocus="ibmHomePageTabs.hideAllHPT();return false;">发票与付款</a>
+            </li>
+        </ul>
+    </div>
+    <div class="ibm-column ibm-no-header">
+        <ul>
+            <li>
+                <a href="http://www.ibm.com/support/operations/cn/zh/contracts" onfocus="ibmHomePageTabs.hideAllHPT();return false;">合同</a>
+            </li>
+            <li>
+                <a href="http://www.ibm.com/support/operations/cn/zh/inventory" onfocus="ibmHomePageTabs.hideAllHPT();return false;">库存与维护</a>
+            </li>
+        </ul>
+    </div>
+    <div class="ibm-column">
+        <h3>我的链接</h3>
+        <ul>
+            <li id="ibm-esite-link"><!-- HPTAB ESITE LINK --></li>
+            <li>
+                <a href="http://www.ibm.com/account/cn/" onfocus="ibmHomePageTabs.hideAllHPT();return false;">我的账户</a>
+            </li>
+            <li>
+                <a href="https://www.ibm.com/account/myibm/myinterestView.do?cc=cn&amp;lc=zh" onfocus="ibmHomePageTabs.hideAllHPT();return false;">我的收藏夹</a>
+            </li>
+            <li>
+                <a href="http://www.ibm.com/ibm/syndication/cn/zh/" onfocus="ibmHomePageTabs.hideAllHPT();return false;">RSS 可定制阅读服务</a>
+            </li>
+        </ul>
+    </div>
+    <div class="ibm-column ibm-no-header">
+        <ul>
+            <li>
+                <a href="http://www.ibm.com/cn/b2b" onfocus="ibmHomePageTabs.hideAllHPT();return false;">IBM 电子商务服务</a>
+            </li>
+            <li>
+                <a href="http://www.ibm.com/ibm/accessibility/cn/" onfocus="ibmHomePageTabs.hideAllHPT();return false;">网站浏览辅助中心</a>
+            </li>
+            <li>
+                <a href="http://www.ibm.com/account/cn/" onfocus="ibmHomePageTabs.hideAllHPT();return false;">更多个性化服务</a>
+            </li>
+        </ul>
+    </div>
+    <div class="ibm-column ibm-promo-column">
+        <div class="ibm-promo-container">
+            <a onfocus="ibmHomePageTabs.hideAllHPT();return false;" href="http://www.ibm.com/smb/cn/region/gec/roadshow/industrysummit/index.shtml?sa_campaign=message/cnhomepage/tabmodule/20110224_myibm"><img alt="加速行业变革，领驭智慧十年
+                    欢迎莅临中型企业解决方案高峰论坛，上海，3月 1日" src="res/cn_tab4_0221.jpg" class="ibm-no-mobile" width="178" height="125"><img alt="加速行业变革，领驭智慧十年
+                    欢迎莅临中型企业解决方案高峰论坛，上海，3月 1日" src="res/cn_tab4_0221.jpg" class="ibm-mobile" width="178" height="125"></a>
+</div>
+</div>
+<div class="ibm-home-tasks-cw">
+    <hr></div>
+</div>
+<div style="display: none;" id="ibm-tab-content-4" class="ibm-columns">
+    <a class="ibm-access"><!--access tag holder--></a>
+    <div class="ibm-column">
+        <h3>关于我们</h3>
+        <ul>
+            <li>
+                <a href="http://www.ibm.com/ibm100/us/en/?re=cnaboutibm" onfocus="ibmHomePageTabs.hideAllHPT();return false;">IBM100</a>
+            </li>
+            <li>
+                <a href="http://www.ibm.com/contact/employees/cn/" onfocus="ibmHomePageTabs.hideAllHPT();return false;">雇员目录</a>
+            </li>
+            <li>
+                <a href="http://www.ibm.com/news/cn/" onfocus="ibmHomePageTabs.hideAllHPT();return false;">最新新闻</a>
+            </li>
+            <li>
+                <a href="http://www.ibm.com/employment/cn/recruitment/" onfocus="ibmHomePageTabs.hideAllHPT();return false;">求才启事</a>
+            </li>
+        </ul>
+    </div>
+    <div class="ibm-column ibm-no-header">
+        <ul>
+            <li>
+                <a href="http://www.ibm.com/cn/ibm/cbic/index.shtml" onfocus="ibmHomePageTabs.hideAllHPT();return false;">中国创新中心</a>
+            </li>
+            <li>
+                <a href="http://www.ibm.com/cn/cdl/" onfocus="ibmHomePageTabs.hideAllHPT();return false;">中国开发中心</a>
+            </li>
+            <li>
+                <a href="http://www.ibm.com/cn/support/csc/index.shtml" onfocus="ibmHomePageTabs.hideAllHPT();return false;">中国系统中心</a>
+            </li>
+            <li>
+                <a href="http://www.ibm.com/cn/crl/" onfocus="ibmHomePageTabs.hideAllHPT();return false;">IBM 中国研究院</a>
+            </li>
+        </ul>
+    </div>
+    <div class="ibm-column">
+        <h3>我们的想法</h3>
+        <ul>
+            <li>
+                <a href="http://www.ibm.com/smarterplanet/cn/zh/?re=aboutibm" onfocus="ibmHomePageTabs.hideAllHPT();return false;">智慧的地球</a>
+            </li>
+            <li>
+                <a href="http://www.ibm.com/services/cn/cio/?sa_campaign=message/cnhomepage/aboutibm" onfocus="ibmHomePageTabs.hideAllHPT();return false;">CIO 互动频道</a>
+            </li>
+        </ul>
+    </div>
+    <div class="ibm-column">
+        <h3>我们的工作</h3>
+        <ul>
+            <li>
+                <a href="http://www.ibm.com/cn/event/" onfocus="ibmHomePageTabs.hideAllHPT();return false;">市场活动及视频</a>
+            </li>
+            <li>
+                <a href="http://www.ibm.com/cn/ibm/university/index.shtml" onfocus="ibmHomePageTabs.hideAllHPT();return false;">大学合作部</a>
+            </li>
+            <li>
+                <a href="http://www.ibm.com/cn/corporateresponsibility/index.shtml" onfocus="ibmHomePageTabs.hideAllHPT();return false;">企业社会责任</a>
+            </li>
+        </ul>
+    </div>
+    <div class="ibm-column ibm-promo-column">
+        <div class="ibm-promo-container">
+            <a onfocus="ibmHomePageTabs.hideAllHPT();return false;" href="http://www.ibm.com/smarterplanet/cn/zh/index.html?sa_campaign=message/cnhomepage/tabmodule/20110221_aboutibm"><img alt="欢迎进入智慧的十年
+                    观看全新电视广告，了解我们的智慧成就" src="res/zh_CN_tab5_1116_1.jpg" class="ibm-no-mobile" width="178" height="125"><img alt="欢迎进入智慧的十年
+                    观看全新电视广告，了解我们的智慧成就" src="res/zh_CN_tab5_1116_1.jpg" class="ibm-mobile" width="178" height="125"></a>
+</div>
+</div>
+<div class="ibm-home-tasks-cw">
+    <hr></div>
+</div>
+<script type="text/javascript">//<![CDATA[
+    for (var i = 1, ntabs = 5; i < ntabs; i++)try {document.getElementById('ibm-tab-content-' + i).style.display = 'none';} catch (e) {}
+        //]]></script>
+        <div id="ibm-home-tasks-end">
+            <hr></div>
+        </div>

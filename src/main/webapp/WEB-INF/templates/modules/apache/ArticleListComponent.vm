@@ -1,0 +1,19 @@
+#if($component.position==3)
+<div class="footerArticleListComponent">
+<ul style="margin:0px;" class="menuBar">
+		<li style="" class="menuItem"><a style="color:white;"><b>$!{component.title}:</b></a></li>
+#foreach($article in $component.articleList)
+		<li style="" class="menuItem"><a href="${contextPath}/article/$!{article.id}.html">$!{article.name}</a></li>
+#end
+    </ul>
+</div>
+#elseif($component.position==1||$component.position==2)
+    <div class="navcolumn">
+    <h5>$component.title</h5>
+    <ul>
+#foreach($article in $component.articleList)
+        <li class="none"><a href="${contextPath}/article/$!{article.id}.html">$!{article.name}</a></li>
+#end
+    </ul>
+    </div>
+#end

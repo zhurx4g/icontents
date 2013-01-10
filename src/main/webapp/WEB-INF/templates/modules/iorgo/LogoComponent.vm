@@ -1,0 +1,5 @@
+<div id="header" class="nav">
+    <div id="logo">
+        <a href="$!{systemUrl}"><img src="${component.image}"></a>
+	</div>
+</div>

@@ -1,0 +1,52 @@
+<div id="header">
+    <div class="site-nav rr" id="navBar">
+        <div class="navigation-wrapper">
+            <div class="navigation navigation-new clearfix">
+                <div id="logo2">
+                    <h1>
+                        <a title="人人网 renren.com - 人人网校内是一个真实的社交网络，联系朋友，一起玩游戏" href="http://www.renren.com">
+                            <img width="159" height="35" src="http://s.xnimg.cn/imgpro/logo/logo-rr-159.png?f=trunk" title="人人网 renren.com - 人人网校内是一个真实的社交网络，联系朋友，一起玩游戏" alt="人人网 renren.com - 人人网校内是一个真实的社交网络，联系朋友，一起玩游戏" />
+                        </a>
+                    </h1>
+                </div>
+                <div class="nav-body clearfix">
+                    <div class="nav-other">
+                        <div class="menu">
+                            <div class="menu-title">
+                                <strong>
+                                    <a href="http://wwv.renren.com/xn.do?ss=10113&amp;rt=27" stats="homenav_reg" title="注册" id="reg_link">注册</a>
+                                </strong>
+                            </div>
+                        </div>
+                        <div class="menu">
+                            <div class="menu-title">
+                                <strong>
+                                    <a href="http://www.renren.com/" stats="homenav_login" title="登录">登录</a>
+                                </strong>
+                            </div>
+                        </div>
+                        <div class="menu">
+                            <div class="menu-title">
+                                <strong>
+                                    <a href="http://support.renren.com/helpcenter" stats="homenav_help" title="帮助">帮助</a>
+                                </strong>
+                            </div>
+                        </div>
+                        <div class="menu">
+                            <div class="menu-title">
+                                <strong>
+                                    <a href="http://support.renren.com/link/suggest" stats="homenav_suggest" title="给我们提建议">给我们提建议</a>
+                                </strong>
+                            </div>
+                        </div>
+                        <div class="menu last">
+                            <div id="moreWeb" stats="homenav_more" class="menu-title">
+                                <a onclick="this.blur();" href="#">更多</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

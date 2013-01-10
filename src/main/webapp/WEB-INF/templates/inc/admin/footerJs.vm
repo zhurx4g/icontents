@@ -1,0 +1,14 @@
+<script language="javascript" type="text/javascript">
+     function resetPageHeight(){
+     	var leftContent = window.parent.document.getElementById("colR_inner");
+     	var mainContent = window.parent.document.getElementById("main");
+     	if(document.body.scrollHeight<700){
+     		if(leftContent!=null)leftContent.style.height = "700px";
+     		if(mainContent!=null)mainContent.style.height = "700px";
+    	}else{
+    		if(leftContent!=null)leftContent.style.height = (document.body.scrollHeight+10)+"px";
+    		if(mainContent!=null)mainContent.style.height = (document.body.scrollHeight+10)+"px";	
+    	}
+     }
+	window.onload = resetPageHeight;
+</script>

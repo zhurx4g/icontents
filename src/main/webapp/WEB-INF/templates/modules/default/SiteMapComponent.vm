@@ -1,0 +1,15 @@
+<div style="background: none repeat scroll 0% 0% rgb(112, 142, 168); padding: 2px 2px 2px 10px;height:15px;color:white"><b>网站地图</b></div>
+<div class="tblbox" style="padding:10px">
+#foreach($catalog in $catalogList)
+#if($catalog.sequence>0)
+	<div class="link" style="text-align:left;">
+		<b><a href="$!{catalog.link}" style="text-decoration: none;">$!{catalog.name}</a></b>
+		<ul style="margin:0px;">
+#foreach($subCatalog in $catalog.subCatalogList)
+            <li class="link"><a href="$!{subCatalog.link}" class="menu" style="text-decoration: none;">$!{subCatalog.name}</a></li>
+#end
+		</ul>
+	</div>
+#end
+#end
+</div>

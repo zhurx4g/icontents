@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="$!{contextPath}/admin/css/common.css" />
+    <script language="javascript" type="text/javascript" src="/js/sorttable.js"></script>
+    <script type="text/javascript" src="$!{contextPath}/js/jquery-1.4.2.min.js" ></script>
+    <script type="text/javascript" src="$!{contextPath}/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="$!{contextPath}/js/jquery-ui-1.8.5.custom.min.js"></script>
+<style>
+.btn,.btn:hover{ text-decoration:none;cursor:pointer;}
+#warnning{color:#C00;display:none;}
+</style>
+<script type="text/javascript" src="/admin/js/common.js" ></script>
+</head>
+<body>
+<div class="crumbBar fS14">
+     <a class="fB" href="#">微博后台系统</a> &gt; <span>系统设置</span>
+</div>
+<span class="blank"></span>
+<div class="tblbox" >
+   <form id="configForm" name="adminUserForm" action="/admin/setting/configAdmin.do" method="post" >
+   <input type="hidden" class="inputTag" id="action" name="action" value="update" />
+   <table class="tbl sortable" cellspacing="0" cellpadding="0">
+       <thead>
+
+            <tr>
+               <td class="name" width="120px">名称</td>
+               <td class="account">值</td>
+            </tr>
+       </thead>
+       <tbody>
+            <tr>
+                <td align="right"><b>网站首页文章ID:</b></td>
+                <td><input type="text" class="inputTag" name="config_index" value="$!configMap.get("config_index")" style="width:98%" /></td>                
+            </tr>
+            <tr>
+                <td align="right"><b>网站名称:</b></td>
+                <td><input type="text" class="inputTag" name="config_name" value="$!configMap.get("config_name")" style="width:98%" /></td>                
+            </tr>
+            <tr>
+                <td align="right"><b>META关键字:</b></td>
+                <td><input type="text" class="inputTag" name="config_meta_keywords" value="$!configMap.get("config_meta_keywords")" style="width:98%" /></td>                
+            </tr>
+            <tr>
+                <td align="right"><b>META描述:</b></td>
+                <td><input type="text" class="inputTag" name="config_meta_description" value="$!configMap.get("config_meta_description")" style="width:98%" /></td>                
+            </tr>
+            <tr>
+                <td align="right"><b>网站LOGO:</b></td>
+                <td><input type="text" class="inputTag" name="config_logo" value="$!configMap.get("config_logo")" style="width:98%" /></td>                
+            </tr>
+            <tr>
+                <td align="right"><b>启用友言:</b></td>
+                <td>
+                    <select name="config_uyan" style="width:200px;">
+                        <option value="true" #if($!configMap.get("config_uyan")=="true")selected#end>开启</option>
+                        <option value="false" #if($!configMap.get("config_uyan")=="false")selected#end>关闭</option>
+                    </select>
+            </tr>
+            <tr>
+                <td align="right"><b>网站版权:</b></td>
+                <td><input type="text" class="inputTag" name="config_copyright" value="$!configMap.get("config_copyright")" style="width:98%" /></td>                
+            </tr>
+            <tr>
+                <td align="right"></td>
+                <td><input type="submit" value="保存" /></td>                
+            </tr>
+       </tbody>
+   </table>
+   </form>
+</div>
+    
+#parse("inc/admin/footerJs.vm")
+</body>
+</html>

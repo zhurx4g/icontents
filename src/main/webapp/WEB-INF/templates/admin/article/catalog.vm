@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="$!{contextPath}/css/css3buttons.css" />
+    <link type="text/css" rel="stylesheet" href="$!{contextPath}/css/jquery-ui-1.8.6.custom.css" />
+    <link rel="stylesheet" type="text/css" href="$!{contextPath}/admin/css/common.css" />
+    <script type="text/javascript" src="$!{contextPath}/admin/js/common.js" ></script>
+    <script language="javascript" type="text/javascript" src="$!{contextPath}/js/sorttable.js"></script>
+	<script type="text/javascript" src="$!{contextPath}/js/jquery-1.4.2.min.js" ></script>
+	<script type="text/javascript" src="$!{contextPath}/js/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="$!{contextPath}/js/jquery-ui-1.8.5.custom.min.js"></script>
+	<script language="javascript" type="text/javascript">	
+	var validator;
+	jQuery(document).ready(function(){
+		jQuery.noConflict();
+		jQuery("#pop").draggable();
+		validator = jQuery("#catalogForm").validate();
+	    jQuery('.centerDiv').css({
+          	position:'absolute',
+            left: (jQuery(window).width() - jQuery('.centerDiv').outerWidth())/2,
+            top: 150
+         });
+	 });
+	function showPop(){
+    	jQuery("#pop").css('display','block');
+		jQuery("#parentCatalogId").val('0');
+		jQuery("#action").val('add');
+		jQuery("#id").val('');
+    	document.catalogForm.reset();
+		validator.resetForm();
+    }
+	function showSubPop(){
+    	document.getElementById("popSubClass").style.display = "block";
+    	document.darenCatalogClassForm.reset();
+		jQuery('.centerDiv').css({
+          	position:'absolute',
+            left: (jQuery(window).width() - jQuery('.centerDiv').outerWidth())/2,
+            top: (jQuery(window).height() - jQuery('.centerDiv').outerHeight())/3
+    	});
+    }
+    function hidePop(){
+    	document.getElementById("pop").style.display = "none";
+    }
+	function editFn(id,parentId,name,sequence,weight,icon,image,description,link,templateArticleId){
+		showPop();
+		
+		jQuery('#action').val("edit");
+		jQuery('#id').val(id);
+		jQuery('#parentId').val(parentId);
+		jQuery('#name').val(name);
+		jQuery('#sequence').val(sequence);
+		jQuery('#weight').val(weight);
+		jQuery('#icon').val(icon);
+		jQuery('#image').val(image);
+		jQuery('#description').val(description);
+		jQuery('#link').val(link);
+		jQuery('#templateArticleId').val(templateArticleId);
+	}
+	</script>
+</head>
+<body>
+	<div id="pop" class="centerDiv" style="z-index: 100;">
+      <div class="popContent">
+        <div class="popTitle"> <span class="left">添加分类</span> <span class="close"><a href="javascript:hidePop()">关闭</a></span> </div>
+        <div class="popForm">
+          <form id="catalogForm" name="catalogForm" action="$!{contextPath}/admin/article/catalog.do" method="POST" >
+			<input id="action" name="action" type="hidden" value="add"/>
+			<input id="id" name="id" type="hidden" value="" />
+			<table width="100%">
+				<tr>
+                    <td align="right" width="70"><label for="">文章分类:</label></td>
+                    <td colspan="2">
+						<select id="parentId" name="parentId">
+							<option value="0"></option>
+#foreach($catalog in $catalogList)
+							<option value="$!{catalog.id}">$!{catalog.name}</option>
+#end
+						</select>
+					</td>
+				</tr>
+				<tr>
+                    <td align="right" width="70"><label for="">文章分类:</label></td>
+                    <td colspan="2"><input id="name" name="name" type="text" class="inputBox required" size="40" /></td>
+				</tr>
+				<tr>
+                    <td align="right" width="70"><label for="">分类顺序:</label></td>
+                    <td colspan="2"><input id="sequence" name="sequence" type="text" class="inputBox required number" size="40" value="1"/></td>
+				</tr>
+				<tr style="display:none;">
+                    <td align="right" width="70"><label for="">分类权重:</label></td>
+                    <td colspan="2"><input id="weight" name="weight" type="text" class="inputBox required number" size="40" value="60"/></td>
+				</tr>
+				<tr>
+                    <td align="right" width="70"><label for="">分类图标:</label></td>
+                    <td colspan="2"><input id="icon" name="icon" type="text" class="inputBox required" size="40" value=""/></td>
+				</tr>
+				<tr>
+                    <td align="right" width="70"><label for="">分类图像:</label></td>
+                    <td colspan="2"><input id="image" name="image" type="text" class="inputBox required" size="40" value=""/></td>
+				</tr>
+				<tr>
+                    <td align="right" width="70"><label for="">分类描述:</label></td>
+                    <td colspan="2"><input id="description" name="description" type="text" class="inputBox required" size="512" value=""/></td>
+				</tr>
+				<tr>
+                    <td align="right" width="70"><label for="">分类链接:</label></td>
+                    <td colspan="2"><input id="link" name="link" type="text" class="inputBox required" size="40" value=""/></td>
+				</tr>
+				<tr>
+                    <td align="right" width="70"><label for="">文章模板:</label></td>
+                    <td colspan="2"><input id="templateArticleId" name="templateArticleId" type="text" class="inputBox required" size="40" value=""/></td>
+				</tr>
+				<tr>
+                    <td align="right" width="70"></td>
+                    <td colspan="2">
+						<input name="hint" type="submit" value="保存"/>
+					</td>
+				</tr>
+			</table>
+          </form>
+        </div>
+      </div>
+    </div>
+
+	<div class="crumbBar fS14"> <a class="fB" href="#">文章管理</a> > <a class="fB" href="#">文章分类</a></div>
+	<div class="authorityBar">
+		<span class="left">
+			<a href="#" class="button" style="padding:5px;9px;" onclick="javascript:showPop();"><span class="plus icon"></span>添加分类</a>
+		</span>
+    </div>
+
+    <span class="blank"></span>
+<div class="tblbox">
+      <table class="tbl sortable" cellspacing="1" cellpadding="0">
+        <thead>
+          <tr>
+            <td>分类</td>
+            <td>顺序</td>
+            <td>文章模板</td>
+            <td>操作人</td>
+            <td width="140px">操作时间</td>
+            <td width="140px">操作</td>
+          </tr>
+        </thead>
+        <tbody id="comList">
+#foreach($catalog in $catalogList)
+          <tr #if($velocityCount%2==0)class="even"#end>
+            <td><b>$!{catalog.name}($!{catalog.subCatalog})</b></td>
+            <td>$!{catalog.sequence}</td>
+            <td>#if($!{catalog.templateArticleId}!=0) <a class="button" style="padding: 2px 9px;" href="/admin/article/articleManager.html?action=get&articleId=$!{catalog.templateArticleId}"><span class="pen icon"></span>编辑模板</a> #else 暂无模板 #end</td>
+            <td>${catalog.creator}</td>
+            <td>$dt.format("yyyy-MM-dd hh:mm:ss",${catalog.createTime})</td>
+            <td>
+    			<a class="button" style="padding: 2px 9px;" href="javascript:void(0);" onclick="editFn('$!{catalog.id}','$!{catalog.parentId}','$!{catalog.name}','$!{catalog.sequence}','$!{catalog.weight}','$!{catalog.icon}','$!{catalog.image}','$!{catalog.description}','$!{catalog.link}','$!{catalog.templateArticleId}')"><span class="pen icon"></span>编辑</a>
+			#if($catalog.subCatalog&&$catalog.subCatalog==0)
+    			<a class="button" style="padding: 2px 9px;" href="$!{contextPath}/admin/article/catalog.do?action=delete&id=$!{catalog.id}" onclick="return deleteFn(this,'确定删除文章分类$!{catalog.name}');"><span class="trash icon"></span>删除</a>
+			#end
+    		</td>
+          </tr>
+#foreach($subCatalog in $catalog.subCatalogList)
+          <tr>
+            <td>$!{subCatalog.name}($!{subCatalog.subCatalog})</td>
+            <td>$!{subCatalog.sequence}</td>
+            <td>#if($!{catalog.templateArticleId}!=0) <a class="button" style="padding: 2px 9px;" href="/admin/article/articleManager.html?action=get&articleId=$!{catalog.templateArticleId}"><span class="pen icon"></span>编辑模板</a> #else 暂无模板 #end</td>
+            <td>${subCatalog.creator}</td>
+            <td>$dt.format("yyyy-MM-dd hh:mm:ss",${subCatalog.createTime})</td>
+            <td>
+    			<a class="button pen" style="padding: 2px 9px;" href="javascript:void(0);" onclick="editFn('$!{subCatalog.id}','$!{subCatalog.parentId}','$!{subCatalog.name}','$!{subCatalog.sequence}','$!{subCatalog.weight}','$!{subCatalog.icon}','$!{subCatalog.image}','$!{subCatalog.description}','$!{subCatalog.link}','$!{catalog.templateArticleId}')"><span class="pen icon"></span>编辑</a>
+			#if($subCatalog.subCatalog&&$subCatalog.subCatalog==0)
+    			<a class="button trash" style="padding: 2px 9px;" href="$!{contextPath}/admin/article/catalog.do?action=delete&id=$!{subCatalog.id}" onclick="return deleteFn(this,'确定删除文章分类$!{catalog.name}');"><span class="trash icon"></span>删除</a>
+			#end
+    		</td>
+          </tr>
+#end
+#end
+        </tbody>
+      </table>
+    </div>
+    <span class="blank"></span>
+	<div class="page">
+    	<a href="$!{contextPath}/admin/article/catalog.do" class="button">第一页</a>
+#if($page and $page>1)
+#set($prePage=$page-1)
+        <a href="$!{contextPath}/admin/article/catalog.do?page=$!{prePage}" class="button">上一页</a>
+#else
+        <span>上一页</span>
+#end
+#if($nextPage)
+        <a href="$!{contextPath}/admin/article/catalog.do?page=$!{nextPage}" class="button">下一页</a>
+#else
+        <span>下一页</span>
+#end
+#if($lastpage)
+    	<a href="$!{contextPath}/admin/article/catalog.do?page=$!{lastpage}" class="button">末一页</a>
+#else
+    	<span>末一页</span>
+#end
+    </div>
+#parse("inc/admin/footerJs.vm")
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+    <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+        <style type="text/css">
+            input.button {background-color: #c0c0c0; color: #666666;
+            border: 1px solid #999999; margin: 5px 1px 5px 1px;}
+            input.textfield {margin: 5px 1px 5px 1px;}
+            input.button:Hover { color: #444444 }
+            table.filelist {background-color:#666666; width:100%; border:0px none #ffffff}
+            .formular {margin: 1px; background-color:#ffffff; padding: 1em; border:1px solid #000000;}
+            .formular2 {margin: 1px;}
+            th { background-color:#c0c0c0 }
+            tr.mouseout { background-color:#ffffff; }
+            tr.mousein  { background-color:#eeeeee; }
+            tr.checked  { background-color:#cccccc }
+            tr.mousechecked { background-color:#c0c0c0 }
+            td { font-family:Verdana, Arial, Helvetica, sans-serif; font-size: 10pt; color: #000000;}
+            td.message { background-color: #FFFF00; color: #000000; text-align:center; font-weight:bold}
+            td.error { background-color: #FF0000; color: #000000; text-align:center; font-weight:bold}
+            A { text-decoration: none; }
+            A:Hover { color : Red; text-decoration : underline; }
+            BODY { font-family:Verdana, Arial, Helvetica, sans-serif; font-size: 10pt; color: #000000;}
+        </style>
+        <script type="text/javascript" src="${contextPath}/admin/js/resource.js"></script>
+        <title>${dir}</title>
+    </head>
+    <body>
+#if($error)
+        <table width="100%" border="0">
+            <tbody>
+                <tr>
+                    <td class="error">$!{error}</td>
+                </tr>
+            </tbody>
+        </table>
+#end
+    <form class="formular" action="$!{contextPath}/admin/resource/resource.do" method="Post" name="FileList">
+        文件名过滤: <input name="filt" onKeypress="event.cancelBubble=true;" onkeyup="filter(this)" type="text">
+            <br />
+            <br />
+            <table id="filetable" class="filelist" cellspacing="1px" cellpadding="0px">
+                <tr>
+                    <th>&nbsp;</th>
+                    <th title="按名字排序" align=left>
+                        <a href="$!{contextPath}/admin/resource/resource.do?dir=${dir}&amp;sort=1">文件名</a>
+                    </th>
+                    <th title="按大小排序" align="right">
+                        <a href="$!{contextPath}/admin/resource/resource.do?dir=${dir}&amp;sort=2">大小</a>
+                    </th>
+                    <th title="按类型排序" align="center">
+                        <a href="$!{contextPath}/admin/resource/resource.do?dir=${dir}&amp;sort=-4">类型</a>
+                    </th>
+                    <th title="按更新时间排序" align="left">
+                        <a href="$!{contextPath}/admin/resource/resource.do?dir=${dir}&amp;sort=3">修改日期</a>
+                    </th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                </tr>
+#if($parentFile)
+                <tr class="mouseout" onmouseover="this.className='mousein'"onmouseout="this.className='mouseout'">
+                    <td></td>
+                    <td align=left>
+                        &nbsp;<a href="$!{contextPath}/admin/resource/resource.do?sort=$!{sort}&amp;dir=$parentFile.getAbsolutePath()">[..]</a>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td></td>
+                </tr>
+#end
+#foreach($file in $fileList)
+                <tr class="mouseout" onmouseup="selrow(this, 2)" onmouseover="selrow(this, 0);" onmouseout="selrow(this, 1)">
+#if($file.isDirectory())
+                    <td align=center>
+                        <input type="checkbox" name="selfile" value="$!{file.dir}" onmousedown="dis()"></td>
+                    <td align=left> &nbsp;<a onmousedown="dis()" href="$!{contextPath}/admin/resource/resource.do?sort=$!{sort}&amp;dir=$!{file.getAbsolutePath()}">[$!{file.getName()}]</a>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td align="center">目录</td>
+                    <td align=left> &nbsp;$!dt.format("yyyy-MM-dd HH:mm:ss",${file.lastModified()})</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+#else
+                    <td align=center>
+                        <input type="checkbox" name="selfile" value="$!{file.dir}" onmousedown="dis()"></td>
+                    <td align=left> &nbsp;<a onmousedown="dis()" href="$!{contextPath}/admin/resource/resource.do?sort=$!{sort}&amp;dir=$!{file.getAbsolutePath()}">[$!{file.getName()}]</a>
+                    </td>
+                    <td>$rt.convertFileSize($file.length())</td>
+                    <td align="center">xml</td>
+                    <td align=left> &nbsp;$!dt.format("yyyy-MM-dd HH:mm:ss",${file.lastModified()})</td>
+                    <td>#if($file.canRead())<a href="$!{contextPath}/admin/resource/resource.do">下载</a>#end</td>
+                    <td>#if($file.canWrite())<a href="$!{contextPath}/admin/resource/resource.do">编辑</a>#end</td>
+#end
+                </tr>
+#end
+            </table>
+<input type="checkbox" name="selall" onClick="AllFiles(this.form)">Select all
+    <p align=center>
+        <b title="4115611 bytes">
+            3.92 MB</b>
+            <b> in 20 files in <a href="/Browser.jsp?sort=4&amp;dir=E%3A%5C">E:\</a>
+                <a href="/Browser.jsp?sort=4&amp;dir=E%3A%5Csoftware">software\</a>
+                <a href="/Browser.jsp?sort=4&amp;dir=E%3A%5Csoftware%5CTomcat-6.0.9">Tomcat-6.0.9\</a>
+                <a href="/Browser.jsp?sort=4&amp;dir=E%3A%5Csoftware%5CTomcat-6.0.9%5Cwebapps">webapps\</a>
+                <a href="/Browser.jsp?sort=4&amp;dir=E%3A%5Csoftware%5CTomcat-6.0.9%5Cwebapps%5CROOT">ROOT\</a>
+            </b>
+    </p>
+    <input type="hidden" name="dir" value="E:\software\Tomcat-6.0.9\webapps\ROOT">
+        <input type="hidden" name="sort" value="4">
+            <input title="Download selected files and directories as one zip file" class="button" id="but_Zip" type="Submit" name="Submit" value="Download selected files as (z)ip">
+                <input title="Delete all selected files and directories incl. subdirs" class="button"  id="but_Del" type="Submit" name="Submit" value="(Del)ete selected files"
+                    onclick="return confirm('Do you really want to delete the entries?')">
+                    <br />
+                    <input title="Enter new dir or filename or the relative or absolute path" class="textfield" type="text" onKeypress="event.cancelBubble=true;" id="text_Dir" name="cr_dir">
+                        <input title="Create a new directory with the given name" class="button" id="but_NDi" type="Submit" name="Submit" value="Create (D)ir">
+                            <input title="Create a new empty file with the given name" class="button" id="but_NFi" type="Submit" name="Submit" value="(C)reate File">
+                                <input title="Move selected files and directories to the entered path" id="but_Mov" class="button" type="Submit" name="Submit" value="(M)ove Files">
+                                    <input title="Copy selected files and directories to the entered path" id="but_Cop" class="button" type="Submit" name="Submit" value="Cop(y) Files">
+                                        <input title="Rename selected file or directory to the entered name" id="but_Ren" class="button" type="Submit" name="Submit" value="(R)ename File">
+</form>
+<br />
+<div class="formular">
+    <form class="formular2" action="/Browser.jsp" enctype="multipart/form-data" method="POST">
+        <input type="hidden" name="dir" value="E:\software\Tomcat-6.0.9\webapps\ROOT">
+            <input type="hidden" name="sort" value="4">
+                <input type="file" class="textfield" onKeypress="event.cancelBubble=true;" name="myFile">
+                    <input title="Upload selected file to the current working directory" type="Submit" class="button" name="Submit" value="Upload"
+                        onClick="javascript:popUp('/Browser.jsp')">
+</form>
+<form class="formular2" action="/Browser.jsp" method="POST">
+    <input type="hidden" name="dir" value="E:\software\Tomcat-6.0.9\webapps\ROOT">
+        <input type="hidden" name="sort" value="4">
+            <input type="hidden" name="command" value="">
+                <input title="Launch command in current directory" type="Submit" class="button" id="but_Lau" name="Submit" value="(L)aunch external program">
+</form>
+</div>
+<hr>
+    <center>
+        <small>jsp File Browser version 1.2 by <a href="http://www.vonloesch.de">www.vonloesch.de</a>
+        </small>
+    </center>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    	<link rel="stylesheet" type="text/css" href="$!{contextPath}/css/css3buttons.css" />
+        <link type="text/css" rel="stylesheet" href="$!{contextPath}/css/jquery-ui-1.8.6.custom.css" />
+        <link rel="stylesheet" type="text/css" href="$!{contextPath}/admin/css/common.css" />
+        <script type="text/javascript" src="${contextPath}/admin/js/resource.js"></script>
+		<script language="javascript" type="text/javascript" src="$!{contextPath}/js/sorttable.js"></script>
+		<script type="text/javascript" src="$!{contextPath}/js/jquery-1.4.2.min.js" ></script>
+		<script type="text/javascript" src="$!{contextPath}/js/jquery.validate.min.js"></script>
+		<style type="text/css">
+    		tr.mouseout td{ background-color:#ffffff; }
+    		tr.mousein td{ background-color:#eeeeee; }
+    		tr.checked td{ background-color:#cccccc }
+    		tr.mousechecked td{ background-color:#c0c0c0 }
+		</style>
+        <title>${dir}</title>
+    </head>
+    <body>
+		<div class="crumbBar fS14"> <a href="#" class="fB">资源管理</a> &gt; <a href="#" class="fB">文件列表</a></div>
+#if($error)
+        <table width="100%" border="0">
+            <tbody>
+                <tr>
+                    <td style="background-color: #FF0000; color: #000000; text-align:center; font-weight:bold">$!{error}</td>
+                </tr>
+            </tbody>
+        </table>
+#end
+    <span class="blank"></span>
+	    <form class="formular2" action="$!{contextPath}/admin/resource/resource.html?action=upload&dir=$!{dir}" enctype="multipart/form-data" method="POST">
+            <b>文件名过滤: </b><input name="filt" onKeypress="event.cancelBubble=true;" onkeyup="filter(this)" type="text">
+            <input type="hidden" name="sort" value="4">
+            <b>文件上传: </b>
+            <input type="file" class="textfield" onKeypress="event.cancelBubble=true;" name="myFile">
+			<input title="上传文件" type="Submit" class="button" name="Submit" value="上传"
+                onClick="javascript:popUp('$!{contextPath}/admin/resource/resourceUpload.html')">
+		</form>
+    <form class="formular" action="$!{contextPath}/admin/resource/resource.html" method="Post" name="FileList">
+		<div class="tblbox">
+            <table id="filetable" class="tbl" cellspacing="1px" cellpadding="0px">
+				<thead>
+					<tr>
+                        <td>&nbsp;</td>
+                        <td title="按名字排序" align=left>文件名</td>
+                        <td title="按大小排序" align="right">大小</td>
+                        <td title="按类型排序" align="center">类型</td>
+                        <td title="按更新时间排序" align="left">修改日期</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+					</tr>
+                </thead>
+#if($parentFile)
+                <tr class="mouseout" onmouseover="if(this.className=='mouseout')this.className='mousein;'"onmouseout="if(this.className=='mousein')this.className='mouseout'">
+                    <td></td>
+                    <td align=left>
+                        &nbsp;<a href="$!{contextPath}/admin/resource/resource.html?sort=$!{sort}&amp;dir=$parentFile.getAbsolutePath()">[..]</a>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td align="center">目录</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td></td>
+                </tr>
+#end
+#foreach($file in $fileList)
+                <tr class="mouseout" onmousedown="selrow(this,'selfile${velocityCount}',2)" onmouseover="selrow(this,'selfile${velocityCount}', 0);" onmouseout="selrow(this,'selfile${velocityCount}', 1)">
+#if($file.isDirectory())
+                    <td align=center>
+                        <input type="checkbox" id="selfile${velocityCount}" name="selfile" value="$!{file.getAbsolutePath()}" onmouseup="selrow(this,'selfile${velocityCount}',2)"></td>
+                    <td align=left> &nbsp;<a onmousedown="dis()" href="$!{contextPath}/admin/resource/resource.html?sort=$!{sort}&amp;dir=$!{file.getAbsolutePath()}">[$!{file.getName()}]</a>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td align="center">目录</td>
+                    <td align=left> &nbsp;$!dt.format("yyyy-MM-dd HH:mm:ss",${file.lastModified()})</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+#else
+                    <td align=center>
+						<input type="checkbox" id="selfile${velocityCount}" name="selfile" value="$!{file.getAbsolutePath()}" onmouseup="selrow(this,'selfile${velocityCount}',2)"></td>
+                    <td align=left> &nbsp;<a onmousedown="dis()" href="$!{contextPath}/admin/resource/resource.html?action=preview&sort=$!{sort}&amp;file=$!{file.getAbsolutePath()}">[$!{file.getName()}]</a>
+                    </td>
+                    <td>$rt.convertFileSize($file.length())</td>
+                    <td align="center">$!{rt.getType($file)}</td>
+                    <td align=left> &nbsp;$!dt.format("yyyy-MM-dd HH:mm:ss",${file.lastModified()})</td>
+                    <td>#if($file.canRead())<a href="$!{contextPath}/admin/resource/resource.html?action=get&file=$!{file.getAbsolutePath()}" class="button" style="padding: 2.5px 9px;"><span class="downarrow icon"></span>下载</a>#end</td>
+                    <td>
+						#if($rt.isPacked(${file.getAbsolutePath()},true))
+							<a href="$!{contextPath}/admin/resource/resource.html?action=unzip&file=$!{file.getAbsolutePath()}" class="button" style="padding: 2.5px 9px;"><span class="fork icon"></span></span>解压</a>
+						#elseif($file.canWrite())
+							<!--<a href="$!{contextPath}/admin/resource/resourceEdit.html?file=$!{file.getAbsolutePath()}" class="button" style="padding: 2.5px 9px;"><span class="pen icon"></span>编辑</a>-->
+							<a href="$!{contextPath}/admin/resource/resource.html?action=delete&dir=${dir}&selfile=$!{file.getAbsolutePath()}" class="button" style="padding: 2.5px 9px;" onclick="return confirm('是否想删除选中的文件:'+jQuery('#selfile${velocityCount}').val()+'?');"><span class="trash icon"></span>删除</a>
+						#end
+					</td>
+#end
+                </tr>
+#end
+            </table>
+		</div>
+<input type="checkbox" name="selall" id="selall" onClick="AllFiles(this.form)"><label for="selall">全选</label>
+    <p align=center>
+            <b> $fileList.size() 个文件在 <a href="$!{contextPath}/admin/resource/resource.html?sort=4&amp;dir=$!{dir}">$!{dir}</a>
+            </b>
+    </p>
+    <input type="hidden" name="dir" value="$!{dir}">
+    <input type="hidden" name="sort" value="4">
+    <input type="hidden" id="action" name="action" value="">
+    <input style="display:none;" title="以zip格式下载选中的文件或目录" class="button" id="but_Zip" type="Submit" name="Submit" value="以zip格式下载选中的文件或目录(Z)" onclick="jQuery('#action').val('zips');">
+    <input title="删除选中的文件和目录" class="button"  id="but_Del" type="Submit" name="Submit" value="删除选中的文件和目录(Del)" onclick="jQuery('#action').val('delete');return confirm('是否想删除选中的文件和目录?')">
+    <br />
+    <input title="输入路径" class="textfield" type="text" onKeypress="event.cancelBubble=true;" id="text_Dir" name="newDirName">
+    <input title="创建目录" class="button" id="but_NDi" type="Submit" name="Submit" value="创建目录" onclick="jQuery('#action').val('create');">
+    <input style="display:none;" title="Create a new empty file witd the given name" class="button" id="but_NFi" type="Submit" name="Submit" value="(C)reate File">
+    <input style="display:none;" title="Move selected files and directories to the entered path" id="but_Mov" class="button" type="Submit" name="Submit" value="(M)ove Files">
+    <input style="display:none;" title="Copy selected files and directories to the entered path" id="but_Cop" class="button" type="Submit" name="Submit" value="Cop(y) Files">
+    <input style="display:none;" title="Rename selected file or directory to the entered name" id="but_Ren" class="button" type="Submit" name="Submit" value="(R)ename File">
+</form>
+<br />
+<div class="formular">
+    <form class="formular2" action="$!{contextPath}/admin/resource/resource.html" method="POST">
+        <input type="hidden" name="dir" value="E:\software\Tomcat-6.0.9\webapps\ROOT">
+        <input type="hidden" name="sort" value="4">
+        <input type="hidden" name="command" value="">
+    </form>
+</div>
+#parse("inc/admin/footerJs.vm")
+</body>
+</html>

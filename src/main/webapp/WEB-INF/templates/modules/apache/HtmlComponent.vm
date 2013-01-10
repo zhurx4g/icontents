@@ -1,0 +1,4 @@
+<div style="width:99.2%;margin: 3px;background: none repeat scroll 0 0 white;color:black;border:solid 1px;">
+<h2>$!{component.title}</h2>
+${component.content}
+</div>

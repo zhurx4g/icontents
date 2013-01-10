@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="LicenseInfo">
+	<insert id="insert" parameterClass="java.util.Map">
+		<![CDATA[
+			insert into icontents_licenseinfo 
+			values(#id#,#companyName#,#companyNameEn#,#companyAddress#,#postCode#,#contacts#,#department#,#telephone#,#phone#,#fax#,#email#,#productType#,#serverType#,#cpuCount#,#osVersion#,#coreVersion#,#ioName#,#ioType#,#app#,#virtualMachine#)
+		]]>
+	</insert>
+	<select id="select" parameterClass="java.util.Map" resultClass="net.icontents.beans.User">
+		<![CDATA[
+			SELECT * FROM icontents_licenseinfo 
+			ORDER BY REGISTRATIONDATE DESC
+			LIMIT #startId#,#size#
+		]]>	
+	</select>
+	<delete id="deleteByEmail" parameterClass="java.util.Map">
+		<![CDATA[
+			DELETE FROM icontents_licenseinfo WHERE EMAIL=#email#
+		]]>
+	</delete>
+	<delete id="deleteById" parameterClass="java.util.Map">
+		<![CDATA[
+			DELETE FROM icontents_licenseinfo WHERE ID=#id#
+		]]>
+	</delete>
+	<update id="update">
+		<![CDATA[
+			update icontents_licenseinfo 
+			set  
+			title=#title#,
+			summary=#summary#,
+			visits=#visits#,
+			image=#image#,
+			weight=#weight#,
+			updateTime=now(),
+			rating=#rating#,
+			ratingCount=#ratingCount#,
+			published=#published#,
+			updateUserId=#updateUserId#,
+			catalogId=#catalogId#,
+			supportCount=#supportCount#,
+			opposeCount=#opposeCount#,
+			metaKeywords=#metaKeywords#,
+			metaDescription=#metaDescription#,
+			layout=#layout#, 
+			name=#name# 
+			where id=#id#
+		]]>
+	</update>
+	<select id="getUserByEmail" resultClass="net.icontents.beans.User" parameterClass="java.util.Map">
+		<![CDATA[
+			SELECT * FROM icontents_licenseinfo WHERE EMAIL=#email#
+		]]>
+	</select>
+	<select id="getUserByUserName" resultClass="net.icontents.beans.User" parameterClass="java.util.Map">
+		<![CDATA[
+			SELECT * FROM icontents_licenseinfo WHERE USERNAME=#userName#
+		]]>
+	</select>
+	<select id="getTotal" resultClass="java.lang.Integer">
+		<![CDATA[
+			SELECT COUNT(1) FROM icontents_licenseinfo
+		]]>
+	</select>
+	<select id="searchUser" resultClass="net.icontents.beans.User" parameterClass="java.util.Map">
+		<![CDATA[
+			SELECT * FROM icontents_licenseinfo WHERE EMAIL LIKE #email#
+		]]>
+	</select>
+	<select id="searchUserCount" resultClass="java.lang.Integer" parameterClass="java.util.Map">
+		<![CDATA[
+			SELECT COUNT(1) FROM icontents_licenseinfo WHERE EMAIL LIKE #email#
+		]]>
+	</select>
+	<select id="isExist" resultClass="java.lang.Integer" parameterClass="java.util.Map">
+		<![CDATA[
+			SELECT COUNT(1) FROM icontents_licenseinfo WHERE EMAIL = #email# OR USERNAME=#username#
+		]]>
+	</select>
+	<update id="updateUserLevel" parameterClass="java.util.Map">
+		<![CDATA[
+			UPDATE icontents_licenseinfo SET LEVEL=#level# WHERE ID=#id#
+		]]>
+	</update>
+	<update id="updateUserPassword" parameterClass="java.util.Map">
+		<![CDATA[
+			UPDATE icontents_licenseinfo SET PASSWORD=#password# WHERE ID=#id#
+		]]>
+	</update>
+</sqlMap>

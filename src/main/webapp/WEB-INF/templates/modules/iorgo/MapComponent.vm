@@ -1,0 +1,36 @@
+<script type="text/javascript">
+  var geocoder;
+  var map;
+  function initialize$!{component.sequence}$!{component.position}() {
+    geocoder = new google.maps.Geocoder();
+    if (geocoder) {
+      geocoder.geocode( { 'address': '$!{component.content}'}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          var myOptions = {
+            zoom: 8,
+            center: results[0].geometry.location,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+          }
+          map = new google.maps.Map(document.getElementById("mapComponentCanvas$!{component.sequence}$!{component.position}"),myOptions);
+          var marker = new google.maps.Marker({
+              map: map, 
+              position: results[0].geometry.location
+          });
+        } else {
+          alert("确定写的地图地点是正确的,错误码: " + status);
+        }
+      });
+    }
+  }
+  initialize$!{component.sequence}$!{component.position}();
+</script>
+<table #if($component.position==3)width="715px"#else width="240px" #end style="font-size: 0.9em;">
+    <thead>
+        <td style="background:rgb(112, 142, 168);"><font style="color:#FFFFFF;font-weight: bold;line-height: 13px;">$!{component.title}</font></td>
+    </thead>
+    <tr>
+        <td style="background:#C8D7E3;font-weight: bold;">
+            <div id="mapComponentCanvas$!{component.sequence}$!{component.position}" style="width: $!{component.width}px; height: $!{component.height}px;"></div>
+        </td>
+    </tr>
+</table>

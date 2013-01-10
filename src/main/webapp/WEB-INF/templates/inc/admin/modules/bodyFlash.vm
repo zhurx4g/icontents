@@ -1,0 +1,34 @@
+<textarea id="templateFlashComponent" rows="0" cols="0" style="display:none">
+<!--
+    <div class="component" style="width:100%;margin:2px auto;" id="compItem_0_8_3">
+        <div class="componentTitle">
+            <span class="left">Falsh组件(选择Falsh组件后，前===台网页会显示Falsh组件出来)</span>
+            <span class="close">
+                <a href="javascript:void(0)" onclick="javascript:if(confirm('确定删除Falsh组件'))$(this).parents('div:first').parents('div:first').parents('div:first').remove();">删除</a>
+            </span>
+        </div>
+        <div class="comItemContent">
+            <table name="fieldsTable" width="100%" border="0">
+                <tbody>
+                    <tr>
+                        <td align="right" valign="top" width="120px"><label><b>图片(5个逗号分隔):</b></label></td>
+                        <td colspan="3">
+                            <input type="hidden" id="componentType{$T.totalCount}" name="componentType" class="inputTag" value="FlashComponent" />
+                            <input type="hidden" id="sequence{$T.totalCount}" name="sequence" value="0" />
+                            <input type="hidden" id="position{$T.totalCount}" name="position" value="4" />
+							<input id="images{$T.totalCount}" style="width:100%;" name="images" value="{$T.images}" />
+                        </td>
+                    </tr>           
+                    <tr>
+                        <td align="right" valign="top" width="120px"><label><b>链接(5个逗号分隔):</b></label></td>
+                        <td colspan="3">
+							<input id="content{$T.totalCount}" style="width:100%;" cols="100px" rows="4" name="content" value="{$T.content}" />
+                        </td>
+                    </tr>           
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+-->
+</textarea>

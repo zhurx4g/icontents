@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.googlecode.icontents.dao.ConfigMapper">
+    <insert id="insert" parameterType="com.googlecode.icontents.bean.Config">
+        <![CDATA[
+            replace into ICONTENTS_CONFIG
+            values(#{obj.key},#{obj.value});
+        ]]>
+    </insert>
+    <update id="update">
+        <![CDATA[
+            replace into ICONTENTS_CONFIG
+            values(#{obj.key},#{obj.value});
+        ]]>
+    </update>
+    <select id="getConfig" resultType="com.googlecode.icontents.bean.Config">
+        <![CDATA[
+            SELECT * FROM ICONTENTS_CONFIG
+        ]]>
+    </select>
+</mapper>

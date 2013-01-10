@@ -1,0 +1,40 @@
+<textarea id="templateCatalogArticleListComponent" rows="0" cols="0" style="display:none">
+<!--
+    <div class="component" style="width:100%;margin:2px auto;" id="compItem_0_8_3">
+        <div class="componentTitle">
+            <span class="left">分类文章列表</span>
+            <span class="close"><a href="javascript:void(0)" onclick="javascript:if(confirm('确定删除HTML区域'))$(this).parents('div:first').parents('div:first').remove();">删除</a></span>
+        </div>
+        <div class="comItemContent">
+            <table name="fieldsTable" width="100%" border="0">
+                <tbody>   
+                    <tr>
+                        <td align="right" valign="top" width="120px" valign="top">
+                            <label><b>文章分类:</b></label>
+                            <input type="hidden" id="componentType" name="componentType" class="inputTag" value="CatalogArticleListComponent" />
+                            <input type="hidden" id="sequence" name="sequence" class="inputTag" value="0" />
+                            <input type="hidden" id="position" name="position" class="inputTag" value="{$T.position}" />
+                        </td>
+                        <td colspan="3">
+                <select id="catalogId" name="catalogId" style="width:200px" value="{$T.catalogId}">
+                    <option value="0" {\#if $T.catalogId==0} selected {#/if}>全部</option>
+#foreach($catalog in $catalogList)
+#if($catalog.subCatalog&&$catalog.subCatalog>0)
+                    <optgroup value="$!{catalog.id}" label="$!{catalog.name}">
+#foreach($subCatalog in $catalog.subCatalogList)
+                    <option value="$!{subCatalog.id}" {\#if $T.catalogId==$!{subCatalog.id} } selected {#/if}>$!{subCatalog.name}</option>
+#end
+                    </optgroup>
+#else
+                    <option value="$!{catalog.id}" {\#if $T.catalogId==$!{catalog.id} } selected {#/if}>$!{catalog.name}</option>
+#end
+#end
+                </select>
+                        </td>
+                    </tr>      
+                </tbody>
+            </table>
+        </div>
+    </div>
+    -->
+</textarea>

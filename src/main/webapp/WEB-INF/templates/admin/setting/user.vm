@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="$!{contextPath}/admin/css/common.css" />
+    <script language="javascript" type="text/javascript" src="/js/sorttable.js"></script>
+	<script type="text/javascript" src="$!{contextPath}/js/jquery-1.4.2.min.js" ></script>
+	<script type="text/javascript" src="$!{contextPath}/js/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="$!{contextPath}/js/jquery-ui-1.8.5.custom.min.js"></script>
+<style>
+.btn,.btn:hover{ text-decoration:none;cursor:pointer;}
+#warnning{color:#C00;display:none;}
+</style>
+<script>
+function showPop(){
+	document.getElementById("pop").style.display = "block";
+	document.adminUserForm.reset();
+	$('#userId').val('');
+	$('#popTitle').text('添加后台用户');
+	$('#email').css('disabled','');
+	$('#action').val('add');
+	
+	validator.resetForm();
+    var target = jQuery("#pop");
+    target.css({
+        position: "absolute",
+        left: (jQuery(window).width() - target.outerWidth()) / 2,
+        top: 80
+    });
+}
+function hidePop(){
+	$('#pop').css('display','none');
+}
+function submitForm(id){
+	var form = document.getElementById(id);
+	form.submit();
+}
+
+function deleteAdminUser(node,prompt){
+	if (confirm(prompt)) {
+		window.location = node.getAttribute("href");
+	}else{
+		return false;
+	}
+}
+function checkStatus(nodeId,value){
+	if ($('#'+nodeId).type=="checkbox" && $('#'+nodeId).checked){    
+		$('#'+nodeId).value=value;
+    }else{
+		$('#'+nodeId).value="0";	
+	}
+}
+function editAdminUser(userId,username,email,func,meeting,special,recTopic,weeklyTweet,oldAdminPage,loginTweet,loginTag,betaFunction,betaSpecialUser,multiUserLogin,dataStatistic,mobileAdmin){
+	showPop();
+	$('#popTitle').innerHTML='编辑后台用户';
+
+	jQuery('#action').val('edit');
+	$('#userId').value=userId;
+	$('#username').value=username;
+	$('#email').value=email;
+	$('#email').disabled='disabled';
+}
+	var validator;
+	jQuery(document).ready(function(){
+		jQuery.noConflict();
+    	jQuery("#pop").draggable();
+		validator = jQuery("#adminUserForm").validate();
+		jQuery('.centerDiv').css({
+          position:'absolute',
+           left: (jQuery(window).width() - jQuery('.centerDiv').outerWidth())/2,
+           top: (jQuery(window).height() - jQuery('.centerDiv').outerHeight())/3
+        });
+	});
+</script>
+<script type="text/javascript" src="/admin/scripts/common.js" ></script>
+</head>
+<body>
+<div class="crumbBar fS14">
+	 <a class="fB" href="#">微博后台系统</a> &gt; <span>管理员帐号管理</span>
+</div>
+	<div id="pop" class="centerDiv">
+  <div class="popContent">
+    <div class="popTitle"><span class="left" id="popTitle">添加后台用户</span> <span class="close"><a href="javascript:hidePop()">关闭</a></span> </div>
+    <div class="popForm">
+      <form id="adminUserForm" name="adminUserForm" action="/admin/user.do" method="POST" >
+		<input type="hidden" class="inputTag" id="userId" name="userId" value="" />
+		<input type="hidden" class="inputTag" id="action" name="action" value="add" />
+        <table width="100%">
+			<tr>
+                <td align="right" width="60"><label for="username" style="margin-top:5px;">用户名:</label></td>
+                <td colspan="2"><input type="text" class="inputTag required" id="username" name="username" /></td>
+			</tr>
+			<tr>
+                <td align="right"><label for="email" style="margin-top:5px;">密码:</label></td>
+                <td colspan="2"><input type="password" class="inputTag required" id="password" name="password" /></td>
+			</tr>
+			<tr>
+                <td align="right"><label for="email" style="margin-top:5px;">邮箱:</label></td>
+                <td colspan="2"><input type="text" class="inputTag required email" id="email" name="email" /></td>
+			</tr>
+			<tr>
+                <td align="right"><label>作者名:</label></td>
+                <td colspan="2"><input type="text" class="inputTag required email" id="authorName" name="authorName" /></td>
+			</tr>
+			<tr>
+                <td align="right"><label>权限:</label></td>
+                <td colspan="2"><input type="text" class="inputTag required email" id="authorName" name="authorName" /></td>
+			</tr>
+			<tr>
+                <td align="right"><label>权限:</label></td>
+                <td colspan="2"><input type="text" class="inputTag required email" id="authorName" name="authorName" /></td>
+			</tr>
+			<tr>
+                <td align="right"><label>权限:</label></td>
+                <td colspan="2"><input type="text" class="inputTag required email" id="authorName" name="authorName" /></td>
+			</tr>
+			<tr>
+                <td align="right"><label>权限:</label></td>
+                <td colspan="2"><input type="text" class="inputTag required email" id="authorName" name="authorName" /></td>
+			</tr>
+			</tr>
+				<td></td>
+				<td><input type="submit" value="保存"/></td>
+			</tr>
+		</table>
+		
+      </form>
+    </div>
+  </div>
+</div>
+<div class="authorityBar">
+    <span class="left">
+        <input type="button" class="addBtn" onclick="showPop()" value="添加用户">&nbsp;&nbsp;&nbsp;
+        <input type="text" id="semail" onclick="if(this.value=='请输入email地址'){this.value='';}" name="semail" size="15" #if($semail&&$semail!="") value="$!semail" #else value="请输入email地址" #end onkeydown="if (event.keyCode ==13){window.location = '/admin/user.do?action=search&email=' + document.getElementById('semail').value;}" />
+        <input type="button" class="addBtn" onclick="window.location = '/admin/user.do?action=search&semail=' + document.getElementById('semail').value;" value="找用户"/>   
+    </span>
+</div>
+<span class="blank"></span>
+     共有<font color="red">$!{total}</font>个用户
+<span class="blank"></span>
+<div class="tblbox">
+   <table class="tbl sortable" cellspacing="0" cellpadding="0">
+       <thead>
+
+            <tr>
+               <td class="name">姓名</td>
+               <td class="account">帐户</td>
+               <td class="authority">权限</td>
+               <td class="adduser">添加人</td>
+               <td class="addtime">添加时间</td>
+               <td class="operate">操作</td>
+            </tr>
+       </thead>
+       <tbody>
+#foreach($adminUser in $adminUserList)
+            <tr #if($velocityCount%2==0)class="even"#end>
+                <td>$!{adminUser.name}</td>
+                <td>$!{adminUser.email}</td>
+                <td>
+				</td>
+                <td>$!{adminUser.adminName}</td>
+                <td>$!dt.format("yyyy-MM-dd HH:mm:ss",$!{adminUser.createDate})</td>
+                <td class="operate">
+					<a href="javascript:void(0);" onclick="editAdminUser('$!{adminUser.userId}','$!{adminUser.name}','$!{adminUser.email}',$!{adminUser.hasFunctionAuth()},$!{adminUser.hasMeetingAuth()},$!{adminUser.hasSpecialAuth()},$!{adminUser.hasRecommendedTopicAuth()},$!{adminUser.hasWeeklyTweetAuth()},$!{adminUser.hasOldAdminPageAuth()},$!{adminUser.hasLoginTweetAuth()},$!{adminUser.hasLoginTagAuth()},$!{adminUser.hasBetaFunctionAuth()},$!{adminUser.hasSpecialBetaUserAuth()},$!{adminUser.hasMultiUserLoginAuth()},$!{adminUser.hasDataStatisticAuth()},$!{adminUser.hasMobileAdminAuth()});"><em>编辑</em></a> <a href="/admin/user.do?action=delete&userId=$!{adminUser.userId}" onclick="return deleteAdminUser(this,'确定删除用户$!{adminUser.name}?')"><em>删除</em></a>
+					#if(!${adminUser.hasRootAuth()})<a onclick="return recommendedFn(this,'确定开通 $!{adminUser.name} 超级用户权限')" href="/admin/user.do?action=recommend&userId=$!{adminUser.userId}&page=$!{page}"><em>开通超级权限</em></a>#end
+				</td>                  
+            </tr>
+#end
+       </tbody>
+
+   </table>
+</div>
+<div class="page">
+	<a href="$!{contextPath}/admin/user.do">第一页</a>
+#if($prePage and $prePage>0)
+    <a href="$!{contextPath}/admin/user.do?page=$!{prePage}">上一页</a>
+#else
+    <span>上一页</span>
+#end
+#if($nextPage)
+    <a href="$!{contextPath}/admin/user.do?page=$!{nextPage}">下一页</a>
+#else
+    <span>下一页</span>
+#end
+#if($lastpage)
+	<a href="$!{contextPath}/admin/user.do?page=$!{lastpage}">末一页</a>
+#else
+	<span>末一页</span>
+#end
+</div>
+
+<!--
+<h2 class="listTitle">权限不足</h2>
+-->
+#parse("inc/admin/footerJs.vm")
+</body>
+</html>

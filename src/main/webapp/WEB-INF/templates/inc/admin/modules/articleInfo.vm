@@ -1,0 +1,146 @@
+<textarea id="templateArticleInfo" rows="0" cols="0" style="display:none">
+<!--
+	<table width="100%">
+    	<thead>
+    		<tr class="componentTitle">
+    			<td colspan="2"><span class="left"><b>文章基本属性</b></span></td>
+            </tr>
+        </thead>
+        <tr>
+            <td width="120px" style="border: 1px solid #D6D6D6;padding:1px;">
+    			<label><b>文章预览:</b></label>
+            </td>
+    
+            <td align="left" style="border: 1px solid #D6D6D6;padding:1px;">
+    			<a target="_blank" href="$!{contextPath}/article/{$T.id}.html" title="点击查看[{$T.name}]">{$T.name}</a>
+            </td>
+        </tr>
+        <tr>
+            <td width="120px" style="border: 1px solid #D6D6D6;padding:1px;">
+    			<label><b>文章别名:</b></label>
+            </td>
+    
+            <td align="left" style="border: 1px solid #D6D6D6;padding:1px;">
+				<input id="articleAlias" name="articleAlias" type="input" style="width: 50%;" class="inputTag" value="{$T.alias}"/>
+    			<a target="_blank" href="$!{contextPath}/article/{$T.alias}.html" title="点击查看[{$T.name}]">{$T.alias}</a>
+            </td>
+        </tr>
+        <tr>
+            <td width="120px" style="border: 1px solid #D6D6D6;padding:1px;">
+    			<label for="articleCatalogId"><b>文章分类:</b></label>
+            </td>
+    
+            <td align="left" style="border: 1px solid #D6D6D6;padding:1px;">
+    			<select id="articleCatalogId" name="articleCatalogId">
+#foreach($catalog in $catalogList)
+#if($catalog.subCatalog&&$catalog.subCatalog>0)
+		            <optgroup value="$!{catalog.id}" label="$!{catalog.name}">
+#foreach($subCatalog in $catalog.subCatalogList)
+					<option value="$!{subCatalog.id}">$!{subCatalog.name}</option>
+#end
+                    </optgroup>
+#else
+		            <option value="$!{catalog.id}">$!{catalog.name}</option>
+#end
+#end
+    			</select>
+            </td>
+        </tr>
+        <tr>
+            <td width="120px" style="border: 1px solid #D6D6D6;padding:1px;">
+    			<label for="articleLayout"><b>文章布局:</b></label>
+            </td>
+    
+            <td align="left" style="border: 1px solid #D6D6D6;padding:1px;">
+    			<select id="articleLayout" name="articleLayout">
+    				<option value="4">默认布局</option>
+    				<option value="0">上中下</option>
+    				<option value="1">上左中下</option>
+    				<option value="2">上中右下</option>
+    			</select>
+    			<input id="articleId" name="articleId" type="hidden" value="{$T.id}"/>
+    			<input id="articleVisits" name="articleVisits" type="hidden" value="{$T.visits}"/>
+    			<input id="articleRating" name="articleRating" type="hidden" value="{$T.articleRating}"/>
+    			<input id="articleRatingCount" name="articleRatingCount" type="hidden" value="{$T.ratingCount}"/>
+    			<input id="articleSupportCount" name="articleSupportCount" type="hidden" value="{$T.supportCount}"/>
+    			<input id="articleOpposeCount" name="articleOpposeCount" type="hidden" value="{$T.opposeCount}"/>
+            </td>
+        </tr>
+        <tr>
+            <td width="120px" style="border: 1px solid #D6D6D6;padding:1px;">
+    			<label for="articleName"><b>文章名字:</b></label>
+            </td>
+    
+            <td align="left" style="border: 1px solid #D6D6D6;padding:1px;">
+    			<input id="articleName" name="articleName" type="input" class="inputTag required" value="{$T.name}"/>
+            </td>
+        </tr>
+        <tr>
+            <td width="120px" style="border: 1px solid #D6D6D6;padding:1px;">
+    			<label for="articleTitle"><b>文章标题:</b></label>
+            </td>
+    
+            <td align="left" style="border: 1px solid #D6D6D6;padding:1px;">
+    			<input id="articleTitle" name="articleTitle" type="input" class="inputTag required" value="{$T.title}"/>
+            </td>
+        </tr>
+        <tr>
+            <td width="120px" style="border: 1px solid #D6D6D6;padding:1px;">
+    			<label for="articleMetaKeywords"><b>meta关键字:</b></label>
+            </td>
+    
+            <td align="left" style="border: 1px solid #D6D6D6;padding:1px;">
+    			<input id="articleMetaKeywords" name="articleMetaKeywords" type="input" class="inputTag required" value="{$T.metaKeywords}"/>
+            </td>
+        </tr>
+        <tr>
+            <td width="120px" style="border: 1px solid #D6D6D6;padding:1px;">
+    			<label for="articleMetaDescription"><b>meta描述:</b></label>
+            </td>
+    
+            <td align="left" style="border: 1px solid #D6D6D6;padding:1px;">
+    			<input id="articleMetaDescription" name="articleMetaDescription" type="input" class="inputTag required" value="{$T.metaDescription}"/>
+            </td>
+        </tr>
+        <tr>
+            <td width="120px" style="border: 1px solid #D6D6D6;padding:1px;">
+    			<label for="articleImage"><b>文章图片:</b></label>
+            </td>
+    
+            <td align="left" style="border: 1px solid #D6D6D6;padding:1px;">
+    			<input id="articleImage" name="articleImage" type="input" class="inputTag required" value="{$T.image}"/>
+            </td>
+        </tr>
+        <tr>
+            <td width="120px" style="border: 1px solid #D6D6D6;padding:1px;">
+    			<label for="articleWeight"><b>文章权重:</b></label>
+            </td>
+    
+            <td align="left" style="border: 1px solid #D6D6D6;padding:1px;">
+    			<input id="articleWeight" name="articleWeight" type="input" class="inputTag required number" value="{$T.weight}"/>
+            </td>
+        </tr>
+        <tr>
+            <td width="120px" style="border: 1px solid #D6D6D6;padding:1px;">
+    			<label for="articlePublished"><b>文章发布:</b></label>
+            </td>
+    
+            <td align="left" style="border: 1px solid #D6D6D6;padding:1px;">
+				<select id="articlePublished" name="articlePublished">
+    				<option value="true">发布</option>
+    				<option value="false">不发布</option>
+    			</select>
+            </td>
+        </tr>
+    	<tr>
+            <td width="120px" style="border: 1px solid #D6D6D6;padding:1px;">
+    			<label for="articleSummary"><b>文章描述:</b></label>
+            </td>
+    
+            <td align="left" style="border: 1px solid #D6D6D6;padding:1px;">
+    			<input id="articleSummary" name="articleSummary" type="input" class="inputTag required" value="{$T.summary}"/>
+            </td>
+        </tr>
+    </table>
+    -->
+</textarea>             

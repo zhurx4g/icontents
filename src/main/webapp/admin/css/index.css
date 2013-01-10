@@ -1,0 +1,172 @@
+body {
+	text-align: left;
+	background: #DDD;
+}
+
+a {
+	text-decoration: underline;
+}
+
+a:hover {
+	color: #BA2636;
+}
+
+.wrapper {
+	background: #FFF;
+	width: 100%;
+}
+
+.header {
+	height: 90px;
+	overflow: hidden;
+}
+
+.logo {
+	/*background:transparent url(images/logo.png) no-repeat 20px 5px;*/
+	height: 60px;
+	padding-top: 5px;
+	font-size: 18px;
+	font-weight: bold;
+	/*text-indent:-9999px;*/
+}
+
+.fl {
+	width: 80%;
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+.operateBar {
+	height: 25px;
+	clear: both;
+	padding: 0 5px;
+}
+
+.navi-list {
+	width: 80%;
+	margin: 0 auto auto 0px;
+	overflow: hidden;
+}
+
+.navi-list li {
+	display: inline;
+	float: left;
+	line-height: 25px;
+	font-size: 14px;
+	width: 85px;
+	height: 25px;
+	text-align: center;
+}
+
+.navi-list li.on {
+	background: #1E50A2;
+	color: #FFF;
+	font-weight: bold;
+}
+
+.navi-list li a:link,.navi-list li a:visited {
+	text-decoration: none;
+}
+
+.navi-list li.on a:link,.navi-list li.on a:visited {
+	color: #FFF;
+}
+
+.mainbox {
+	border-top: 10px solid #1E50A2;
+}
+
+.colL {
+	float: left;
+	height: auto;
+	padding-top: 25px;
+	width: 180px;
+}
+
+.colR {
+	border-left: 180px solid #DDEEF6;
+	background: #F2F2F2;
+	padding-left: 7px;
+}
+
+.colR-inner {
+	background: #FFF;
+	height: auto;
+	padding: 15px 0 0 15px;
+	position: relative;
+}
+
+.switch {
+	background: transparent
+		url(http://img1.cache.netease.com/t/zt/zt100827/switch.gif) no-repeat
+		0 0;
+	cursor: pointer;
+	position: absolute;
+	left: -7px;
+	top: 50%;
+	margin-top: -9px;
+	height: 18px;
+	width: 7px;
+}
+
+.switch_change {
+	background: transparent
+		url(http://img1.cache.netease.com/t/zt/zt100827/switch2.gif) no-repeat
+		0 0;
+}
+
+.copyright {
+	clear: both;
+	text-align: right;
+	margin: 10px auto;
+	padding-right: 10px;
+	width: 96%;
+}
+
+.out {
+	padding: 0.2em;
+	width: 96%;
+	height: 1000px;
+	overflow: auto;
+	text-align: left;
+	overflow-x: hidden;
+}
+
+.tree {
+	font: 12px Helvetica, Arial, sans-serif;
+	color: #666;
+	white-space: nowrap;
+	padding-left: 1.4em;
+	line-height: 30px;
+	font-size: 14px;
+}
+
+.tree img {
+	border: 0px;
+	vertical-align: middle;
+}
+
+.tree a.node,.tree a.checked {
+	white-space: nowrap;
+	padding: 1px 2px 1px 2px;
+}
+
+.tree a.node:hover,.tree a.checked:hover {
+	text-decoration: underline;
+}
+
+.tree a.checked {
+	background: frame_bg.gif;
+	color: #000;
+}
+
+.tree .clip {
+	overflow: hidden;
+}
+
+#node_0 {
+	font-weight: bold;
+}

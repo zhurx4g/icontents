@@ -1,0 +1,274 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>jTemplates - template engine in JavaScript</title>
+<script type="text/javascript" src="$!{contextPath}/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="$!{contextPath}/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="$!{contextPath}/admin/js/jquery-ui-1.8.5.custom.min.js"></script>
+<script type="text/javascript" src="$!{contextPath}/admin/js/jquery-jtemplates.js"></script>
+
+<!--
+<script type="text/javascript" src="$!{contextPath}/admin/js/tiny_mce/jquery.tinymce.js"></script>
+<script type="text/javascript" src="$!{contextPath}/admin/js/tiny_mce/tiny_mce.js"></script>
+-->
+<script charset="utf-8" type="text/javascript" src="$!{contextPath}/admin/js/kindeditor/kindeditor.js"></script>
+<script charset="utf-8" type="text/javascript" src="$!{contextPath}/admin/js/common.js"></script>
+<script charset="utf-8" type="text/javascript" src="$!{contextPath}/admin/js/adminPage.js"></script>
+<link rel="stylesheet" type="text/css" href="$!{contextPath}/css/css3buttons.css" />
+<link rel="stylesheet" type="text/css" href="$!{contextPath}/admin/css/common.css" />
+<link rel="stylesheet" type="text/css" href="$!{contextPath}/admin/css/jquery-ui-1.8.6.custom.css" />
+<link rel="stylesheet" type="text/css" href="$!{contextPath}/admin/css/adminPage.css" />
+<style>
+    .button{width:60px;};
+</style>
+<script type="text/javascript">
+        jQuery(document).ready(function() {
+#if($articleLayout!=4)
+            //可以拖动的组件
+            //jQuery("#componentButtonList").draggable();
+            jQuery( ".sortableColumn" ).sortable({
+                placeholder: "ui-state-highlight"
+            });
+#end
+            validator = jQuery("#componentListForm").validate({
+                submitHandler:function(form){
+                    caculateOrder();
+                    form.submit(); 
+                }    
+            });
+            
+            //初始化按钮动作
+            initAction();
+
+            //输出文章的基本信息
+            var articleData = #if($article)$article#else{}#end;
+            
+            jQuery('#articleBasicInfo').setTemplateElement('templateArticleInfo');
+            jQuery('#articleBasicInfo').processTemplate(articleData);
+            
+            //布局跟随实际的值设置
+            jQuery('#articleLayout').val('$!articleLayout');
+#if($article)
+            jQuery('#articleCatalogId').val('$!article.catalogId');
+            jQuery('#articlePublished').val('$!article.published');
+#foreach($component in $$article.componentList)
+            var data${velocityCount} = $component;
+            data${velocityCount}['totalCount']=totalCount;
+            jQuery("#emptyComponent_$!{component.position}_"+componentCount_$!{component.position}).setTemplateElement('template'+'$!{component.componentType}');
+            jQuery("#emptyComponent_$!{component.position}_"+componentCount_$!{component.position}).processTemplate(data${velocityCount});
+            
+            var componentHTMLObj = jQuery("#emptyComponent_$!{$component.position}_"+componentCount_${component.position}).find("textarea[id='content']");
+            if(componentHTMLObj.length!=0)componentHTMLObj.attr('id','content'+totalCount);
+            
+            componentHTMLObj = jQuery("#emptyComponent_$!{$component.position}_"+componentCount_${component.position}).find("input[id='content']");
+            if(componentHTMLObj.length!=0)componentHTMLObj.attr('id','content'+totalCount);
+            
+            componentCount_${component.position}=componentCount_${component.position}+1;
+            totalCount=totalCount+1;
+            jQuery('<div id="emptyComponent_$!{component.position}_'+componentCount_$!{component.position}+'" style="border: 0px;width:100%;"></div>').appendTo('#componentList$!{component.position}');
+#end
+#elseif($articleLayout==4)
+            var data = {position:4,content:''};
+            
+            data['totalCount']=totalCount;
+            
+            jQuery("#emptyComponent_4_"+componentCount_4).setTemplateElement("templateDefaultHtmlComponent");
+            jQuery("#emptyComponent_4_"+componentCount_4).processTemplate(data);
+            
+            componentCount_4=componentCount_4+1;
+            totalCount=totalCount+1;
+            jQuery('<div id="emptyComponent_4_'+componentCount_4+'" style="border: 0px;width:100%;"></div>').appendTo('#componentList4');
+            resetPageHeight();
+                
+#end
+            caculateOrder();
+            
+            jQuery("#articleLayout").change(function() {
+                window.location.href="$!{contextPath}/admin/article/articleManager.do?articleId=$!{article.id}&articleLayout="+jQuery(this).val();
+            });
+        }); 
+
+        function callback(data){
+
+        }
+</script>
+</head>
+<body style="padding:5px;">
+    <div class="componentList" id="componentList" style="align:center;">
+        <form id="componentListForm" action="$!{contextPath}/admin/article/articleManager.do" method="post">
+            <input type="hidden" id="action" name="action" value='save' />
+            <input type="hidden" id="componentListLength" name="componentListLength" value="0" />
+            <table width="98%">
+                <tr>
+                    <td colspan="4" width="100%">
+<div class="componentButtonList" id="componentButtonList" #if($articleLayout==4)style="display:none;" #end>
+                        <table width="100%">
+                            <tr class="componentTitle">             
+                                    <td colspan="5"><span class="left"><b>文章工具栏</b></span></td>
+                            </tr>
+                            <tr>
+                                <td width="120px" style="border: 1px solid #D6D6D6;padding:1px;"><b>头部工具栏:<b>
+                                </td>
+                                <td align="left" style="border: 1px solid #D6D6D6;padding:1px;">
+                                    <a id="btnHeaderLogo" class="primary button" style="padding: 5px 9px;" href="javascript:void(0)" template="LogoComponent" data="{position:'0',image:'/images/logo.png'}">头部</a>
+                                    <a id="btnHeaderNav" class="primary button" style="padding: 5px 9px;" href="javascript:void(0)" template="NavComponent" data="{position:'0'}">导航条</a>
+                                    <a id="btnHeaderHtml" class="primary button" style="padding: 5px 9px;" href="javascript:void(0)" template="HtmlComponent" data="{position:'0',content:''}">HTML区域</a>
+                                    <a id="btnHeaderTextarea" class="primary button" style="padding: 5px 9px;" href="javascript:void(0)" template="TextComponent" data="{position:'0',content:''}">文本区域</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #D6D6D6;padding:1px;">
+                                    <b>中间工具栏:<b>
+                                </td>
+                                <td align="left" style="border: 1px solid #D6D6D6;padding:1px;">
+                                    <a id="btnBodyFlash" class="primary button" style="padding: 5px 9px;" href="javascript:void(0)">Falsh组件</a>
+                                    <a id="btnBodyHtml" class="primary button" style="padding: 5px 9px;" href="javascript:void(0)" template="templateDefaultHtmlComponent">HTML区域</a>
+                                    <a id="btnBodyMap" class="primary button" style="padding: 5px 9px;" href="javascript:void(0)">地图组件</a>
+                                    <a id="btnBodySiteMap" class="primary button" style="padding: 5px 9px;" href="javascript:void(0)">网站地图</a>
+                                    <a id="btnBodyTabs" class="primary button" style="padding: 5px 9px;" href="javascript:void(0)">Tabs组件</a>
+                                    <a id="btnBodyLicense" class="primary button" style="padding: 5px 9px;" href="javascript:void(0)">License组件</a>
+                                    <a id="btnBodyCatalogArticleList" class="primary button" style="padding: 5px 9px;" href="javascript:void(0)" template="CatalogArticleListComponent" data="{position:4,sequence:0,catalogId:0}">分类文章列表</a>
+                                </td>
+                            </tr>
+#if($articleLayout==1)
+                            <tr>
+                                <td style="border: 1px solid #D6D6D6;padding:1px;"><b>左侧工具栏:<b></td>
+                                <td align="left" style="border: 1px solid #D6D6D6;padding:1px;">
+                                    <a id="btnLeftCatalog" class="primary button" style="padding: 5px 9px;" href="javascript:void(0)">文章目录</a>
+                                    <a id="btnLeftHtml" class="primary button" style="padding: 5px 9px;" href="javascript:void(0)">HTML区域</a>
+                                    <a id="btnLeftArticleList" class="primary button" style="padding: 5px 9px;" href="javascript:void(0)">文章列表</a>
+                                    <a id="btnLeftMap" class="primary button" style="padding: 5px 9px;" href="javascript:void(0)">地图组件</a>
+                                </td>
+                            </tr>
+#elseif($articleLayout==2)
+                            <tr>
+                                <td style="border: 1px solid #D6D6D6;padding:1px;"><b>右侧工具栏:<b>
+                                </td>
+                                <td align="left" style="border: 1px solid #D6D6D6;padding:1px;">
+                                    <a id="btnRightCatalog" class="primary button" style="padding: 5px 9px;" href="javascript:void(0)">文章目录</a>
+                                    <a id="btnRightHtml" class="primary button" style="padding: 5px 9px;" href="javascript:void(0)">HTML区域</a>
+                                    <a id="btnRightArticleList" class="primary button" style="padding: 5px 9px;" href="javascript:void(0)">文章列表</a>
+                                    <a id="btnRightMap" class="primary button" style="padding: 5px 9px;" href="javascript:void(0)">地图组件</a>
+                                </td>
+                            </tr>
+#end
+                            <tr>
+                                <td style="border: 1px solid #D6D6D6;padding:1px;"><b>底部工具栏:<b></td>
+                                <td align="left" style="border: 1px solid #D6D6D6;padding:1px;">
+                                    <a id="btnFooterFriendLink" class="primary button" style="padding: 5px 9px;" style="display:none;" href="javascript:void(0)">友情链接</a>
+                                    <a id="btnFooterCopyRight" class="primary button" style="padding: 5px 9px;" href="javascript:void(0)">公司版权</a>
+                                    <a id="btnFooterAbout" class="primary button" style="padding: 5px 9px;" style="display:none;" href="javascript:void(0)">公司简介</a>
+                                    <a id="btnFooterHtml" class="primary button" style="padding: 5px 9px;" href="javascript:void(0)">HTML区域</a>
+                                    <a id="btnFooterArticleList" class="primary button" style="padding: 5px 9px;" href="javascript:void(0)">文章列表</a>
+                                    <a id="btnFooterQuickNav" class="primary button" style="padding: 5px 9px;" href="javascript:void(0)">快速导航</a>
+                                </td>
+                            </tr>
+                        </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <div class="componentHeaderList" id="articleBasicInfo">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <div class="componentHeaderList sortableColumn" id="componentList0">
+                            <div id="emptyComponent_0_0" style="border: 0px;width:100%;"></div>
+                        </div>
+                    </td>
+                </tr>
+#if($articleLayout==2)
+                <tr>
+                    <td  colspan="3" align="left" width="70%" valign="top">
+                    <div class="componentBodyList sortableColumn" style="float:auto;" id="componentList4">
+                            <div id="emptyComponent_4_0" style="border: 0px;width:100%;"></div>
+                    </div>
+                    </td>
+                    <td align="right" width="30%" valign="top">
+                    <div class="componentBodyList sortableColumn" style="float:auto;" id="componentList2">
+                            <div id="emptyComponent_2_0" style="border: 0px;width:100%;"></div>
+                    </div>
+                    </td>
+                </tr>
+#elseif($articleLayout==1)
+                <tr>
+                    <td align="left" width="30%" valign="top">
+                    <div class="componentBodyList sortableColumn" style="float:auto;" id="componentList1">
+                            <div id="emptyComponent_1_0" style="border: 0px;width:100%;"></div>
+                    </div>
+                    </td>
+                    <td colspan="3" align="left" width="70%" valign="top">
+                    <div class="componentBodyList sortableColumn" style="float:auto;" id="componentList4">
+                            <div id="emptyComponent_4_0" style="border: 0px;width:100%;"></div>
+                    </div>
+                    </td>
+                </tr>
+#else
+                <tr>
+                    <td colspan="4">
+                    <div class="componentBodyList sortableColumn" style="float:auto;" id="componentList4">
+                            <div id="emptyComponent_4_0" style="border: 0px;width:100%;"></div>
+                    </div>
+                    </td>
+                </tr>
+#end
+                <tr>
+                    <td colspan="4">
+                        <div class="componentFooterList sortableColumn" style="border: 1px solid #D6D6D6;padding:4px;align:center;" id="componentList3">
+                            <div id="emptyComponent_3_0" style="border: 0px;width:100%;"></div>
+                        </div>
+                    </td>
+    
+                </tr>
+                <tr>
+                    <td colspan="4" align="center">
+                        <input type="submit" id="saveAll" class="button" value="保存"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <p style="display:none">
+        #parse("inc/admin/modules/articleInfo.vm")
+        <!-- 头部模板 -->
+        #set($position="0")
+        #parse("inc/admin/modules/headerLogo.vm")
+        #parse("inc/admin/modules/headerNav.vm")
+        #parse("inc/admin/modules/headerPath.vm")
+        
+        #parse("inc/admin/modules/commonTextarea.vm")
+        <!-- 头部模板结束 -->
+        
+        <!-- 左右公共模板 -->
+        #parse("inc/admin/modules/commonCatalog.vm")
+        #parse("inc/admin/modules/commonHtml.vm")
+        #parse("inc/admin/modules/commonArticleList.vm")
+        #parse("inc/admin/modules/commonMap.vm")
+        #parse("inc/admin/modules/commonQuickNav.vm")
+        
+        <!-- 中部模板结束 -->
+        <!-- 中部模板 -->
+        #parse("inc/admin/modules/bodyFlash.vm")
+        #parse("inc/admin/modules/bodySiteMap.vm")
+        #parse("inc/admin/modules/bodyTabs.vm")
+        #parse("inc/admin/modules/bodyLicense.vm")
+        
+        #parse("inc/admin/modules/commonDefaultHtml.vm")
+        #parse("inc/admin/modules/catalogArticleList.vm")
+        <!-- 中部模板结束 -->
+        
+        <!-- 底部模板 -->
+        #set($position="3")
+        #parse("inc/admin/modules/footerFriendLink.vm")
+        #parse("inc/admin/modules/footerCopyRight.vm")
+        #parse("inc/admin/modules/footerAbout.vm")
+        <!-- 底部模板结束 -->
+    </p>
+        <script language="javascript" type="text/javascript">
+            window.onload = resetPageHeight;
+        </script>
+    </body>
+</html>
+<!--$defaultComponentList-->

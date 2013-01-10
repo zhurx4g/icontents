@@ -1,0 +1,22 @@
+<!-- start -->
+<SCRIPT src="$!{contextPath}/js/swfobject.js" type=text/javascript></SCRIPT>
+<div id="container-$!{article.id}-$!{component.sequence}-$!{component.position}" style="height:267;"></div>
+<script type="text/javascript">
+var s1 = new SWFObject("$!{contextPath}/flash/imagerotator.swf","rotator","960","267","7","#000000");
+s1.addParam("allowfullscreen","false");
+s1.addParam("allowscriptaccess","always");
+s1.addParam("wmode","opaque");
+s1.addVariable("file","$!{contextPath}/data/imageRotatorData-$!{article.id}-$!{component.sequence}-$!{component.position}.xml");
+//s1.addVariable("searchbar","false");
+//s1.addVariable("autoscroll","true");
+s1.addVariable("width","960");
+s1.addVariable("height","267");
+//s1.addVariable("backcolor","0xFFFFFF");
+//s1.addVariable("screencolor","0xFFFFFF");
+s1.addVariable("autostart","true");
+s1.addVariable("rotatetime","5"); 
+s1.addVariable("repeat","true"); 
+s1.addVariable("linkfromdisplay","true");
+s1.addVariable("linktarget","_blank");
+s1.write("container-$!{article.id}-$!{component.sequence}-$!{component.position}");
+</script>

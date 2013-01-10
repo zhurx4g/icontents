@@ -1,0 +1,6 @@
+<div id="footer">
+    <div class="xright">&copy;  $!{config_copyright}</div>
+    <div class="clear">
+        <hr>
+    </div>
+</div>

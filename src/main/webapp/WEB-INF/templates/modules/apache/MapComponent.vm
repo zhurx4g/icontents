@@ -1,0 +1,31 @@
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&language=zh_CN"></script>
+<script type="text/javascript">
+  var geocoder;
+  var map;
+  function initialize$!{component.sequence}$!{component.position}() {
+    geocoder = new google.maps.Geocoder();
+    if (geocoder) {
+      geocoder.geocode( { 'address': '$!{component.content}'}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          var myOptions = {
+            zoom: 14,
+            center: results[0].geometry.location,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+          }
+          map = new google.maps.Map(document.getElementById("mapComponentCanvas$!{component.sequence}$!{component.position}"),myOptions);
+          var marker = new google.maps.Marker({
+              map: map, 
+              position: results[0].geometry.location
+          });
+        } else {
+          alert("确定写的地图地点是正确的,错误码: " + status);
+        }
+      });
+    }
+  }
+  initialize$!{component.sequence}$!{component.position}();
+</script>
+<div style="#if($component.position!=3)width:99.2%#else width:240px #end;margin: 3px;background: none repeat scroll 0 0 white;color:black;border:solid 1px;">
+<h2>联系方式</h2>
+<div id="mapComponentCanvas$!{component.sequence}$!{component.position}" style="width: 100%; height: $!{component.height}px;"></div>
+</div>

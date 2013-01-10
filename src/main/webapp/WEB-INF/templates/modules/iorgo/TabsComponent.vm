@@ -1,0 +1,80 @@
+<!-- tabs work as navigator for scrollable -->
+<ul id="flowtabs" class="navi">
+	<li><a id="t1" href="#story">新闻中心</a></li>
+	<li><a id="t2" href="#features">高可用软件</a></li>
+	<li><a id="t3" href="#plugins">行业软件</a></li>
+	<li><a id="t4" href="#demos">软件外包</a></li>
+</ul>
+
+<!-- tab panes -->
+<div id="flowpanes">
+
+	<!-- wrapper for scrollable items -->
+	<div class="items">
+		<!-- the items -->
+		<div style="width:960px">
+			<table width="960px" style="font-size:14px;">
+				<tr>
+					<td valign="top" align="left">
+鲁朗软件凭借专业的技术服务，在ExpressCluster的销售之路上势如破竹。2010年10月底，鲁朗软件与位元空间科技（北京）有限公司成功签约，成为该公司高可用集群软件的供应商，联手开拓移动互联网市场。
+					</td>
+					<td>
+            			<table class="homeTel" style="">
+                            <tr><td>北京:010-59342758</td></tr>
+                            <tr><td>上海:021-23293671</td></tr>
+                        </table>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div style="width:960px">
+			<table width="960px" style="font-size:14px;">
+				<tr>
+					<td valign="top" align="left">
+NEC是在美国首家通过充分测试、验证的容错灾难恢复解决方案提供商，它支持数据通过专用WAN同步写入到两个站点的服务器上——由此为关键数据和业务系统提供全面的安全保护，它提供了一套完美的容灾解决方案，真正达到了 99.999%的高可用性，当灾难发生时，容灾系统可自动进行故障切换，也可在短短几秒之内完成灾难恢复，确保业务处理的完整性。NEC提供价格合理的完整的安装、部署以及支持服务。 该方案既可适用于用户分别分散在两个站点的企业（Active/Active工作模式），也适用于所有用户集中在一个站点的企业(Active /Passive工作模式)，也就是说，对任何企业和机构来说，该方案都非常优秀。
+					</td>
+					<td>
+            			<table class="homeTel" style="">
+                            <tr><td>北京:010-59342758</td></tr>
+                            <tr><td>上海:021-23293671</td></tr>
+                        </table>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div style="width:960px">
+			<table width="960px" style="font-size:14px;">
+				<tr>
+					<td valign="top" align="left">
+基于移动位置服务的商户推广平台是利用移动网络的终端位置服务及GPS卫星定位技术，结合第三方支付能力而建立的商户推广、商品或服务购买的综合服务平台，是移动电子商务的基础平台。
+该平台以终端用户的切身需求为中心，以其身边的数量众多的中小商户为关注焦点，将终端用户可能关注的商户基本信息，优惠信息以及广告信息通过两种方式（主动浏览和被动精确推送）传递给用户，达到宣传联盟商户的目的。同时，结合简单的移动社区功能，提供对商户、商品或者优惠活动的点评分享功能，给终端用户一个信用度参照
+					</td>
+					<td>
+            			<table class="homeTel" style="">
+                            <tr><td>北京:010-59342758</td></tr>
+                            <tr><td>上海:021-23293671</td></tr>
+                        </table>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div style="width:960px">
+			<table width="960px" style="font-size:14px;">
+				<tr>
+					<td valign="top" align="left">
+我们提供两种方式的外包方式：(1)驻场开发 （2）离岸开发<br/>
+
+驻场开发对客户而言，能够获得更安心的服务，但是在人员管理的成本上会有所增加。离岸开发则恰好相反，需要强化交付物品的检查。无论何种形式，鲁朗软件都通过系统的员工培训，提高员工技术能力和稳定性，努力为客户提供安心优质的服务。
+					</td>
+					<td>
+            			<table class="homeTel" style="">
+                            <tr><td>北京:010-59342758</td></tr>
+                            <tr><td>上海:021-23293671</td></tr>
+                        </table>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+</div>

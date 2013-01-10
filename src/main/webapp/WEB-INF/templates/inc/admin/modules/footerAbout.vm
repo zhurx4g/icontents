@@ -1,0 +1,27 @@
+<textarea id="templateAboutComponent" rows="0" cols="0" style="display:none">
+    <!--
+    <div class="component" style="width:100%;margin:2px auto;" id="compItem_0_8_3">
+        <div class="componentTitle">
+            <span class="left">公司简介组件</span>
+            <span class="close">
+                <a href="javascript:void(0)" onclick="javascript:if(confirm('确定删除公司简介组件'))$(this).parents('div:first').parents('div:first').parents('div:first').remove();">删除</a>
+            </span>
+        </div>
+        <div class="comItemContent">
+            <table name="fieldsTable" width="100%" border="0">
+                <tbody>
+                    <tr>
+                        <td><label><b>公司简介组件:</b></label></td>
+                        <td colspan="3">
+                            <input type="hidden" id="componentType" name="componentType" value="AboutComponent" />
+                            <input type="hidden" id="sequence" name="sequence" value="0" />
+                            <input type="hidden" id="position" name="position" value="3" />
+                            <label>选择公司简介组件后，前台网页会显示公司简介组件出来</label>
+                        </td>
+                    </tr>           
+                </tbody>
+            </table>
+        </div>
+    </div>
+    -->
+</textarea>

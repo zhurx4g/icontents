@@ -1,0 +1,26 @@
+/*	$Id: hp-tabs-screen-fonts.css,v 1.1 2009/11/23 11:42:16 shira Exp shira $ */
+
+div#ibm-home-tasks {
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:0.8em;
+}
+ul#ibm-home-task-nav li a {font-weight:bold;}
+div#ibm-home-tasks div.ibm-column h3 {font-size:1em;}
+
+ul#ibm-home-task-nav a { line-height:1.2em; }
+
+div#ibm-reg-number { 
+	font-family:sans-serif;
+	font-size:0.75em;
+}
+
+div#ibm-reg-number a:link,
+div#ibm-reg-number a:visited {text-decoration:none;}
+div#ibm-reg-number a:hover {text-decoration:underline;}
+
+
+/* SBS adjustments 
+#ibm-top div#ibm-social-tools {
+	padding-top: 20px;
+}
+*/

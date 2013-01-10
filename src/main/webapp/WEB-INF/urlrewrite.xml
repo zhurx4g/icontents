@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<urlrewrite>
+    <rule>
+        <from>^/$</from>
+        <to>/index.do?articleId=-1</to>
+    </rule>
+    <rule>
+        <from>^/error.html</from>
+        <to>/error.do</to>
+    </rule>
+    <rule>
+        <from>^/licenseApply.html</from>
+        <to>/licenseApply.do</to>
+    </rule>
+    <rule>
+        <from>^/article/([0-9]+)\.html</from>
+        <to>/index.do?articleId=$1</to>
+    </rule>
+    <rule>
+        <from>^/article/([a-zA-Z]+[0-9]*)\.html</from>
+        <to>/index.do?articleAlias=$1</to>
+    </rule>
+    <rule>
+        <from>^/data/imageRotatorData/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/</from>
+        <to last="true">/data/imageRotatorData.do?articleId=$1&amp;sequence=$2&amp;position=$3</to>
+    </rule>
+    <rule>
+        <from>^/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)\.html</from>
+        <to>/$1/$2.do</to>
+    </rule>
+    <rule>
+        <from>^/admin/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)\.html</from>
+        <to>/admin/$1/$2.do</to>
+    </rule>
+</urlrewrite>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<category>
+	<menu title="7元任意双拼">
+        <img sImgRoute="thumb/img001.jpg" dImgRoute="image/img001.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img002.jpg" dImgRoute="image/img002.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img003.jpg" dImgRoute="image/img003.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img004.jpg" dImgRoute="image/img004.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img005.jpg" dImgRoute="image/img005.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img006.jpg" dImgRoute="image/img006.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img007.jpg" dImgRoute="image/img007.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img008.jpg" dImgRoute="image/img008.jpg" mycomment="简介"/>
+        <img sImgRoute="thumb/img009.jpg" dImgRoute="image/img009.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img010.jpg" dImgRoute="image/img010.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img011.jpg" dImgRoute="image/img011.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img012.jpg" dImgRoute="image/img012.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img013.jpg" dImgRoute="image/img013.jpg" mycomment="简介"/>
+        <img sImgRoute="thumb/img014.jpg" dImgRoute="image/img014.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img015.jpg" dImgRoute="image/img015.jpg" mycomment="简介"/>
+	</menu>
+        <menu title="肉类">
+	<img sImgRoute="thumb/img018.jpg" dImgRoute="image/img018.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img019.jpg" dImgRoute="image/img019.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img020.jpg" dImgRoute="image/img020.jpg" mycomment="简介"/>
+        <img sImgRoute="thumb/img021.jpg" dImgRoute="image/img021.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img022.jpg" dImgRoute="image/img022.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img023.jpg" dImgRoute="image/img023.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img024.jpg" dImgRoute="image/img024.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img025.jpg" dImgRoute="image/img025.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img026.jpg" dImgRoute="image/img026.jpg" mycomment="简介"/>
+	</menu>
+	<menu title="时令蔬菜">
+	<img sImgRoute="thumb/img027.jpg" dImgRoute="image/img027.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img028.jpg" dImgRoute="image/img028.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img029.jpg" dImgRoute="image/img029.jpg" mycomment="简介"/>
+        <img sImgRoute="thumb/img030.jpg" dImgRoute="image/img030.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img032.jpg" dImgRoute="image/img032.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img033.jpg" dImgRoute="image/img033.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img034.jpg" dImgRoute="image/img034.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img035.jpg" dImgRoute="image/img035.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img036.jpg" dImgRoute="image/img036.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img037.jpg" dImgRoute="image/img037.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img038.jpg" dImgRoute="image/img038.jpg" mycomment="简介"/>
+        <img sImgRoute="thumb/img039.jpg" dImgRoute="image/img039.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img041.jpg" dImgRoute="image/img041.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img042.jpg" dImgRoute="image/img042.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img045.jpg" dImgRoute="image/img045.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img046.jpg" dImgRoute="image/img046.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img047.jpg" dImgRoute="image/img047.jpg" mycomment="简介"/>
+        <img sImgRoute="thumb/img048.jpg" dImgRoute="image/img048.jpg" mycomment="简介"/>
+	</menu>
+	<menu title="鱼浆制品">
+        <img sImgRoute="thumb/img049.jpg" dImgRoute="image/img049.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img050.jpg" dImgRoute="image/img050.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img054.jpg" dImgRoute="image/img054.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img055.jpg" dImgRoute="image/img055.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img056.jpg" dImgRoute="image/img056.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img057.jpg" dImgRoute="image/img057.jpg" mycomment="简介"/>
+        <img sImgRoute="thumb/img058.jpg" dImgRoute="image/img058.jpg" mycomment="简介"/>
+        <img sImgRoute="thumb/img059.jpg" dImgRoute="image/img059.jpg" mycomment="简介"/>
+	</menu>
+	<menu title="干菜">
+        <img sImgRoute="thumb/img060.jpg" dImgRoute="image/img060.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img061.jpg" dImgRoute="image/img061.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img062.jpg" dImgRoute="image/img062.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img063.jpg" dImgRoute="image/img063.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img064.jpg" dImgRoute="image/img064.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img065.jpg" dImgRoute="image/img065.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img066.jpg" dImgRoute="image/img066.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img067.jpg" dImgRoute="image/img067.jpg" mycomment="简介"/>
+        <img sImgRoute="thumb/img068.jpg" dImgRoute="image/img068.jpg" mycomment="简介"/>
+	</menu>
+	<menu title="主食">
+	<img sImgRoute="thumb/img069.jpg" dImgRoute="image/img069.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img070.jpg" dImgRoute="image/img070.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img071.jpg" dImgRoute="image/img071.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img072.jpg" dImgRoute="image/img072.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img073.jpg" dImgRoute="image/img073.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img099.jpg" dImgRoute="image/img099.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img100.jpg" dImgRoute="image/img100.jpg" mycomment="简介"/>
+	</menu>
+	<menu title="锅底调料">
+	<img sImgRoute="thumb/img075.jpg" dImgRoute="image/img075.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img076.jpg" dImgRoute="image/img076.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img077.jpg" dImgRoute="image/img077.jpg" mycomment="简介"/>
+        <img sImgRoute="thumb/img078.jpg" dImgRoute="image/img078.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img079.jpg" dImgRoute="image/img079.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img080.jpg" dImgRoute="image/img080.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img081.jpg" dImgRoute="image/img081.jpg" mycomment="简介"/>
+	</menu>
+	<menu title="饮料">
+	</menu>	 
+	<menu title="其它类">
+        <img sImgRoute="thumb/img082.jpg" dImgRoute="image/img082.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img084.jpg" dImgRoute="image/img084.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img085.jpg" dImgRoute="image/img085.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img087.jpg" dImgRoute="image/img087.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img088.jpg" dImgRoute="image/img088.jpg" mycomment="简介"/>
+        <img sImgRoute="thumb/img089.jpg" dImgRoute="image/img089.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img090.jpg" dImgRoute="image/img090.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img098.jpg" dImgRoute="image/img098.jpg" mycomment="简介"/>
+	</menu>
+        <menu title="套餐">
+	<img sImgRoute="thumb/img094.jpg" dImgRoute="image/img094.jpg" mycomment="简介"/>
+        <img sImgRoute="thumb/img091.jpg" dImgRoute="image/img091.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img092.jpg" dImgRoute="image/img092.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img093.jpg" dImgRoute="image/img093.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img095.jpg" dImgRoute="image/img095.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img096.jpg" dImgRoute="image/img096.jpg" mycomment="简介"/>
+	<img sImgRoute="thumb/img097.jpg" dImgRoute="image/img097.jpg" mycomment="简介"/>
+	</menu>
+
+</category>

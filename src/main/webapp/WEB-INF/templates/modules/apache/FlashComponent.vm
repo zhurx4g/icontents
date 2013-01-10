@@ -1,0 +1,29 @@
+<!-- start -->
+<SCRIPT src="$!{contextPath}/js/swfobject.js" type=text/javascript></SCRIPT>
+<div id="container-$!{article.id}-$!{component.sequence}-$!{component.position}" style="height:338;background:#ffffff;">
+<script type="text/javascript">
+//var s1 = new SWFObject("$!{contextPath}/flash/imagerotator.swf","rotator","1000","338","7","#000000");
+//s1.addParam("allowfullscreen","false");
+//s1.addParam("allowscriptaccess","always");
+//s1.addParam("wmode","opaque");
+//s1.addVariable("file","$!{contextPath}/data/imageRotatorData/$!{article.id}/$!{component.sequence}/$!{component.position}/");
+//s1.addVariable("searchbar","false");
+//s1.addVariable("autoscroll","true");
+//s1.addVariable("width","1000");
+//s1.addVariable("height","300");
+//s1.addVariable("backcolor","0xFFFFFF");
+//s1.addVariable("screencolor","0xFFFFFF");
+//s1.addVariable("autostart","true");
+//s1.addVariable("repeat","true"); 
+
+var s1 = new SWFObject("$!{contextPath}/flash/imagerotator.swf","rotator","1000","338","7");
+s1.addParam("allowfullscreen","true");
+s1.addVariable("file","$!{contextPath}/data/imageRotatorData/$!{article.id}/$!{component.sequence}/$!{component.position}/");
+//s1.addVariable("width","980");
+//s1.addVariable("height","331");
+//s1.addVariable("rotatetime","3"); 
+s1.addVariable("linktarget","_blank");
+//s1.addVariable("linkfromdisplay","true");
+s1.write("container-$!{article.id}-$!{component.sequence}-$!{component.position}");
+</script>
+</div>

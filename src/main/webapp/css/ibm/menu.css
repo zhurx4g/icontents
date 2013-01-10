@@ -1,0 +1,137 @@
+/**
+ *********************************************
+ * Prototype of styles for horizontal CSS-menu
+ * @data 25.01.2010
+ *********************************************
+ * (X)HTML-scheme:
+ *  <div id="menu">
+ *      <ul class="menu">
+ *          <li><a href="#" class="parent"><span>level 1</span></a>
+ *              <div><ul>
+ *                  <li><a href="#" class="parent"><span>level 2</span></a>
+ *                      <div><ul><li><a href="#"><span>level 3</span></a></li></ul></div>
+ *                  </li>
+ *              </ul></div>
+ *          </li>
+ *          <li class="last"><a href="#"><span>level 1</span></a></li>
+ *      </ul>
+ *  </div>
+ *********************************************
+ */
+
+/* menu::base */
+#menu {
+    position:relative;
+    z-index:100;
+    height:24px;
+	background: url("/images/ibm/menu.gif") repeat-x scroll 0 -280px #BCCDDB;
+    border-bottom: 1px solid #98B1C4;
+    border-top: 1px solid #3D474E;
+    clear: both;
+    color: #666666;
+    margin: 0;
+}
+#menu .menu {
+    position:absolute;
+}
+#menu * {
+    list-style:none;
+    border:0;
+    padding:0;
+    margin:0;
+}
+#menu a {
+    display:block;
+    padding:3px 14px 3px 14px;
+    white-space:nowrap;
+}
+#menu li {
+    float:left;
+}
+#menu li li {
+    float:none;
+	width: 140px;
+    _border:1px solid #494949; /** fix for ie6 */
+}
+#menu div {
+    visibility:hidden;
+    position:absolute;
+    background:url(images/pix.gif);
+}
+#menu div div {
+    margin:-24px 0 0 -1px;
+    left:100%;
+}
+#menu li:hover>div { visibility:visible; }
+
+/* menu::special styles */
+/* menu::level 1 */
+#menu a {
+    text-decoration:none;
+    color:#fff;
+    position:relative;
+    z-index:77;
+}
+#menu a:hover {
+    background:#ADBECC;
+    color:#FFFFFF;
+}
+#menu a:hover span { color:#FFFFFF; }
+#menu>ul>li:hover>a {
+    background:#ADBECC;
+    color:#FFFFFF;
+}
+#menu>ul>li:hover>a span { color:#293D6B; }
+#menu span {
+    text-transform:uppercase;
+    font:12px 'Trebuchet MS', arial,nsimsun,sans-serif;
+    color:#293D6B;
+	font-weight:bold;
+}
+#menu li { background:none; }
+/* menu::level >= 2 */
+#menu li li a {
+    padding:0;
+    position:static;
+    float:left;
+}
+#menu li li a:hover { background:none repeat scroll 0 0 #ADBECC;float:left;width: 100px;}
+#menu li li a span { color:#293D6B;font-weight:normal;float:left;width: 100px;}
+#menu li li a:hover span { color:#293D6B;background:none repeat scroll 0 0 #ADBECC;float:left;width: 100px;}
+#menu li li a.parent span { background:none repeat scroll 0 0 #BDCEDC; _background-position:right 10px;float:left;width: 100px;}
+#menu li li a.parent:hover span { background:none repeat scroll 0 0 #ADBECC; _background-position:right 10px;float:left;width: 100px;}
+*+html #menu li li a.parent span { background-position:right 10px; }
+#menu li li span {
+    display:block;
+    text-transform:none;
+    line-height:16px;
+    padding:3px 25px 3px 14px;
+    font-size:12px;
+}
+#menu li div { background:none repeat scroll 0 0 #BDCEDC;border:1px solid #98B1C4}
+/** <fix for ie6> */
+#menu div div {
+    _margin-top:-25px;
+    _background:#393939;
+}
+#menu li li li { _border:1px solid #393939; }
+#menu div div div { _background:#292929; }
+#menu li li li li { _border:1px solid #292929; }
+/** </fix for ie6> */
+
+/* lava lamp */
+div#menu li.back {
+    width:10px;
+    height:24px;
+    z-index:8;
+    position:absolute;
+}
+div#menu li.back .left {
+    width:auto;
+    height:24px;
+    float:none;
+    position:relative;
+    top:0;
+    left:0;
+    visibility:visible;
+}

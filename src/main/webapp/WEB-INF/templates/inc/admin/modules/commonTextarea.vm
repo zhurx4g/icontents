@@ -1,0 +1,25 @@
+<textarea id="templateTextComponent" rows="0" cols="0" style="display:none">
+<!--
+    <div class="component" style="width:100%;margin:2px auto;" id="compItem_0_8_3">
+        <div class="componentTitle">
+            <span class="left">普通文本区域</span>
+            <span class="close"><a href="javascript:void(0)" onclick="javascript:if(confirm('确定普通文本区域区域'))$(this).parents('div:first').parents('div:first').remove();">删除</a></span>
+        </div>
+        <div class="comItemContent">
+            <table name="fieldsTable" width="100%" border="0">
+                <tbody>         
+                    <tr>
+                        <td colspan="4" width="100%">
+							<label><b>普通文本内容:</b></label><br/>
+                            <input type="hidden" id="componentType" name="componentType" class="inputTag" value="TextComponent" />
+                            <input type="hidden" id="sequence" name="sequence" class="inputTag" value="0" />
+                            <input type="hidden" id="position" name="position" class="inputTag" value="{$T.position}" />
+                            <textarea id="content{$T.totalCount}" style="width:100%;" cols="100px" rows="5" onblur='onTextareaBlur(this);' name="content">{$T.content}</textarea>
+                        </td>
+                    </tr>           
+                </tbody>
+            </table>
+        </div>
+    </div>
+-->
+</textarea>

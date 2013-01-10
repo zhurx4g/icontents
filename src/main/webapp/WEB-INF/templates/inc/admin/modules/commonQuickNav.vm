@@ -1,0 +1,31 @@
+<textarea id="templateQuickNavComponent" rows="0" cols="0" style="display:none">
+    <!--
+    <div class="component" style="width:100%;margin:2px auto;" id="compItem_0_8_3">
+        <div class="componentTitle">
+            <span class="left">快速导航组件</span>
+            <span class="close"><a href="javascript:void(0)" onclick="javascript:if(confirm('确定删除快速导航组件'))$(this).parents('div:first').parents('div:first').remove();">删除</a></span>
+        </div>
+        <div class="comItemContent">
+            <table name="fieldsTable" width="100%" border="0">
+                <tbody>
+                    <tr>
+                        <td width="120px" align="right" valign="top"><label><b>快速导航标题:</b></label></td>
+                        <td colspan="3">
+                            <input type="hidden" id="componentType" name="componentType" class="inputTag" value="QuickNavComponent" />
+                            <input type="hidden" id="sequence" name="sequence" class="inputTag" value="{$T.sequence}" />
+                            <input type="hidden" id="position" name="position" class="inputTag" value="{$T.position}" />
+                            <input id="title" name="title" class="inputTag" value="{$T.title}"></input>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="120px" align="right" valign="top"><label><b>文章ID(逗号分隔):</b></label></td>
+                        <td colspan="3">
+                            <input id="content" name="content" class="inputTag" value="{$T.content}"></input>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    -->
+</textarea>

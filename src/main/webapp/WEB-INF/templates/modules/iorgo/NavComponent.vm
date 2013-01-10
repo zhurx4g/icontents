@@ -1,0 +1,17 @@
+<div id="menu" style="width:960px;margin:0 auto;">
+    <ul class="menu">
+#foreach($catalog in $catalogList)
+		<li><a href="${catalog.link}" class="parent"><span>$catalog.name</span></a>
+#if($catalog.subCatalog>0)
+	<div>
+		<ul>
+#foreach($subCatalog in $catalog.subCatalogList)
+            <li><a href="$subCatalog.link"><span>$subCatalog.name</span></a></li>
+#end
+        </ul>
+	</div>
+#end
+        </li>
+#end
+</ul>
+</div>

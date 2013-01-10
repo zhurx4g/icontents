@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>$!{systemName}</title>
+<link rel="stylesheet" type="text/css" href="$!{contextPath}/admin/css/common.css" />
+<link rel="stylesheet" type="text/css" href="$!{contextPath}/admin/css/index.css"/>
+<script type="text/javascript">
+var IMGDIR = 'http://img1.cache.netease.com/t/zt/zt100827/tree';var attackevasive = '0';	
+function updatestring(str1, str2, clear) {
+	 str2 = '_' + str2 + '_';
+	 return clear ? str1.replace(str2, '') : (str1.indexOf(str2) == -1 ? str1 + str2 : str1);
+}
+function $(id) {
+	 return document.getElementById(id);
+}
+</script>
+<script type="text/javascript" src="$!{contextPath}/admin/js/tree.js"></script>
+</head>
+<body>
+<div class="wrapper">
+#parse("inc/admin/header.vm")
+	 <div class="mainbox clearfix">
+	 	   <div class="colL" id="colL">
+#parse("inc/admin/nav.vm")
+	 	   </div>
+	 	   <div class="colR" id="colR">	 	   	   
+	 	   	   <div id="colR_inner" class="colR-inner">
+	 	   	   	    <a id="switch" class="switch"></a>
+#parse("inc/admin/iframe.vm")
+	 	   	   </div>
+	 	   </div>
+	 </div>	 
+</div>
+<div class="copyright"> Powered by iContents </div>
+<script type="text/javascript">
+(function(){
+	var colL = document.getElementById("colL"), colR = document.getElementById("colR");
+	document.getElementById("switch").onclick = function(){
+		  if( colL.style.display != "none" ) {
+		  	  colL.style.display = "none";
+		  	  colR.style.borderLeft = "0px";
+		  	  this.className = "switch switch_change";
+		  } else {
+		  	  colL.style.display = "block";
+		  	  colR.style.borderLeft = "180px solid #DDEEF6";
+		  	  this.className = "switch";
+		  }
+		
+	};
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<div id="ibm-universal-nav">
+    <ul>
+#foreach($catalog in $catalogList)
+#if($catalog.sequence>0)
+#if($velocityCount==1)
+		<li id="ibm-unav-home" class="ibm-first">
+#else
+        <li style="z-index: 8;" class=" ibm-is-active" id="ibm-unav-services">
+#end
+            <a id="menu$!{velocityCount}" #if($catalog.subCatalog>0)class="ibm-unav-has-child"#end href="${catalog.link}">$catalog.name</a>
+			<div class="ibm-unav-menu" id="subMenuId$!{velocityCount}" style="z-index: 9; left: 0px;">
+				<span class="ibm-unav-menu-ehb" id="gi-1b5af037-ehb" style="">
+					<img alt="" src="/images/c.gif">
+				</span>
+				<a class="ibm-access"></a>
+				<ul>
+					#foreach($subCatalog in $catalog.subCatalogList)
+					<li><a href="$subCatalog.link">$subCatalog.name</a></li>
+					#end
+				</ul>
+			</div>
+			<script language="javascript" type="text/javascript">
+			jQuery("#menu$!{velocityCount}").mouseover(function(){
+				jQuery("#subMenuId$!{velocityCount}").css('display','block');
+             });
+			jQuery("#menu$!{velocityCount}").mouseout(function(){
+				jQuery("#subMenuId$!{velocityCount}").css('display','none');
+              });
+			jQuery("#subMenuId$!{velocityCount}").mouseover(function(){
+				jQuery("#subMenuId$!{velocityCount}").css('display','block');
+             });
+			jQuery("#subMenuId$!{velocityCount}").mouseout(function(){
+				jQuery("#subMenuId$!{velocityCount}").css('display','none');
+              });
+            </script>
+        </li>
+#end
+#end
+        <li style="display: block;" id="ibm-welcome-message">
+            <span id="ibm-greetingMessage">欢迎 </span>
+            <span id="ssoTxt">[
+#if($loginUser.userName)
+		    <a href="javascript:void(0);" rel="#photo3">${loginUser.userName}</a>][<a href="$!{contextPath}/user/logout.html">退出</a>]
+#else
+				 <a id="loginId" rel="#photo1" href="javascript:void(0);" onclick="jQuery('#loginDialog').css('display','block')">鲁朗 登录</a>
+                ] [ <a href="javascript:void(0);" id="registerId" rel="#photo2" onclick="jQuery('#ibm-overlay-topReg').css('display','block')">注册</a>
+#end
+	       ]</span>
+        </li>
+    </ul>
+</div>

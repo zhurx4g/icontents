@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="$!{contextPath}/css/css3buttons.css" />
+    <link type="text/css" rel="stylesheet" href="$!{contextPath}/css/jquery-ui-1.8.6.custom.css" />
+    <link rel="stylesheet" type="text/css" href="$!{contextPath}/admin/css/common.css" />
+    <script type="text/javascript" src="$!{contextPath}/js/common.js" ></script>
+    <script language="javascript" type="text/javascript" src="$!{contextPath}/js/sorttable.js"></script>
+	<script type="text/javascript" src="$!{contextPath}/js/jquery-1.4.2.min.js" ></script>
+	<script type="text/javascript" src="$!{contextPath}/js/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="$!{contextPath}/js/jquery-ui-1.8.5.custom.min.js"></script>
+	<script type="text/javascript">
+		function addArticle(){
+			window.location.href='$!{contextPath}/admin/article/articleManager.html?articleLayout=4';
+		}
+	</script>
+</head>
+<body>
+	<div class="crumbBar fS14"> <a class="fB" href="#">文章管理</a> > <a class="fB" href="#">文章列表</a></div>
+	<div class="authorityBar">
+		<span class="left">
+			<a href="#" class="button plus" style="padding:5px;9px;" onclick="javascript:addArticle();"><span class="plus icon"></span>新建文章</a>
+		</span>
+    </div>
+    <span class="blank"></span>
+<div class="tblbox">
+      <table class="tbl sortable" cellspacing="1" cellpadding="0">
+        <thead>
+          <tr>
+            <td>文章名称</td>
+            <td>分类</td>
+            <td>布局</td>
+            <td>操作人</td>
+            <td width="140px">操作时间</td>
+            <td width="140px">操作</td>
+          </tr>
+        </thead>
+        <tbody id="comList">
+#foreach($article in $articleList)
+          <tr #if($velocityCount%2==0)class="even"#end>
+            <td>
+				<a href="$!{contextPath}/article/$!{article.id}.html" target="_blank">$!{article.name}</a>
+				#if(${article.alias}=="")#else(<a href="$!{contextPath}/article/$!{article.alias}.html" target="_blank">别名</a>)#end
+			</td>
+            <td>$!{article.catalog}</td>
+            <td>#if($!{article.layout}==0) 上中下#elseif($!{article.layout}==1)上左中下#elseif($!{article.layout}==2)上中右下 #else 默认布局  #end</td>
+            <td>${article.creator}</td>
+            <td>$dt.format("yyyy-MM-dd hh:mm:ss",${article.createTime})</td>
+            <td>
+    			<a href="$!{contextPath}/admin/article/articleManager.html?action=get&articleId=$!{article.id}" class="button" style="padding: 2px 9px;"><span class="pen icon"></span>编辑</a>
+    			<a href="$!{contextPath}/admin/article/articleList.html?action=delete&articleId=$!{article.id}" class="button trash" style="padding: 2px 9px;" onclick="return deleteFn(this,'确定删除文章$!{article.title}');"><span class="trash icon"></span>删除</a>
+    		</td>
+          </tr>
+#end
+        </tbody>
+      </table>
+    </div>
+    <span class="blank"></span>
+	<div class="page">
+    	<a href="$!{contextPath}/admin/article/articleList.html" class="button">第一页</a>
+#if($prePage)
+        <a href="$!{contextPath}/admin/article/articleList.html?page=$!{prePage}" class="button">上一页</a>
+#else
+        <span>上一页</span>
+#end
+#if($nextPage)
+        <a href="$!{contextPath}/admin/article/articleList.html?page=$!{nextPage}" class="button">下一页</a>
+#else
+        <span>下一页</span>
+#end
+#if($lastpage)
+    	<a href="$!{contextPath}/admin/article/articleList.html?page=$!{lastpage}" class="button">末一页</a>
+#else
+    	<span>末一页</span>
+#end
+    </div>
+#parse("inc/admin/footerJs.vm")
+</body>
+</html>

@@ -1,0 +1,431 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>jTemplates - template engine in JavaScript</title>
+<script type="text/javascript" src="$!{contextPath}/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="$!{contextPath}/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="$!{contextPath}/admin/js/jquery-ui-1.8.5.custom.min.js"></script>
+<script type="text/javascript" src="$!{contextPath}/admin/js/jquery-jtemplates.js"></script>
+<script type="text/javascript" src="$!{contextPath}/admin/ckeditor/ckeditor.js"></script>
+
+<link rel="stylesheet" type="text/css" href="$!{contextPath}/admin/css/common.css" />
+<link rel="stylesheet" type="text/css" href="$!{contextPath}/admin/css/jquery-ui-1.8.6.custom.css.css" />
+<link rel="stylesheet" type="text/css" href="$!{contextPath}/admin/css/adminPage.css" />
+<script type="text/javascript">
+        // data for testing
+        var totalCount = 0;
+        
+        var componentCount_0 = 0;
+        var componentCount_4 = 0;
+        var componentCount_3 = 0;
+        
+        var headerSeqence = 0;
+        var bodySeqence = 0;
+        var footerSeqence = 0;
+        
+        var validator;
+        jQuery(document).ready(function() {
+            //可以拖动的组件
+        	jQuery( ".sortableColumn" ).sortable({
+                placeholder: "ui-state-highlight"
+            });
+
+            validator = jQuery("#componentListForm").validate({
+                submitHandler:function(form){
+            	    totalCount = 0;
+            	    
+            	    headerSeqence = 0;
+            	    bodySeqence = 0;
+            	    footerSeqence = 0;
+            	    
+	                var componentHeaderList = jQuery("#componentList0").find("table[name='fieldsTable']");
+	                componentHeaderList.each(function(){
+	                	var componentTypeObj = jQuery(this).find("input[id*='componentType']");
+	                	var componentSequenceObj = jQuery(this).find("input[id*='sequence']");
+	                	var componentPositionObj = jQuery(this).find("input[id*='position']");
+	                	
+	                	componentTypeObj.attr('name','componentType'+totalCount);
+	                	componentSequenceObj.attr('name','sequence'+totalCount);
+	                	componentPositionObj.attr('name','position'+totalCount);
+
+	                	componentSequenceObj.val(headerSeqence);
+	                	
+	                    var componentType = componentTypeObj.val();
+	                    if(componentType=='LogoComponent'){
+							var componentImageObj = jQuery(this).find("input[id*='image']");
+	                		var componentContentObj = jQuery(this).find("textarea[id*='content']");
+							
+							componentImageObj.attr('name','image'+totalCount);
+	                		componentContentObj.attr('name','content'+totalCount);
+	                    }else if(componentType=='NavComponent'){
+	                    }else{
+	                        alert('['+componentType+']组件不应该出现在这个区域');
+	                    }
+	                    headerSeqence=headerSeqence+1;
+	                    totalCount=totalCount+1;
+	                });
+	                
+	                var componentBodyList = jQuery("#componentList4").find("table[name='fieldsTable']");
+	                componentBodyList.each(function(){
+                        var componentTypeObj = jQuery(this).find("input[id*='componentType']");
+                        var componentSequenceObj = jQuery(this).find("input[id*='sequence']");
+                        var positionObj = jQuery(this).find("input[id*='position']");
+                        
+                        componentTypeObj.attr('name','componentType'+totalCount);
+                        componentSequenceObj.attr('name','sequence'+totalCount);
+                        positionObj.attr('name','position'+totalCount);
+
+                        componentSequenceObj.val(bodySeqence);
+                        
+	                    var componentType = jQuery(this).find("input[id*='componentType']").val();
+	                    if(componentType=='FlashComponent'){
+	                    }else{
+	                        alert('['+componentType+']组件不应该出现在这个区域');
+	                    }
+	                    bodySeqence=bodySeqence+1;
+                        totalCount=totalCount+1;
+	                });
+	                
+	                var componentFooterList = jQuery("#componentList3").find("table[name='fieldsTable']");
+	                componentFooterList.each(function(){
+                        var componentTypeObj = jQuery(this).find("input[id*='componentType']");
+                        var componentSequenceObj = jQuery(this).find("input[id*='sequence']");
+                        var positionObj = jQuery(this).find("input[id*='position']");
+                        
+                        componentTypeObj.attr('name','componentType'+totalCount);
+                        componentSequenceObj.attr('name','sequence'+totalCount);
+                        positionObj.attr('name','position'+totalCount);
+
+                        componentSequenceObj.val(footerSeqence);
+                        
+	                    var componentType = jQuery(this).find("input[id*='componentType']").val();
+	                    if(componentType=='FriendLinkComponent'){
+	                    }else if(componentType=='CopyRightComponent'){
+	                    }else{
+	                        alert('['+componentType+']组件不应该出现在这个区域');
+	                    }
+	                    footerSeqence=footerSeqence+1;
+                        totalCount=totalCount+1;
+	                });
+	                jQuery('#componentListLength').val(totalCount); 
+	                form.submit(); 
+                }    
+            });
+            
+            <!--顶部工具栏-->
+            jQuery("#btnHeaderLogo").click(function(){
+                var data = {};
+                // attach the template
+                jQuery("#emptyComponent_0_"+componentCount_0).setTemplateElement("templateLogoComponent");
+                
+                // process the template
+                jQuery("#emptyComponent_0_"+componentCount_0).processTemplate(data);
+
+                var componentHTMLObj = jQuery("#emptyComponent_0_"+componentCount_0).find("textarea[id='content']");
+                componentHTMLObj.attr('id','content'+totalCount);
+                componentCount_0=componentCount_0+1;
+                totalCount=totalCount+1;
+                jQuery('<div id="emptyComponent_0_'+componentCount_0+'" style="border: 0px;width:100%;"></div>').appendTo('#componentList0');
+				resetPageHeight();
+            });
+            jQuery("#btnHeaderNav").click(function(){
+                var data = {};
+                // attach the template
+                jQuery("#emptyComponent_0_"+componentCount_0).setTemplateElement("templateNavComponent");
+                
+                // process the template
+                jQuery("#emptyComponent_0_"+componentCount_0).processTemplate(data);
+
+                componentCount_0=componentCount_0+1;
+                totalCount=totalCount+1;
+                jQuery('<div id="emptyComponent_0_'+componentCount_0+'" style="border: 0px;width:100%;"></div>').appendTo('#componentList0');
+				resetPageHeight();
+            });
+
+                
+            <!--中间工具栏-->
+            jQuery("#btnBodyFlash").click(function(){
+			    var data = {};
+                jQuery("#emptyComponent_4_"+componentCount_4).setTemplateElement("templateFlashComponent");
+                jQuery("#emptyComponent_4_"+componentCount_4).processTemplate(data);
+                componentCount_4=componentCount_4+1;
+                totalCount=totalCount+1;
+                jQuery('<div id="emptyComponent_4_'+componentCount_4+'" style="border: 0px;width:100%;"></div>').appendTo('#componentList4');
+				resetPageHeight();
+			});
+
+            <!--底部工具栏-->
+            //底部友情链接
+            jQuery("#btnFooterFriendLink").click(function(){
+				var data = {};
+                jQuery("#emptyComponent_3_"+componentCount_3).setTemplateElement("templateFriendLinkComponent");
+                jQuery("#emptyComponent_3_"+componentCount_3).processTemplate(data);
+                componentCount_3=componentCount_3+1;
+                totalCount=totalCount+1;
+                jQuery('<div id="emptyComponent_3_'+componentCount_3+'" style="border: 0px;width:100%;"></div>').appendTo('#componentList3');
+				resetPageHeight();
+            });
+            //底部公司版权
+            jQuery("#btnFooterCopyRight").click(function(){
+				var data = {};
+                jQuery("#emptyComponent_3_"+componentCount_3).setTemplateElement("templateCopyRightComponent");
+                jQuery("#emptyComponent_3_"+componentCount_3).processTemplate(data);
+                componentCount_3=componentCount_3+1;
+                totalCount=totalCount+1;
+                jQuery('<div id="emptyComponent_3_'+componentCount_3+'" style="border: 0px;width:100%;"></div>').appendTo('#componentList3');
+				resetPageHeight();
+            });
+			
+            jQuery("#articleLayout").change(
+				function(){
+					alert(jQuery('#articleLayout').val());
+				}
+			});
+#if($article)
+            jQuery('#articleId').val('$!article.id');
+            jQuery('#articleCatalogId').val('$!article.catalogId');
+            jQuery('#articleLayout').val('$!article.layout');
+            jQuery('#articleVisits').val('$!article.visits');
+            jQuery('#articleRating').val('$!article.rating');
+            jQuery('#articleRatingCount').val('$!article.ratingCount');
+            jQuery('#articleSupportCount').val('$!article.supportCount');
+            jQuery('#articleOpposeCount').val('$!article.opposeCount');
+            jQuery('#articleTitle').val('$!article.title');
+            jQuery('#articleMetaKeywords').val('$!article.metaKeywords');
+            jQuery('#articleMetaDescription').val('$!article.metaDescription');
+            jQuery('#articleImage').val('$!article.image');
+            jQuery('#articleWeight').val('$!article.weight');
+            jQuery('#articlePublished').val('$!article.published');
+            jQuery('#articleSummary').val('$!article.summary');
+			
+#foreach($component in $$article.componentList)
+    var data${velocityCount} = $component;
+    jQuery("#emptyComponent_$!{component.position}_"+componentCount_$!{component.position}).setTemplateElement('template'+'$!{component.componentType}');
+    jQuery("#emptyComponent_$!{component.position}_"+componentCount_$!{component.position}).processTemplate(data${velocityCount});
+	
+    //var componentHTMLObj = jQuery("#emptyComponent_$!{$component.position}_"+componentCount_${component.position}).find("textarea[id='content']");
+    //componentHTMLObj.attr('id','content'+totalCount);
+    componentCount_${component.position}=componentCount_${component.position}+1;
+    totalCount=totalCount+1;
+    jQuery('<div id="emptyComponent_$!{component.position}_'+componentCount_$!{component.position}+'" style="border: 0px;width:100%;"></div>').appendTo('#componentList$!{component.position}');
+#end
+
+#end
+        }); 
+
+        function callback(data){
+
+        }
+</script>
+</head>
+<body style="padding:5px;">
+    <div class="componentList" id="componentList" style="align:center;">
+        <form id="componentListForm" action="$!{contextPath}/admin/article/articleHeaderBodyFooter.do" method="post">
+	        <input type="hidden" id="action" name="action" value='save' />
+	        <input type="hidden" id="componentListLength" name="componentListLength" value="0" />
+	        <table width="98%">
+	            <tr>
+	                <td colspan="4">
+	                    <div class="componentButtonList" id="componentButtonList">
+	                    <table width="100%">
+	                        <tr>
+	                            <td width="120px" style="border: 1px solid #D6D6D6;padding:1px;"><b>头部工具栏:<b>
+	                            </td>
+	
+	                            <td align="left" style="border: 1px solid #D6D6D6;padding:1px;">
+	                            <a id="btnHeaderLogo" href="javascript:void(0)">头部</a>
+	                            <a id="btnHeaderNav" href="javascript:void(0)">导航条</a>
+	                            </td>
+	                        </tr>
+	                        <tr>
+	                            <td style="border: 1px solid #D6D6D6;padding:1px;"><b>中间工具栏:<b></td>
+	                            <td align="left" style="border: 1px solid #D6D6D6;padding:1px;">
+	                                <a id="btnBodyFlash" href="javascript:void(0)">Falsh组件</a>
+	                            </td>
+	                        </tr>
+	                        <tr>
+	                            <td style="border: 1px solid #D6D6D6;padding:1px;"><b>底部工具栏:<b></td>
+	                            <td align="left" style="border: 1px solid #D6D6D6;padding:1px;">
+	                                <a id="btnFooterFriendLink" href="javascript:void(0)">友情链接</a>
+	                                <a id="btnFooterCopyRight" href="javascript:void(0)">公司版权</a>
+	                            </td>
+	                        </tr>
+	                    </table>
+	                    </div>
+	
+	                </td>
+	            </tr>
+	            <tr>
+	                <td colspan="4">
+	                    <div class="componentHeaderList">
+							<div class="componentTitle">            
+								<span class="left">文章基本属性</span>            
+							</div>
+							<table width="100%">
+    	                        <tr>
+    	                            <td width="120px" style="border: 1px solid #D6D6D6;padding:1px;">
+										<label for="articleCatalogId"><b>文章分类:</b></label>
+    	                            </td>
+    	
+    	                            <td align="left" style="border: 1px solid #D6D6D6;padding:1px;">
+										<select id="articleCatalogId" name="articleCatalogId">
+#foreach($catalog in $catalogList)
+#if($catalog.subCatalog&&$catalog.subCatalog>0)
+		            <optgroup value="$!{catalog.id}" label="$!{catalog.name}">
+#foreach($subCatalog in $catalog.subCatalogList)
+					<option value="$!{subCatalog.id}">$!{subCatalog.name}</option>
+#end
+                    </optgroup>
+#else
+		            <option value="$!{catalog.id}">$!{catalog.name}</option>
+#end
+#end
+										</select>
+    	                            </td>
+    	                        </tr>
+    	                        <tr>
+    	                            <td width="120px" style="border: 1px solid #D6D6D6;padding:1px;">
+										<label for="articleLayout"><b>文章布局:</b></label>
+										<select id="articleLayout" name="articleLayout">
+											<option value="0">上中下</option>
+											<option value="1">上中右下</option>
+											<option value="2">上左中下</option>
+										</select>
+    	                            </td>
+    	
+    	                            <td align="left" style="border: 1px solid #D6D6D6;padding:1px;">
+										上中下
+										<input id="articleId" name="articleId" type="hidden" value="-1"/>
+										<input id="articleVisits" name="articleVisits" type="hidden" value="0"/>
+										<input id="articleRating" name="articleRating" type="hidden" value="0"/>
+										<input id="articleRatingCount" name="articleRatingCount" type="hidden" value="0"/>
+										<input id="articleSupportCount" name="articleSupportCount" type="hidden" value="0"/>
+										<input id="articleOpposeCount" name="articleOpposeCount" type="hidden" value="0"/>
+    	                            </td>
+    	                        </tr>
+    	                        <tr>
+    	                            <td width="120px" style="border: 1px solid #D6D6D6;padding:1px;">
+										<label for="articleTitle"><b>文章标题:</b></label>
+    	                            </td>
+    	
+    	                            <td align="left" style="border: 1px solid #D6D6D6;padding:1px;">
+										<input id="articleTitle" name="articleTitle" type="input" class="inputTag required" value=""/>
+    	                            </td>
+    	                        </tr>
+    	                        <tr>
+    	                            <td width="120px" style="border: 1px solid #D6D6D6;padding:1px;">
+										<label for="articleMetaKeywords"><b>meta关键字:</b></label>
+    	                            </td>
+    	
+    	                            <td align="left" style="border: 1px solid #D6D6D6;padding:1px;">
+										<input id="articleMetaKeywords" name="articleMetaKeywords" type="input" class="inputTag required" value=""/>
+    	                            </td>
+    	                        </tr>
+    	                        <tr>
+    	                            <td width="120px" style="border: 1px solid #D6D6D6;padding:1px;">
+										<label for="articleMetaDescription"><b>meta描述:</b></label>
+    	                            </td>
+    	
+    	                            <td align="left" style="border: 1px solid #D6D6D6;padding:1px;">
+										<input id="articleMetaDescription" name="articleMetaDescription" type="input" class="inputTag required" value=""/>
+    	                            </td>
+    	                        </tr>
+    	                        <tr>
+    	                            <td width="120px" style="border: 1px solid #D6D6D6;padding:1px;">
+										<label for="articleImage"><b>文章图片:</b></label>
+    	                            </td>
+    	
+    	                            <td align="left" style="border: 1px solid #D6D6D6;padding:1px;">
+										<input id="articleImage" name="articleImage" type="input" class="inputTag required" value=""/>
+    	                            </td>
+    	                        </tr>
+    	                        <tr>
+    	                            <td width="120px" style="border: 1px solid #D6D6D6;padding:1px;">
+										<label for="articleWeight"><b>文章权重:</b></label>
+    	                            </td>
+    	
+    	                            <td align="left" style="border: 1px solid #D6D6D6;padding:1px;">
+										<input id="articleWeight" name="articleWeight" type="input" class="inputTag required number" value=""/>
+    	                            </td>
+    	                        </tr>
+    	                        <tr>
+    	                            <td width="120px" style="border: 1px solid #D6D6D6;padding:1px;">
+										<label for="articlePublished"><b>文章发布:</b></label>
+    	                            </td>
+    	
+    	                            <td align="left" style="border: 1px solid #D6D6D6;padding:1px;">
+										<input name="articlePublished" type="radio" value="1" checked/>发布
+										<input name="articlePublished" type="radio" value="0"/>不发布
+    	                            </td>
+    	                        </tr>
+								<tr>
+    	                            <td width="120px" style="border: 1px solid #D6D6D6;padding:1px;">
+										<label for="articleSummary"><b>文章描述:</b></label>
+    	                            </td>
+    	
+    	                            <td align="left" style="border: 1px solid #D6D6D6;padding:1px;">
+										<textarea id="articleSummary" name="articleSummary" class="required" style="width:100%;" cols="100px" rows="4"/></textarea>
+    	                            </td>
+    	                        </tr>
+                            </table>
+	                    </div>
+	                </td>
+	            </tr>
+	            <tr>
+	                <td colspan="4">
+	                    <div class="componentHeaderList sortableColumn" id="componentList0">
+	                        <div id="emptyComponent_0_0" style="border: 0px;width:100%;"></div>
+	                    </div>
+	                </td>
+	            </tr>
+	            <tr>
+	                <td  colspan="3" align="left" width="80%" valign="top">
+	                <div class="componentBodyList sortableColumn" style="float:auto;" id="componentList4">
+	                        <div id="emptyComponent_4_0" style="border: 0px;width:100%;"></div>
+	                </div>
+	                </td>
+	                <td  colspan="4" align="right" width="20%" valign="top">
+	                <div class="componentBodyList sortableColumn" style="float:auto;" id="componentList2">
+	                        <div id="emptyComponent_2_0" style="border: 0px;width:100%;"></div>
+	                </div>
+	                </td>
+	            </tr>
+	            <tr>
+	                <td colspan="4">
+	                    <div class="componentFooterList sortableColumn" style="border: 1px solid #D6D6D6;padding:4px;align:center;" id="componentList3">
+	                        <div id="emptyComponent_3_0" style="border: 0px;width:100%;"></div>
+	                    </div>
+	                </td>
+	
+	            </tr>
+	            <tr>
+	                <td>&nbsp;</td>
+	                <td colspan="3">
+	                    <input type="submit" id="saveAll" value="保存"/>
+	                </td>
+	            </tr>
+	        </table>
+        </form>
+    </div>
+<p style="display:none">
+    <!-- 头部模板 -->
+    #set($position="0")
+    #parse("inc/admin/modules/headerLogo.vm")
+    #parse("inc/admin/modules/headerNav.vm")
+    #parse("inc/admin/modules/headerPath.vm")
+    <!-- 头部模板结束 -->
+    
+    <!-- 中部模板 -->
+    #set($position="4")
+    #parse("inc/admin/modules/bodyFlash.vm")
+    <!-- 中部模板结束 -->
+    
+    <!-- 底部模板 -->
+    #set($position="3")
+    #parse("inc/admin/modules/footerFriendLink.vm")
+    #parse("inc/admin/modules/footerCopyRight.vm")
+    <!-- 底部模板结束 -->
+</p>
+#include("inc/admin/footerJs.vm")
+</body>
+</html>
+<!--${article}-->

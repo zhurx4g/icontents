@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<meta name="Description" content="人人网 校内是一个真实的社交网络，联络你和你周围的朋友。 加入人人网校内你可以:联络朋友，了解他们的最新动态；和朋友分享相片、音乐和电影；找到老同学，结识新朋友；用照片和日志记录生活,展示自我。" />
+<meta name="Keywords" content="Xiaonei,Renren,校内,大学,同学,同事,白领,个人主页,博客,相册,群组,社区,交友,聊天,音乐,视频,校园,人人,人人网" />
+<meta name="msapplication-task" content="name=新鲜事;action-uri=http://www.renren.com/home;icon-uri=http://a.xnimg.cn/n/res/icons/newsfeed.ico" />
+<meta name="msapplication-task" content="name=日志;action-uri=http://blog.renren.com;icon-uri=http://a.xnimg.cn/n/res/icons/blog.ico" />
+<meta name="msapplication-task" content="name=相册;action-uri=http://photo.renren.com;icon-uri=http://a.xnimg.cn/n/res/icons/photo.ico" />
+<meta name="msapplication-task" content="name=音乐;action-uri=http://music.renren.com;icon-uri=http://a.xnimg.cn/n/res/icons/music.ico" />
+<meta name="msapplication-task" content="name=分享;action-uri=http://share.renren.com;icon-uri=http://a.xnimg.cn/n/res/icons/share.ico" />
+<meta name="msApplication-ID" content="App" />
+<meta name="msApplication-PackageFamilyName" content="57722RenRenpreview.RenrenHD_fknrsfzqca1jw" />
+<link rel="shortcut icon" type="image/x-icon" href="http://a.xnimg.cn/favicon-rr.ico?ver=3" /><link rel="apple-touch-icon" href="http://a.xnimg.cn/wap/apple_icon_.png" />
+<!--[if IE]><script type="text/javascript" src="http://s.xnimg.cn/a30950/n/core/expressions.js"></script><![endif]-->
+<link href="http://s.xnimg.cn/a37606/n/core/global-all-min.css" rel="stylesheet" type="text/css" />
+<link href="http://s.xnimg.cn/a36878/n/apps/login/compatible/login-all-min.css" rel="stylesheet" type="text/css" media="all" /><title>人人网，中国领先的实名制SNS社交网络。加入人人网，找到老同学，结识新朋友。</title>
+</head>
+<body id="syshome" class="login">
+        <input type="hidden" id="userGuideType" value="" />
+<div id="dropmenuHolder" class="dropmenu-holder dropmenu-holder-new rr">
+<div id="moredownWeb" class="dropdown" style="position:absolute; top:-9999px; left:-9999px;">
+<div class="menu-dropdown-border">
+<div class="weblist">
+
+</div>
+</div>
+</div>
+</div><div id="topbar"></div>
+#include('/inc/header.vm')
+<div id="opi" class="page-wrapper clearfix"><div class="full-page-holder">
+<div class="full-page">
+<div class="login-page clearfix"><div class="side-column with-entrant"><div class="login-panel">
+<div class="yellow-error" id="yellow_error">
+<a class="close" href="javascript:closeError();"></a>
+<p class="wrong">您的用户名和密码不匹配</p>
+<p class="worp">为了帐号安全，已向您的邮箱： <strong id="sendemail"></strong>发送了一封确认信，请通过邮件内链接登录。</p>
+<p class="m-26"><a id="gotoEmail" href="#" target="_blank">打开邮箱查收确认信</a></p>
+<p class="m-26"><a href="javascript:closeError();">重新输入</a></p>
+</div>
+<div class="yellow-error" id="account_stop">
+<a class="close" href="javascript:closeStop();"></a>
+<p class="wrong"></p>
+<p class="center">您的帐号已停止使用，如有疑问请联系<a style="background:none;padding-left:0;" target="_blank" href="http://support.renren.com/helpcenter">客服</a></p>
+</div>
+<div class="yellow-error" id="account_lock">
+<a class="close" href="javascript:closeLock();"></a>
+<p class="wrong">您的帐号由于以下某种原因需要解锁才能登录</p>
+<ol>
+<li>删除过帐号</li>
+<li>长时间没有登录网站</li>
+<li>安全原因</li>
+</ol>
+<p class="center"><a href="http://safe.renren.com/relive.do">立即解锁</a></p>
+</div>
+<form method="post" id="loginForm" class="login-form" action="http://www.renren.com/PLogin.do">
+<p class="top clearfix">
+<label for="email">帐号:</label>
+<span id="errorMessage" class="errors_div" style="display:none;"></span>
+<input type="text" name="email" class="input-text" id="email" tabindex="1" value=""/>
+</p>
+<p class="pwd clearfix">
+<label for="password">密码:</label>
+<input type="password" id="password" name="password" error="请输入密码" class="input-text" tabindex="2" />
+<a class="forgetPwd" id="forgetPwd" href="http://safe.renren.com/findPass.do" stats="home_findpassword">忘记密码？</a>
+</p>
+<div class="caps-lock-tips" id="capsLockMessage" style="display:none"></div>
+<p id="code" class="code clearfix">
+<label for="code">验证码:</label>
+<input type="text" name="icode" class="input-text" tabindex="3" autocomplete="off" />
+</p>
+<p id="codeimg" class="codeimg clearfix">
+<img id="verifyPic_login" src="http://icode.renren.com/getcode.do?t=login&rnd=Math.random()"/>
+<a href="javascript:refreshCode_login();">换一张</a>
+</p>
+<p class="savepassword clearfix">
+<label title="为了确保您的信息安全，请不要在网吧或者公共机房勾选此项！" for="autoLogin" class="labelCheckbox">
+<input type="checkbox" name="autoLogin" id="autoLogin" value="true" tabindex="4" />下次自动登录
+</label>
+<span class="getpassword" id="getpassword"><a href="http://safe.renren.com/findPass.do" stats="home_findpassword">忘记密码？</a></span>
+</p>
+<p class="bottom">
+<input type="hidden" name="origURL" value="http://www.renren.com/home" />
+<input type="hidden" name="domain" value="renren.com" />
+<input type="hidden" name="key_id" value="1" />
+<input type="submit" id="login" class="input-submit login-btn" value="登录人人网" tabindex="5"/>
+</p>
+</form>
+<div class="regnow">
+<input type="button" onclick="window.location='http://wwv.renren.com/xn.do?ss=10113&rt=27&f=http%3A%2F%2Fwww.renren.com%2F252444088'" id="regnow"  class="input-button login-btn" value="立即注册帐号" tabindex="6"  stats="home_quickreg" />
+</div>
+<p class="login_corp">
+<a href="#" onclick="loginByMSN.openMSNWindow();" id="login_msn">MSN</a>
+<a id="login_360" href="https://openapi.360.cn/oauth2/authorize?client_id=5ddda4458747126a583c5d58716bab4c&response_type=code&redirect_uri=http://www.renren.com/bind/tsz/tszLoginCallBack&scope=basic&display=default">360</a>
+<a id="login_ty" href="https://oauth.api.189.cn/emp/oauth2/authorize?app_id=296961050000000294&response_type=code&redirect_uri=http://www.renren.com/bind/ty/tyLoginCallBack">天翼</a>
+</p>
+</div>
+<div class="entrant">
+<a href="http://reg.renren.com/xn6259.do?ss=17076&rt=1">大一新生专用注册入口</a>
+</div>
+<div onmouseout="$(this).delClass('hover')" onmouseover="$(this).addClass('hover')" class="mobile ">
+<p>
+<img class="mobile-url" src="http://a.xnimg.cn/a.gif"/>
+<span>手机登录</span>
+<a stats="home_mobilelogin" target="_blank" href="http://mobile.renren.com/mobilelink.do?psf=8000201">http://3g.renren.com</a>
+</p>
+<p>
+<img class="mobile-app" src="http://a.xnimg.cn/a.gif"/>
+<a href="http://mobile.renren.com/showClient?psf=41004" >下载手机客户端</a>
+<span class="app-description">省时间，省流量，多积分</span>
+</p>
+</div>
+<div class="rrdesk clearfix " id="rrdesk">
+<a href="http://im.renren.com/?subver=8&amp;word01"><img class="rrdesk-icon" src="http://a.xnimg.cn/a.gif" style="background: url(http://a.xnimg.cn/imgpro/icons/client3.png) left center no-repeat;" /></a>
+<a stats="home_seeindex" target="_blank" href="http://im.renren.com/desktop/rrsetup-8.exe?word01" >下载人人桌面3.1</a>
+<p>不开网页上人人？</p>
+<a style="margin-left:-2px" href="http://g.renren.com/?subver=5&amp;word01"><img class="rrgame-icon" src="http://a.xnimg.cn/a.gif" /></a>
+<a stats="home_seeindex" target="_blank" href="http://g.renren.com/lobby/rrgamesetup-5.exe?word01" >下载游戏大厅2.1</a>&nbsp;<span>游戏定时提醒</span>
+</div>
+<script type="text/javascript">try{
+function addhovereffect(){
+var addlist = new Array("open-search","rrdesk");
+for(var i=0;i<addlist.length;i++){
+if( $(addlist[i]) ) {
+$(addlist[i]).addEvent('mouseover',function(i){
+return function(){
+$(addlist[i]).addClass('hover');
+}
+}(i));
+$(addlist[i]).addEvent('mouseout',function(i){
+return function(){
+$(addlist[i]).delClass('hover');
+}
+}(i));
+}
+}
+}
+XN.dom.ready(addhovereffect);
+}catch(e){}
+</script>
+</div>
+<div class="main-column">
+<div id="ad100000000061"></div><script type="text/javascript" src="http://jebe.xnimg.cn/22635/ad_syshome.js"></script><div class="with-video clearfix"><div class="text">
+<div class="welcome clearfix">
+<div class="ucando">
+<h2>人人网是一个真实社交网络，加入她你可以:</h2>
+<dl>      
+<dd>联络朋友，了解他们的最新动态</dd>
+<dd>用照片和日志记录生活，展示自我</dd>
+</dl>
+<dl>
+<dd>和朋友分享相片、音乐和电影</dd>
+<dd>自由、安全地控制个人隐私</dd>
+</dl>
+<dl>
+<dd>找到老同学结识新朋友</dd>
+</dl>
+</div>
+</div>
+<div class="updates">
+<h2>我们每天都在快乐地进步着:</h2>
+<dl class="clearfix">
+<dt>05月07日</dt>
+<dd><a href='http://show.renren.com/'>秀出游、秀写真、秀美食，赢大奖！</a></dd>
+</dl>
+<dl class="clearfix">
+<dt>04月28日</dt>
+<dd>劳动节Logo、表情上线！</dd>
+</dl>
+<dl class="clearfix">
+<dt>04月25日</dt>
+<dd><a href='http://xiaozu.renren.com/'>人人小组</a>，@功能上线！</dd>
+</dl>
+</div></div><div class="video" style="padding:0;width:245px;height:220px;">
+<a href="http://im.renren.com/?subver=6"><img src="http://a.xnimg.cn/imgpro/login/rrdesk4.jpg" /></a>
+</div>
+</div>  </div>
+</div>
+</div></div>
+</div>
+<script src="http://s.xnimg.cn/a36853/n/apps/login/login-all.js" type="text/javascript" ></script>
+<script>
+
+var catchaCount = null;  var failCode = null;
+
+</script> 
+</div></div>
+</div>
+</div>
+<div id="footer">
+    
+<div class="site-footer">
+<div class="main">
+<ul class="link">
+<li><a href="http://www.renren.com/siteinfo/about">关于</a></li>
+<li><a href="http://dev.renren.com">开放平台</a></li>
+<li><a href="http://wan.renren.com">人人游戏</a></li>
+<li><a href="http://page.renren.com/register/regGuide/">公共主页</a></li>
+<li><a href="http://mobile.renren.com/mobilelink.do?psf=40002">手机人人</a></li>
+<li><a href="http://www.nuomi.com">团购</a></li>
+<li><a href="http://ads.renren.com">营销服务</a></li>
+<li><a href="http://job.renren-inc.com/">招聘</a></li>
+<li><a href="http://support.renren.com/helpcenter">客服帮助</a></li>
+<li><a href="http://www.renren.com/siteinfo/privacy">隐私</a></li>
+</ul>
+<span class="copyright">
+人人网<span title="revision$revxxx$; SJSWT43-98.opi.com">&copy;</span>2012
+</span></div>
+<div class="haoes">
+北京千橡网景科技发展有限公司：文网文[2009]169号<span class="dot">·</span><a href="http://www.miibeian.gov.cn/" target="_blank">京ICP证090254号</a><span class="dot">·</span><span>京公网安备110000000009号</span><span class="dot">·</span><span>甲测资字11002066</span><span class="dot">·</span>文化部监督电子邮箱：wlwh@vip.sina.com
+</div>
+</div>
+</div>
+</div><input type="hidden" name="photoStatic" value="http://s.xnimg.cn/a36957/n/apps/photo/modules/flashUploader/flashUploader.js"/>
+<input type="hidden" name="photoStatic" value="http://s.xnimg.cn/a34938/n/apps/photo/modules/flashUploader/upload-pop-all-min.css"/>
+<input type="hidden" name="photoStatic" value="http://s.xnimg.cn/a34100/n/apps/photo/modules/photo-view/photo-view-new-div-all-min.css"/>
+<input type="hidden" name="photoStatic" value="http://s.xnimg.cn/a34279/n/apps/photo/modules/photo-view/js/photoViewerSparta-div.js"/>
+<input type="hidden" name="photoStatic" value="http://s.xnimg.cn/a36459/jspro/album/commentManage.js"/>
+<input type="hidden" name="photoStatic" value="http://s.xnimg.cn/a28841/csspro/module/replies.css"/>
+<input type="hidden" name="photoStatic" value="http://s.xnimg.cn/a34103/n/apps/photo/modules/libs/tagPhoto-div.js"/> 
+<input type="hidden" name="photoStatic" value="http://s.xnimg.cn/a34412/n/apps/photo/modules/photo-view/js/photoViewerCtr.js"/> 
+<input type="hidden" name="photoStatic" value="http://s.xnimg.cn/a37630/n/apps/photo/modules/flashUploader/flashUploaderSeed.js"/>
+<img style="width:0;height:0;" src="http://s.renren.com/ping?v=20110919" /><script type="text/javascript" src="http://s.xnimg.cn/a12023/jspro/beacon.js"></script><script type="text/javascript">
+COMSCORE.beacon({ c1:2, c2:6934070, c3:"", c4:"", c5:"", c6:"", c15:"" });
+</script>
+<noscript>
+<img src="http://b.scorecardresearch.com/p?c1=2&c2=6934070&c3=&c4=&c5=&c6=&c15=&cj=1" />
+</noscript>
+        <div style="display:none;" class="back-to" id="toolBackTop">
+            <a title="返回顶部" onclick="window.scrollTo(0,0);return false;" href="#top" class="back-top">返回顶部</a>
+        </div>
+        <script type="text/javascript">
+        $(document).ready(function () {
+                var bt = $('#toolBackTop');
+                var sw = $(document.body)[0].clientWidth;
+        
+                var limitsw = (sw - 1000) / 2 - 80;
+                if (limitsw > 0){
+                        limitsw = parseInt(limitsw);
+                        bt.css("right",limitsw);
+                }
+        
+                $(window).scroll(function() {
+                        var st = $(window).scrollTop();
+                        if(st > 30){
+                                bt.show();
+                        }else{
+                                bt.hide();
+                        }
+                });
+        })
+        </script>
+#parse("modules/JiaThisComponent.vm")
+    </body>
+</html>

@@ -1,0 +1,421 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>jTemplates - template engine in JavaScript</title>
+<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="../js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.5.custom.min.js"></script>
+<script type="text/javascript" src="js/jquery-jtemplates.js"></script>
+
+<script type="text/javascript" src="ckeditor/ckeditor.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/common.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.6.custom.css.css" />
+<link rel="stylesheet" type="text/css" href="css/adminPage.css" />
+<script type="text/javascript">
+        // data for testing
+        var totalCount = 0;
+        
+        var headerCount = 0;
+        var bodyCount = 0;
+        var footerCount = 0;
+        
+        var headerSeqence = 0;
+        var bodySeqence = 0;
+        var footerSeqence = 0;
+        
+        var validator;
+        jQuery(document).ready(function() {
+            //可以拖动的组件
+        	jQuery( ".sortableColumn" ).sortable({
+                placeholder: "ui-state-highlight"
+            });
+        	//jQuery( ".sortableColumn" ).disableSelection();
+
+            validator = jQuery("#componentListForm").validate({
+                submitHandler:function(form){
+            	    totalCount = 0;
+            	    
+            	    headerSeqence = 0;
+            	    bodySeqence = 0;
+            	    footerSeqence = 0;
+            	    
+	                var componentHeaderList = jQuery("#componentHeaderList").find("table[name='fieldsTable']");
+	                componentHeaderList.each(function(){
+	                	var componentTypeObj = jQuery(this).find("input[id*='componentType']");
+	                	var componentSequenceObj = jQuery(this).find("input[id*='componentSequence']");
+	                	var componentPositionObj = jQuery(this).find("input[id*='componentPosition']");
+	                	
+	                	componentTypeObj.attr('name','componentType'+totalCount);
+	                	componentSequenceObj.attr('name','componentSequence'+totalCount);
+	                	componentPositionObj.attr('name','componentPosition'+totalCount);
+
+	                	componentSequenceObj.val(headerSeqence);
+	                	
+	                    var componentType = componentTypeObj.val();
+	                    if(componentType=='LogoComponent'){
+	                    }else if(componentType=='NavComponent'){
+	                    }else{
+	                        alert('['+componentType+']组件不应该出现在这个区域');
+	                    }
+	                    headerSeqence=headerSeqence+1;
+	                    totalCount=totalCount+1;
+	                });
+	                
+	                var componentBodyList = jQuery("#componentBodyList").find("table[name='fieldsTable']");
+	                componentBodyList.each(function(){
+                        var componentTypeObj = jQuery(this).find("input[id*='componentType']");
+                        var componentSequenceObj = jQuery(this).find("input[id*='componentSequence']");
+                        var componentPositionObj = jQuery(this).find("input[id*='componentPosition']");
+                        
+                        componentTypeObj.attr('name','componentType'+totalCount);
+                        componentSequenceObj.attr('name','componentSequence'+totalCount);
+                        componentPositionObj.attr('name','componentPosition'+totalCount);
+
+                        componentSequenceObj.val(bodySeqence);
+                        
+	                    var componentType = jQuery(this).find("input[id='componentType']").val();
+	                    if(componentType=='FlashComponent'){
+	                    }else{
+	                        alert('['+componentType+']组件不应该出现在这个区域');
+	                    }
+	                    bodySeqence=bodySeqence+1;
+                        totalCount=totalCount+1;
+	                });
+	                
+	                var componentFooterList = jQuery("#componentFooterList").find("table[name='fieldsTable']");
+	                componentFooterList.each(function(){
+                        var componentTypeObj = jQuery(this).find("input[id*='componentType']");
+                        var componentSequenceObj = jQuery(this).find("input[id*='componentSequence']");
+                        var componentPositionObj = jQuery(this).find("input[id*='componentPosition']");
+                        
+                        componentTypeObj.attr('name','componentType'+totalCount);
+                        componentSequenceObj.attr('name','componentSequence'+totalCount);
+                        componentPositionObj.attr('name','componentPosition'+totalCount);
+
+                        componentSequenceObj.val(footerSeqence);
+                        
+	                    var componentType = jQuery(this).find("input[id='componentType']").val();
+	                    if(componentType=='FriendLinkComponent'){
+	                    }else if(componentType=='CopyRightComponent'){
+	                    }else{
+	                        alert('['+componentType+']组件不应该出现在这个区域');
+	                    }
+	                    footerSeqence=footerSeqence+1;
+                        totalCount=totalCount+1;
+	                });
+	                jQuery('#componentListLength').val(totalCount); 
+	                form.submit(); 
+                }    
+            });
+            
+            <!--顶部工具栏-->
+            jQuery("#btnHeaderLogo").click(function(){
+                var data = {};
+                // attach the template
+                jQuery("#emptyHeaderComponent"+headerCount).setTemplateElement("templateHeaderLogo");
+                
+                // process the template
+                jQuery("#emptyHeaderComponent"+headerCount).processTemplate(data);
+
+                var componentHTMLObj = jQuery("#emptyHeaderComponent"+headerCount).find("textarea[id='headerHeaderHtml']");
+                componentHTMLObj.attr('id','headerHeaderHtml'+totalCount);
+                CKEDITOR.replace(componentHTMLObj[0]);
+                headerCount=headerCount+1;
+                totalCount=totalCount+1;
+                jQuery('<div id="emptyHeaderComponent'+headerCount+'" style="border: 0px;width:100%;"></div>').appendTo('#componentHeaderList');
+            });
+            jQuery("#btnHeaderNav").click(function(){
+                var data = {};
+                // attach the template
+                jQuery("#emptyHeaderComponent"+headerCount).setTemplateElement("templateHeaderNav");
+                
+                // process the template
+                jQuery("#emptyHeaderComponent"+headerCount).processTemplate(data);
+                headerCount=headerCount+1;
+                totalCount=totalCount+1;
+                jQuery('<div id="emptyHeaderComponent'+headerCount+'" style="border: 0px;width:100%;"></div>').appendTo('#componentHeaderList');
+            });
+
+                
+            <!--中间工具栏-->
+            jQuery("#btnBodyFlash").click(function(){
+                var data = {};
+                
+                // attach the template
+                jQuery("#emptyBodyComponent"+bodyCount).setTemplateElement("templateBodyFlash");
+                
+                // process the template
+                jQuery("#emptyBodyComponent"+bodyCount).processTemplate(data);
+                bodyCount=bodyCount+1;
+                jQuery('<div id="emptyBodyComponent'+bodyCount+'" style="border: 0px;width:100%;"></div>').appendTo('#componentBodyList');
+                });
+
+            <!--底部工具栏-->
+            //底部友情链接
+            jQuery("#btnFooterFriendLink").click(function(){
+                var data = {};
+                
+                // attach the template
+                jQuery("#emptyFooterComponent"+footerCount).setTemplateElement("templateFooterFriendLink");
+                
+                // process the template
+                jQuery("#emptyFooterComponent"+footerCount).processTemplate(data);
+                footerCount=footerCount+1;
+                jQuery('<div id="emptyFooterComponent'+footerCount+'" style="border: 0px;width:100%;"></div>').appendTo('#componentFooterList');
+            });
+            //底部公司版权
+            jQuery("#btnFooterCopyRight").click(function(){
+                var data = {};
+                
+                // attach the template
+                jQuery("#emptyFooterComponent"+footerCount).setTemplateElement("templateFooterCopyRight");
+                
+                // process the template
+                jQuery("#emptyFooterComponent"+footerCount).processTemplate(data);
+                footerCount=footerCount+1;
+                jQuery('<div id="emptyFooterComponent'+footerCount+'" style="border: 0px;width:100%;"></div>').appendTo('#componentFooterList');
+            });
+        }); 
+
+        function callback(data){
+
+        }
+</script>
+</head>
+<body style="padding:5px;">
+    <div class="componentList" id="componentList" style="align:center;">
+        <form id="componentListForm" action="http://t.163.com" method="post">
+	        <input type="hidden" id="componentListLength" name="componentListLength" value="0" />
+	        <table width="98%">
+	            <tr>
+	                <td colspan="4">
+	                    <div class="componentButtonList" id="componentButtonList">
+	                    <table width="100%">
+	                        <tr>
+	                            <td width="120px" style="border: 1px solid #D6D6D6;padding:1px;"><b>头部工具栏:<b>
+	                            </td>
+	
+	                            <td align="left" style="border: 1px solid #D6D6D6;padding:1px;">
+	                            <a id="btnHeaderLogo" href="javascript:void(0)">头部</a>
+	                            <a id="btnHeaderNav" href="javascript:void(0)">导航条</a>
+	                            </td>
+	                        </tr>
+	                        <tr>
+	                            <td style="border: 1px solid #D6D6D6;padding:1px;"><b>中间工具栏:<b></td>
+	                            <td align="left" style="border: 1px solid #D6D6D6;padding:1px;">
+	                                <a id="btnBodyFlash" href="javascript:void(0)">Falsh组件</a>
+	                            </td>
+	                        </tr>
+	                        <tr>
+	                            <td style="border: 1px solid #D6D6D6;padding:1px;"><b>底部工具栏:<b></td>
+	                            <td align="left" style="border: 1px solid #D6D6D6;padding:1px;">
+	                                <a id="btnFooterFriendLink" href="javascript:void(0)">友情链接</a>
+	                                <a id="btnFooterCopyRight" href="javascript:void(0)">公司版权</a>
+	                            </td>
+	                        </tr>
+	                    </table>
+	                    </div>
+	
+	                </td>
+	            </tr>
+	            <tr>
+	                <td colspan="4">
+	                    <div class="componentHeaderList sortableColumn" id="componentHeaderList">
+	                        <div id="emptyHeaderComponent0" style="border: 0px;width:100%;"></div>
+	                    </div>
+	                </td>
+	            </tr>
+	
+	            <tr>
+	                <td  colspan="4" align="left" width="80%" valign="top">
+	                <div class="componentBodyList sortableColumn" style="float:auto;" id="componentBodyList">
+	                        <div id="emptyBodyComponent0" style="border: 0px;width:100%;"></div>
+	                </div>
+	                </td>
+	            </tr>
+	            <tr>
+	                <td colspan="4">
+	                    <div class="componentFooterList sortableColumn" style="border: 1px solid #D6D6D6;padding:4px;align:center;" id="componentFooterList">
+	                        <div id="emptyFooterComponent0" style="border: 0px;width:100%;"></div>
+	                    </div>
+	                </td>
+	
+	            </tr>
+	            <tr>
+	                <td>&nbsp;</td>
+	                <td colspan="3">
+	                    <input type="submit" id="saveAll" value="保存"/>
+	                </td>
+	            </tr>
+	        </table>
+        </form>
+    </div>
+<p style="display:none">
+    <!-- 头部模板 -->
+    <textarea id="templateHeaderLogo" rows="0" cols="0">
+    <!--
+    <div class="component" style="width:100%;margin:2px auto;" id="compItem_0_8_3">
+        <div class="componentTitle">
+            <span class="left">网页头部区域(选择网页头部区域后，前台网页会显示系统的头部区域出来)</span>
+            <span class="close"><a href="javascript:void(0)" onclick="javascript:if(confirm('确定删除网页头部'))$(this).parents('div:first').parents('div:first').remove();">删除</a></span>
+        </div>
+        <div class="comItemContent">
+            <table name="fieldsTable" width="100%" border="0">
+                <tbody>
+                    <tr>
+                        <td width="120px" align="right" valign="top"><label><b>logo图片地址:</b></label></td>
+                        <td colspan="3">
+                            <input type="hidden" id="componentType" name="componentType" class="inputTag" value="LogoComponent" />
+                            <input type="hidden" id="componentSequence" name="componentSequence" class="inputTag" value="0" />
+                            <input type="hidden" id="componentPosition" name="componentPosition" class="inputTag" value="0" />
+                            <input type="text" name="headerHeaderImage" class="inputTag" value="" />
+                        </td>
+                    </tr>           
+                    <tr>
+                        <td width="120px" align="right" valign="top"><label><b>右侧内容:</b></label></td>
+                        <td colspan="3">
+                            <textarea id="headerHeaderHtml" style="width:100%;" cols="100px" rows="4" name="headerHeaderHtml">xxx</textarea>
+                        </td>
+                    </tr>           
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    -->
+    </textarea>
+    <textarea id="templateHeaderNav" rows="0" cols="0">
+    <!--
+    <div class="component" style="width:100%;margin:2px auto;" id="compItem_0_8_3">
+        <div class="componentTitle">
+            <span class="left">系统导航栏</span>
+            <span class="close"><a href="javascript:void(0)" onclick="javascript:if(confirm('确定删除系统导航栏'))$(this).parents('div:first').parents('div:first').parents('div:first').remove();">删除</a></span>
+        </div>
+        <div class="comItemContent">
+            <table name="fieldsTable" width="100%" border="0">
+                <tbody>
+                    <tr>
+                        <td width="120px" align="right" valign="top">
+                            <label><b>开始权重:</b></label>
+                        </td>
+                        <td colspan="3">
+                            <input type="hidden" id="componentType" name="componentType" value="NavComponent" />
+                            <input type="hidden" id="componentSequence" name="componentSequence" value="0" />
+                            <input type="hidden" id="componentPosition" name="componentPosition" value="0" />
+                            <input type="text" name="headerNavMinWeight" class="inputTag" value="" />
+                        </td>
+                    </tr>           
+                    <tr>
+                        <td width="120px" align="right" valign="top">
+                            <label><b>结束权重:</b></label>
+                        </td>
+                        <td colspan="3">
+                            <input type="text" name="headerNavMaxWeight" class="inputTag" value="" />
+                        </td>
+                    </tr>           
+                    <tr>
+                        <td width="120px" align="right" valign="top">
+                            <label><b>最大数目:</b></label>
+                        </td>
+                        <td colspan="3">
+                            <input type="text" name="headerNavMaxCount" class="inputTag" value="" />
+                        </td>          
+                    </tr>           
+                </tbody>
+            </table>
+        </div>
+    </div>
+    -->
+    </textarea>
+    <!-- 头部模板结束 -->
+    
+    <!-- 中部模板 -->
+    <textarea id="templateBodyFlash" rows="0" cols="0">
+    <!--
+    <div class="component" style="width:100%;margin:2px auto;" id="compItem_0_8_3">
+        <div class="componentTitle">
+            <span class="left">Falsh组件</span>
+            <span class="close">
+                <a href="javascript:void(0)" onclick="javascript:if(confirm('确定删除Falsh组件'))$(this).parents('div:first').parents('div:first').parents('div:first').remove();">删除</a>
+            </span>
+        </div>
+        <div class="comItemContent">
+            <table name="fieldsTable" width="100%" border="0">
+                <tbody>
+                    <tr>
+                        <td><label><b>Falsh组件:</b></label></td>
+                        <td colspan="3">
+	                        <input type="hidden" id="componentType" name="componentType" class="inputTag" value="FlashComponent" />
+                            <input type="hidden" id="componentSequence" name="componentSequence" value="0" />
+                            <input type="hidden" id="componentPosition" name="componentPosition" value="4" />
+	                        <label>选择系统导航栏后，前台网页会显示系统的导航栏出来</label>
+                        </td>
+                    </tr>           
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    -->
+    </textarea>
+    <!-- 中部模板结束 -->
+    
+    <!-- 底部模板 -->
+    <textarea id="templateFooterFriendLink" rows="0" cols="0">
+    <!--
+    <div class="component" style="width:100%;margin:2px auto;" id="compItem_0_8_3">
+        <div class="componentTitle">
+            <span class="left">友情链接</span>
+            <span class="close">
+                <a href="javascript:void(0)" onclick="javascript:if(confirm('确定删除友情链接组件'))$(this).parents('div:first').parents('div:first').parents('div:first').remove();">删除</a>
+            </span>
+        </div>
+        <div class="comItemContent">
+            <table name="fieldsTable" width="100%" border="0">
+                <tbody>
+                    <tr>
+                        <td><label><b>友情链接组件:</b></label></td>
+                        <td colspan="3">
+	                        <input type="hidden" id="componentType" name="componentType" value="FriendLinkComponent" />
+                            <input type="hidden" id="componentSequence" name="componentSequence" value="0" />
+                            <input type="hidden" id="componentPosition" name="componentPosition" value="3" />
+	                        <label>选择系统导航栏后，前台网页会显示系统的友情链接出来</label>
+                        </td>
+                    </tr>           
+                </tbody>
+            </table>
+        </div>
+    </div>
+    -->
+    </textarea>
+    <textarea id="templateFooterCopyRight" rows="0" cols="0">
+    <!--
+    <div class="component" style="width:100%;margin:2px auto;" id="compItem_0_8_3">
+        <div class="componentTitle">
+            <span class="left">版权组件</span>
+            <span class="close">
+                <a href="javascript:void(0)" onclick="javascript:if(confirm('确定删除版权组件'))$(this).parents('div:first').parents('div:first').parents('div:first').remove();">删除</a>
+            </span>
+        </div>
+        <div class="comItemContent">
+            <table name="fieldsTable" width="100%" border="0">
+                <tbody>
+                    <tr>
+                        <td><label><b>版权组件:</b></label></td>
+                        <td colspan="3">
+	                        <input type="hidden" id="componentType" name="componentType" value="CopyRightComponent" />
+                            <input type="hidden" id="componentSequence" name="componentSequence" value="0" />
+                            <input type="hidden" id="componentPosition" name="componentPosition" value="3" />
+	                        <label>选择系统导航栏后，前台网页会显示系统的版权出来</label>
+                        </td>
+                    </tr>           
+                </tbody>
+            </table>
+        </div>
+    </div>
+    -->
+    </textarea>
+    <!-- 底部模板结束 -->
+</p>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.googlecode.icontents.dao.ArticleComponentMapper">
+	<resultMap type="com.googlecode.icontents.bean.component.ArticleComponent" id="articleComponent">
+		<result column="CONTENT" jdbcType="CLOB" javaType ="java.lang.String" property="content" /> 
+	</resultMap>
+	<insert id="insert">
+		<![CDATA[
+			INSERT INTO ICONTENTS_ARTICLE_COMPONTENT
+			values(#{obj.articleId},#{obj.sequence},#{obj.title},#{obj.image},#{obj.position},#{obj.content},#{obj.json},#{obj.name},#{obj.description},#{obj.link},#{obj.componentType});
+		]]>
+	</insert>
+	<delete id="removeByArticleId" >
+		<![CDATA[
+			DELETE FROM ICONTENTS_ARTICLE_COMPONTENT 
+			WHERE articleId=#{articleId}
+		]]>
+	</delete>
+	<update id="update">
+		<![CDATA[
+			update ICONTENTS_CATALOG 
+			set 
+			parentId=#{obj.parentId},
+			name=#{obj.name},
+			sequence=#{obj.sequence},
+			weight=#{obj.weight},
+			icon=#{obj.icon},
+			image=#{obj.image},
+			description=#{obj.description},
+			updateUserId=#{obj.updateUserId} 
+			where id=#{obj.id}
+		]]>
+	</update>
+	<select id="selectByArticleId" resultType="com.googlecode.icontents.bean.component.ArticleComponent">
+		<![CDATA[
+			SELECT C.* 
+			FROM ICONTENTS_ARTICLE_COMPONTENT C 
+			WHERE articleId=#{articleId} AND POSITION=#{position} 
+			ORDER BY SEQUENCE ASC
+		]]>
+	</select>
+	<select id="getArticleComponentById" resultType="com.googlecode.icontents.bean.component.ArticleComponent">
+		<![CDATA[
+			SELECT C.* 
+			FROM ICONTENTS_ARTICLE_COMPONTENT C 
+			WHERE articleId=#{articleId} AND POSITION=#{position} AND SEQUENCE=#{sequence}
+		]]>
+	</select>
+</mapper>
