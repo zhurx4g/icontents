@@ -69,7 +69,7 @@
 #end
 </div>
 #elseif($article.layout==2)
-<div id="bodyColumn">
+<div id="bodyColumn" style="margin-left:2px;float:left;">
     <div id="contentBox">
 #foreach($component in $article.bodyComponentList)
 #set($width="720px")
@@ -78,13 +78,13 @@
 #if("true"==$config_uyan)
 #parse("modules/uyan.vm")
 #end
-</div>
     </div>
 </div>
 <div id="rightColumn">
 #foreach($component in $article.rightComponentList)
 #parse("modules/${skin}/${component.componentType}.vm")
 #end
+</div>
 </div>
 #else
 	#foreach($component in $article.bodyComponentList)

@@ -108,13 +108,20 @@ div.clear hr{
     border: 1px solid;
 }
 #leftColumn {
- width: 172px;
+ width: 276px;
  float:left;
  overflow: auto;
 }
+#rightColumn {
+ width: 276px;
+ overflow: auto;
+ margin-top: 3px;
+}
 #bodyColumn {
-  margin-right: 1px;
-  margin-left: 180px;
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-left: 280px;
+  width:718px;
 }
 #legend {
   padding: 8px 0 8px 0;
