@@ -25,7 +25,7 @@
   }
   initialize$!{component.sequence}$!{component.position}();
 </script>
-<div style="#if($component.position!=3)width:272px#else width:240px #end;margin: 0px;background: none repeat scroll 0 0 white;color:black;border:solid 1px;">
+<div style="#if($component.position!=3)width:272px#else width:240px #end;margin-bottom: 4px;background: none repeat scroll 0 0 white;color:black;border:solid 1px;">
 <h2>联系方式</h2>
 <div id="mapComponentCanvas$!{component.sequence}$!{component.position}" style="width: 100%; height: $!{component.height}px;"></div>
 </div>
