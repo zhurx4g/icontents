@@ -7,13 +7,13 @@
 	</resultMap>
 	<insert id="insert">
 		<![CDATA[
-			INSERT INTO ICONTENTS_ARTICLE_COMPONTENT
+			INSERT INTO icontents_article_compontent
 			values(#{obj.articleId},#{obj.sequence},#{obj.title},#{obj.image},#{obj.position},#{obj.content},#{obj.json},#{obj.name},#{obj.description},#{obj.link},#{obj.componentType});
 		]]>
 	</insert>
 	<delete id="removeByArticleId" >
 		<![CDATA[
-			DELETE FROM ICONTENTS_ARTICLE_COMPONTENT 
+			DELETE FROM icontents_article_compontent 
 			WHERE articleId=#{articleId}
 		]]>
 	</delete>
@@ -35,7 +35,7 @@
 	<select id="selectByArticleId" resultType="com.googlecode.icontents.bean.component.ArticleComponent">
 		<![CDATA[
 			SELECT C.* 
-			FROM ICONTENTS_ARTICLE_COMPONTENT C 
+			FROM icontents_article_compontent C 
 			WHERE articleId=#{articleId} AND POSITION=#{position} 
 			ORDER BY SEQUENCE ASC
 		]]>
@@ -43,7 +43,7 @@
 	<select id="getArticleComponentById" resultType="com.googlecode.icontents.bean.component.ArticleComponent">
 		<![CDATA[
 			SELECT C.* 
-			FROM ICONTENTS_ARTICLE_COMPONTENT C 
+			FROM icontents_article_compontent C 
 			WHERE articleId=#{articleId} AND POSITION=#{position} AND SEQUENCE=#{sequence}
 		]]>
 	</select>

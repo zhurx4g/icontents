@@ -4,19 +4,19 @@
 <mapper namespace="com.googlecode.icontents.dao.ConfigMapper">
     <insert id="insert" parameterType="com.googlecode.icontents.bean.Config">
         <![CDATA[
-            replace into ICONTENTS_CONFIG
+            replace into icontents_config
             values(#{obj.key},#{obj.value});
         ]]>
     </insert>
     <update id="update">
         <![CDATA[
-            replace into ICONTENTS_CONFIG
+            replace into icontents_config
             values(#{obj.key},#{obj.value});
         ]]>
     </update>
     <select id="getConfig" resultType="com.googlecode.icontents.bean.Config">
         <![CDATA[
-            SELECT * FROM ICONTENTS_CONFIG
+            SELECT * FROM icontents_config
         ]]>
     </select>
 </mapper>

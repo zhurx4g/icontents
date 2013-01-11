@@ -4,7 +4,7 @@
 <mapper namespace="com.googlecode.icontents.dao.CatalogMapper">
 	<insert id="insert" parameterType="com.googlecode.icontents.bean.Catalog">
 		<![CDATA[
-			insert into ICONTENTS_CATALOG
+			insert into icontents_catalog
 			values(null,
 			#{obj.parentId},
 			#{obj.name},
@@ -23,19 +23,19 @@
 		]]>
 	</insert>
     <select id="getCurrentId" resultType="long">
-       <![CDATA[ SELECT max(id) from ICONTENTS_CATALOG]]>
+       <![CDATA[ SELECT max(id) from icontents_catalog]]>
     </select>
     <select id="getObjectById" resultType="com.googlecode.icontents.bean.Catalog">
-       <![CDATA[ SELECT * FROM ICONTENTS_CATALOG WHERE ID=#{id}]]>
+       <![CDATA[ SELECT * FROM icontents_catalog WHERE ID=#{id}]]>
     </select>
 	<delete id="removeObjectById">
 		<![CDATA[
-		delete from ICONTENTS_CATALOG where id=#{id}
+		delete from icontents_catalog where id=#{id}
 		]]>
 	</delete>
 	<update id="update">
 		<![CDATA[
-			update ICONTENTS_CATALOG 
+			update icontents_catalog 
 			set 
 			parentId=#{obj.parentId},
 			name=#{obj.name},
@@ -54,10 +54,10 @@
 		<![CDATA[
 			SELECT 
 			C.*,
-			(SELECT COUNT(1) FROM ICONTENTS_CATALOG WHERE PARENTID=C.ID) SUBCATALOG,
-			(SELECT USERNAME FROM ICONTENTS_USER U  WHERE C.CREATEUSERID=U.ID) CREATOR,
-			(SELECT USERNAME FROM ICONTENTS_USER U  WHERE C.UPDATEUSERID=U.ID) UPDATER 
-			FROM ICONTENTS_CATALOG C 
+			(SELECT COUNT(1) FROM icontents_catalog WHERE PARENTID=C.ID) SUBCATALOG,
+			(SELECT USERNAME FROM icontents_user U  WHERE C.CREATEUSERID=U.ID) CREATOR,
+			(SELECT USERNAME FROM icontents_user U  WHERE C.UPDATEUSERID=U.ID) UPDATER 
+			FROM icontents_catalog C 
 			WHERE PARENTID=0 
 			ORDER BY SEQUENCE DESC
 			LIMIT #{offset},#{size}
@@ -67,10 +67,10 @@
 		<![CDATA[
 			SELECT 
 			C.*,
-			(SELECT COUNT(1) FROM ICONTENTS_CATALOG WHERE PARENTID=C.ID) SUBCATALOG,
-			(SELECT USERNAME FROM ICONTENTS_USER U  WHERE C.CREATEUSERID=U.ID) CREATOR,
-			(SELECT USERNAME FROM ICONTENTS_USER U  WHERE C.UPDATEUSERID=U.ID) UPDATER 
-			FROM ICONTENTS_CATALOG C 
+			(SELECT COUNT(1) FROM icontents_catalog WHERE PARENTID=C.ID) SUBCATALOG,
+			(SELECT USERNAME FROM icontents_user U  WHERE C.CREATEUSERID=U.ID) CREATOR,
+			(SELECT USERNAME FROM icontents_user U  WHERE C.UPDATEUSERID=U.ID) UPDATER 
+			FROM icontents_catalog C 
 			WHERE PARENTID=#{parentId} 
 			ORDER BY SEQUENCE DESC
 		]]>

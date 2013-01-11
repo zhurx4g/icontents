@@ -4,7 +4,7 @@
 <mapper namespace="com.googlecode.icontents.dao.ArticleMapper">
 	<insert id="insert" parameterType="com.googlecode.icontents.bean.Article">
         <![CDATA[
-			insert into ICONTENTS_ARTICLE 
+			insert into icontents_article 
 			values(null,
 			#{obj.title},
 			#{obj.summary},
@@ -30,16 +30,16 @@
 		]]>
 	</insert>
 	<select id="getCurrentId" resultType="long">
-	   <![CDATA[ SELECT max(id) from ICONTENTS_ARTICLE]]>
+	   <![CDATA[ SELECT max(id) from icontents_article]]>
 	</select>
 	<delete id="removeObjectById">
 		<![CDATA[
-			delete from ICONTENTS_article where id=#{id}
+			delete from icontents_article where id=#{id}
 		]]>
 	</delete>
 	<update id="update">
 		<![CDATA[
-			update ICONTENTS_ARTICLE 
+			update icontents_article 
 			set  
 			title=#{obj.title},
 			summary=#{obj.summary},
@@ -64,29 +64,29 @@
 	</update>
 	<select id="getObjectById" resultType="com.googlecode.icontents.bean.Article" parameterType="java.util.Map">
 		<![CDATA[
-			SELECT * FROM ICONTENTS_ARTICLE WHERE ID=#{id}
+			SELECT * FROM icontents_article WHERE ID=#{id}
 		]]>
 	</select>
 	<select id="select" resultType="com.googlecode.icontents.bean.Article" parameterType="java.util.Map">
 		<![CDATA[
 			SELECT 
 			A.*,
-			(SELECT USERNAME FROM ICONTENTS_USER U  WHERE a.CREATEUSERID=U.ID) CREATOR,
-			(SELECT USERNAME FROM ICONTENTS_USER U  WHERE a.UPDATEUSERID=U.ID) UPDATER, 
-			(SELECT NAME FROM ICONTENTS_CATALOG C  WHERE A.CATALOGID=C.ID) CATALOG 
-			FROM ICONTENTS_article a 
+			(SELECT USERNAME FROM icontents_user U  WHERE A.CREATEUSERID=U.ID) CREATOR,
+			(SELECT USERNAME FROM icontents_user U  WHERE A.UPDATEUSERID=U.ID) UPDATER, 
+			(SELECT NAME FROM icontents_catalog C  WHERE A.CATALOGID=C.ID) catalog 
+			FROM icontents_article A 
 			ORDER BY updateTime DESC
 			LIMIT #{offset},#{size}
 		]]>
 	</select>
 	<select id="getTotal" resultType="java.lang.Integer" parameterType="java.util.Map">
 		<![CDATA[
-			SELECT COUNT(1) FROM ICONTENTS_ARTICLE
+			SELECT COUNT(1) FROM icontents_article
 		]]>
 	</select>
 	<select id="getArticleIdByAlias" resultType="java.lang.Integer" parameterType="java.util.Map">
 		<![CDATA[
-			SELECT IFNULL(MAX(ID),-1) FROM ICONTENTS_ARTICLE WHERE ALIAS=#{alias}
+			SELECT IFNULL(MAX(ID),-1) FROM icontents_article WHERE ALIAS=#{alias}
 		]]>
 	</select>
 </mapper>

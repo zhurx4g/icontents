@@ -4,7 +4,7 @@
 <mapper namespace="com.googlecode.icontents.dao.NavMapper">
 	<insert id="insert">
 		<![CDATA[
-			insert into ICONTENTS_NAV
+			insert into icontents_nav
 			values(null,
 			#{obj.parentId},
 			#{obj.name},
@@ -22,16 +22,16 @@
 		]]>
 	</insert>
     <select id="getCurrentId" resultType="long">
-       <![CDATA[ SELECT max(id) from ICONTENTS_NAV]]>
+       <![CDATA[ SELECT max(id) from icontents_nav]]>
     </select>
 	<delete id="deleteById" parameterType="java.util.Map">
 		<![CDATA[
-		delete from ICONTENTS_NAV where id=#{id}
+		delete from icontents_nav where id=#{id}
 		]]>
 	</delete>
 	<update id="update">
 		<![CDATA[
-			update ICONTENTS_NAV 
+			update icontents_nav 
 			set 
 			parentId=#{obj.parentId},
 			name=#{obj.name},
@@ -49,10 +49,10 @@
 		<![CDATA[
 			SELECT 
 			C.*,
-			(SELECT COUNT(1) FROM ICONTENTS_NAV WHERE PARENTID=C.ID) SUBCATALOG,
+			(SELECT COUNT(1) FROM icontents_nav WHERE PARENTID=C.ID) SUBCATALOG,
 			(SELECT USERNAME FROM ICONTENTS_USER U  WHERE C.CREATEUSERID=U.ID) CREATOR,
 			(SELECT USERNAME FROM ICONTENTS_USER U  WHERE C.UPDATEUSERID=U.ID) UPDATER 
-			FROM ICONTENTS_NAV C 
+			FROM icontents_nav C 
 			WHERE PARENTID=0 
 			ORDER BY SEQUENCE DESC
 			LIMIT #{offset},#{size}
@@ -62,10 +62,10 @@
 		<![CDATA[
 			SELECT 
 			C.*,
-			(SELECT COUNT(1) FROM ICONTENTS_NAV WHERE PARENTID=C.ID) SUBCATALOG,
+			(SELECT COUNT(1) FROM icontents_nav WHERE PARENTID=C.ID) SUBCATALOG,
 			(SELECT USERNAME FROM ICONTENTS_USER U  WHERE C.CREATEUSERID=U.ID) CREATOR,
 			(SELECT USERNAME FROM ICONTENTS_USER U  WHERE C.UPDATEUSERID=U.ID) UPDATER 
-			FROM ICONTENTS_NAV C 
+			FROM icontents_nav C 
 			WHERE PARENTID=#{parentId} 
 			ORDER BY SEQUENCE DESC
 		]]>

@@ -5,31 +5,31 @@
     <resultMap type="com.googlecode.icontents.bean.User" id="User"></resultMap>
 	<insert id="insert" parameterType="java.util.Map">
 		<![CDATA[
-			insert into ICONTENTS_USER 
+			insert into icontents_user 
 			(id,username,password,registrationDate,email)
 			values(#{id},#{userName},#{password},now(),#{email});
 		]]>
 	</insert>
 	<select id="select" parameterType="java.util.Map" resultType="User">
 		<![CDATA[
-			SELECT * FROM ICONTENTS_USER 
+			SELECT * FROM icontents_user 
 			ORDER BY REGISTRATIONDATE DESC
 			LIMIT #{offset},#{size}
 		]]>	
 	</select>
 	<delete id="deleteByEmail" parameterType="java.util.Map">
 		<![CDATA[
-			DELETE FROM ICONTENTS_USER WHERE EMAIL=#{email}
+			DELETE FROM icontents_user WHERE EMAIL=#{email}
 		]]>
 	</delete>
 	<delete id="deleteById" parameterType="java.util.Map">
 		<![CDATA[
-			DELETE FROM ICONTENTS_USER WHERE ID=#{id}
+			DELETE FROM icontents_user WHERE ID=#{id}
 		]]>
 	</delete>
 	<update id="update">
 		<![CDATA[
-			update ICONTENTS_USER 
+			update icontents_user 
 			set  
 			title=#{title},
 			summary=#{summary},
@@ -53,42 +53,42 @@
 	</update>
 	<select id="getUserByEmail" resultType="User" parameterType="java.util.Map">
 		<![CDATA[
-			SELECT * FROM ICONTENTS_USER WHERE EMAIL=#{email}
+			SELECT * FROM icontents_user WHERE EMAIL=#{email}
 		]]>
 	</select>
 	<select id="getUserByUserName" resultType="User" parameterType="java.util.Map">
 		<![CDATA[
-			SELECT * FROM ICONTENTS_USER WHERE USERNAME=#{userName}
+			SELECT * FROM icontents_user WHERE USERNAME=#{userName}
 		]]>
 	</select>
 	<select id="getTotal" resultType="java.lang.Integer">
 		<![CDATA[
-			SELECT COUNT(1) FROM ICONTENTS_USER
+			SELECT COUNT(1) FROM icontents_user
 		]]>
 	</select>
 	<select id="searchUser" resultType="User" parameterType="java.util.Map">
 		<![CDATA[
-			SELECT * FROM ICONTENTS_USER WHERE EMAIL LIKE #{email}
+			SELECT * FROM icontents_user WHERE EMAIL LIKE #{email}
 		]]>
 	</select>
 	<select id="searchUserCount" resultType="java.lang.Integer" parameterType="java.util.Map">
 		<![CDATA[
-			SELECT COUNT(1) FROM ICONTENTS_USER WHERE EMAIL LIKE #{email}
+			SELECT COUNT(1) FROM icontents_user WHERE EMAIL LIKE #{email}
 		]]>
 	</select>
 	<select id="isExist" resultType="java.lang.Integer" parameterType="java.util.Map">
 		<![CDATA[
-			SELECT COUNT(1) FROM ICONTENTS_USER WHERE EMAIL = #{email} OR USERNAME=#{username}
+			SELECT COUNT(1) FROM icontents_user WHERE EMAIL = #{email} OR USERNAME=#{username}
 		]]>
 	</select>
 	<update id="updateUserLevel" parameterType="java.util.Map">
 		<![CDATA[
-			UPDATE ICONTENTS_USER SET LEVEL=#{level} WHERE ID=#{id}
+			UPDATE icontents_user SET LEVEL=#{level} WHERE ID=#{id}
 		]]>
 	</update>
 	<update id="updateUserPassword" parameterType="java.util.Map">
 		<![CDATA[
-			UPDATE ICONTENTS_USER SET PASSWORD=#{password} WHERE ID=#{id}
+			UPDATE icontents_user SET PASSWORD=#{password} WHERE ID=#{id}
 		]]>
 	</update>
 </mapper>
