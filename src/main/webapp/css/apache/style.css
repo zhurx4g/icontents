@@ -108,20 +108,19 @@ div.clear hr{
     border: 1px solid;
 }
 #leftColumn {
- width: 276px;
+ width: 286px;
  float:left;
  overflow: auto;
 }
 #rightColumn {
- width: 276px;
+ width: 286px;
  overflow: auto;
  margin-top: 3px;
 }
 #bodyColumn {
-  margin-left: 2px;
   margin-right: 2px;
-  margin-left: 280px;
-  width:718px;
+  margin-left: 293px;
+  width:705px;
 }
 #legend {
   padding: 8px 0 8px 0;
@@ -280,6 +279,12 @@ h5 {
 }
 p, table, ul, dl, div, span {
   line-height: 1.3em;
+}
+#contentBox {
+ font-size:14px;
+ line-height: 24px;
+ text-align: justify;
+ word-wrap: break-word;
 }
 tt {
   font-family: Courier New, Courier, monospace;

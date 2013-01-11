@@ -31,7 +31,7 @@
     <div class="logoComponent">
         <div>
         <a id="bannerLeft" href="/">
-            <img alt="" src="$!{config_logo}" height="70px" style="padding-top: 12px;" />
+            <img alt="" src="${config_logo}" height="70px" style="padding-top: 12px;" />
         </a>
         </div>
         <div style="width: 728; height: 90px; float: right;">
@@ -39,19 +39,65 @@
         <div class="clear">
         </div>
     </div>
+#foreach($component in $article.headerComponentList)
 #set($width="960px")
-#parse("modules/${skin}/LogoComponent.vm")
-#parse("modules/${skin}/NavComponent.vm")
+#parse("modules/${skin}/${component.componentType}.vm")
+#end
 </div>
 <!--HEADER END-->
 
 <div id="bodyCompontentList">
 <!-- MASTHEAD_END -->
+#if($article.layout==1)
+<div id="leftColumn">
+    
+#foreach($component in $article.leftComponentList)
+#set($width="240px")
+#parse("modules/${skin}/${component.componentType}.vm")
+#end
+#parse("modules/${skin}/ad.vm")
+</div>
+<div id="bodyColumn">
+    <div id="contentBox">
+#foreach($component in $article.bodyComponentList)
+#set($width="720px")
+#parse("modules/${skin}/${component.componentType}.vm")
+#end
+    </div>
+#if("true"==$config_uyan)
+#parse("modules/uyan.vm")
+#end
+</div>
+#elseif($article.layout==2)
+<div id="bodyColumn" style="margin-left:2px;float:left;">
+    <div id="contentBox">
+#foreach($component in $article.bodyComponentList)
+#set($width="720px")
+#parse("modules/${skin}/${component.componentType}.vm")
+#end
+#if("true"==$config_uyan)
+#parse("modules/uyan.vm")
+#end
+    </div>
+</div>
+<div id="rightColumn">
+#foreach($component in $article.rightComponentList)
+#parse("modules/${skin}/${component.componentType}.vm")
+#end
+</div>
+</div>
+#else
+	#foreach($component in $article.bodyComponentList)
+    #parse("modules/${skin}/${component.componentType}.vm")
+    #end
+#end
 </div>
 
 <!-- FOOTER_BEGIN -->
 <div id="footerCompontentList">
-#parse("modules/${skin}/CopyRightComponent.vm")
+#foreach($component in $article.footerComponentList)
+#parse("modules/${skin}/${component.componentType}.vm")
+#end
 </div>
 <!-- FOOTER_END -->
         <div style="display:none;" class="back-to" id="toolBackTop">

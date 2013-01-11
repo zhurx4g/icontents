@@ -2,7 +2,7 @@
 <urlrewrite>
     <rule>
         <from>^/$</from>
-        <to>/index.do?articleId=-1</to>
+        <to>/index.do</to>
     </rule>
     <rule>
         <from>^/error.html</from>
@@ -14,11 +14,11 @@
     </rule>
     <rule>
         <from>^/article/([0-9]+)\.html</from>
-        <to>/index.do?articleId=$1</to>
+        <to last="true">/article.do?articleId=$1</to>
     </rule>
     <rule>
         <from>^/article/([a-zA-Z]+[0-9]*)\.html</from>
-        <to>/index.do?articleAlias=$1</to>
+        <to last="true">/article.do?articleAlias=$1</to>
     </rule>
     <rule>
         <from>^/data/imageRotatorData/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/</from>

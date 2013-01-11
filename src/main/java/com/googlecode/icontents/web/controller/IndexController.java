@@ -57,7 +57,7 @@ public class IndexController extends AbstractController {
     
 	@ModelAttribute("data") 
 	@RequestMapping(value="/index.do")
-	public ModelAndView index(HttpServletRequest request, @RequestParam("articleId") long articleId, @RequestParam(value = "articleAlias", required=false) String articleAlias, ModelMap model) throws Exception {
+	public ModelAndView index(HttpServletRequest request, ModelMap model) throws Exception {
 	    model.addAttribute("contextPath", request.getContextPath());
 	    
 	    List<Config> configList = configService.getConfig();
@@ -66,23 +66,39 @@ public class IndexController extends AbstractController {
             configMap.put(config.getKey(), config.getValue());
         }
         
-	    Article article = null;
-	    if(StringUtils.isNotBlank(articleAlias)){
-	        article = articleService.getObjectByAlias(articleAlias,true);
-	    }else if(articleId!=Constants.ERROR){
-	        article = articleService.getObjectById(articleId,true);
-	    }
-	    
-	    if(articleId==Constants.ERROR||article == null){
-	        articleId = NumberUtils.toLong(configMap.get(Config.INDEX), -1);
-	        article = articleService.getObjectById(articleId,true);
-	    }
-	    
-	    logger.error("articleId:" + articleId);
-	    logger.error("article:" + article.getName());
-	    model.addAttribute("article", article);
-	    model.addAttribute("catalogList", catalogService.select(0, Integer.MAX_VALUE));
+        model.addAttribute("catalogList", catalogService.select(0, Integer.MAX_VALUE));
         model.addAllAttributes(configMap);
 	    return new ModelAndView("index", model);
 	}
+	
+    @ModelAttribute("data") 
+    @RequestMapping(value="/article.do")
+    public ModelAndView article(HttpServletRequest request, @RequestParam("articleId") long articleId, @RequestParam(value = "articleAlias", required=false) String articleAlias, ModelMap model) throws Exception {
+        model.addAttribute("contextPath", request.getContextPath());
+        
+        List<Config> configList = configService.getConfig();
+        Map<String,String> configMap = new HashMap<String, String>();
+        for(Config config:configList){
+            configMap.put(config.getKey(), config.getValue());
+        }
+        
+        Article article = null;
+        if(StringUtils.isNotBlank(articleAlias)){
+            article = articleService.getObjectByAlias(articleAlias,true);
+        }else if(articleId!=Constants.ERROR){
+            article = articleService.getObjectById(articleId,true);
+        }
+        
+        if(articleId==Constants.ERROR||article == null){
+            articleId = NumberUtils.toLong(configMap.get(Config.INDEX), -1);
+            article = articleService.getObjectById(articleId,true);
+        }
+        
+        logger.error("articleId:" + articleId);
+        logger.error("article:" + article.getName());
+        model.addAttribute("article", article);
+        model.addAttribute("catalogList", catalogService.select(0, Integer.MAX_VALUE));
+        model.addAllAttributes(configMap);
+        return new ModelAndView("article", model);
+    }
 }
