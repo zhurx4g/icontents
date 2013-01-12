@@ -14,7 +14,8 @@
     <link type="text/css" title="www" rel="stylesheet" media="screen,projection" href="$!{contextPath}/css/${skin}/footer.css">
     <!--<link type="text/css" rel="stylesheet" href="$!{contextPath}/css/syntaxhighlighter/shCoreDefault.css"/>-->
     <style type="text/css">div.to-bgstyle, div.to-dk-bgstyle{ cursor:pointer; }</style>
-	<script type="text/javascript" src="$!{contextPath}/js/jquery-1.4.2.min.js" ></script>
+	<script type="text/javascript" src="$!{contextPath}/js/jquery-1.8.3.js" ></script>
+	<script type="text/javascript" src="$!{contextPath}/js/jquery-ui.js" ></script>
 	<script type="text/javascript" src="$!{contextPath}/js/jquery.md5.js" ></script>
 	<script type="text/javascript" src="$!{contextPath}/js/jquery.metadata.js" ></script>
 	<script type="text/javascript" src="$!{contextPath}/js/jquery.validate.min.js" ></script>
@@ -44,11 +45,14 @@
 #parse("modules/${skin}/NavComponent.vm")
 </div>
 <!--HEADER END-->
-
 <div id="bodyCompontentList">
-<!-- MASTHEAD_END -->
+<div id="bodyColumn" style="margin-left:2px;float:left;">
+xxxxxxxxxxxxxxxxxx
 </div>
-
+<div id="rightColumn">
+xxxxxxxxxxxxxxxxxx
+</div>
+</div>
 <!-- FOOTER_BEGIN -->
 <div id="footerCompontentList">
 #parse("modules/${skin}/CopyRightComponent.vm")
