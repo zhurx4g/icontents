@@ -45,46 +45,45 @@
 #end
 </div>
 <!--HEADER END-->
-
+<div class="b4"></div>
 <div id="bodyCompontentList">
 <!-- MASTHEAD_END -->
 #if($article.layout==1)
-<div id="leftColumn">
-    
+<div class="leftCompontentList">
 #foreach($component in $article.leftComponentList)
 #set($width="240px")
+<div class="column compontentLeft">
 #parse("modules/${skin}/${component.componentType}.vm")
+</div>
 #end
 #parse("modules/${skin}/ad.vm")
 </div>
-<div id="bodyColumn">
-    <div id="contentBox">
+<div class="centerCompontentList">
 #foreach($component in $article.bodyComponentList)
 #set($width="720px")
+<div class="column compontentCenter">
 #parse("modules/${skin}/${component.componentType}.vm")
-#end
-    </div>
-#if("true"==$config_uyan)
-#parse("modules/uyan.vm")
+</div>
 #end
 </div>
 #elseif($article.layout==2)
-<div id="bodyColumn" style="margin-left:2px;float:left;">
-    <div id="contentBox">
+<div class="centerCompontentList">
 #foreach($component in $article.bodyComponentList)
 #set($width="720px")
+<div class="column compontentCenter">
 #parse("modules/${skin}/${component.componentType}.vm")
+</div>
 #end
 #if("true"==$config_uyan)
 #parse("modules/uyan.vm")
 #end
-    </div>
 </div>
-<div id="rightColumn">
+<div class="rightCompontentList">
 #foreach($component in $article.rightComponentList)
+<div class="column compontentRight">
 #parse("modules/${skin}/${component.componentType}.vm")
-#end
 </div>
+#end
 </div>
 #else
 	#foreach($component in $article.bodyComponentList)

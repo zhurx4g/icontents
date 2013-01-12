@@ -102,25 +102,133 @@ div.clear hr{
   margin:auto;
   text-align: center;
 }
-#bodyCompontentList {
-    margin: 4px auto;
-    width: 1000px;
-    border: 1px solid;
+.b1{
+    height: 1px;
+    line-height: 1px;
+    width: 100%;
+    border:0;
 }
-#leftColumn {
- width: 286px;
+.b2{
+    height: 2px;
+    line-height: 2px;
+    width: 100%;
+    border:0;
+}
+.b3{
+    height: 3px;
+    line-height: 3px;
+    width: 100%;
+    border:0;
+}
+.b4{
+    height: 4px;
+    line-height: 4px;
+    width: 100%;
+    border:0;
+}
+.b5{
+    height: 5px;
+    line-height: 5px;
+    width: 100%;
+    border:0;
+}
+.b6{
+    height: 6px;
+    line-height: 6px;
+    width: 100%;
+    border:0;
+}
+.b7{
+    height: 7px;
+    line-height: 7px;
+    width: 100%;
+    border:0;
+}
+#bodyCompontentList {
+    clear: both;
+    content: ".";
+    display: block;
+    overflow: hidden;
+    width:1000px;
+    margin:0 auto;
+    border:1px solid;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+.leftCompontentList {
+    clear: both;
+    content: ".";
+    display: block;
+    overflow: hidden;
+    width:300px;
+    margin:0 auto;
+    border:0;
+    padding-left: 2px;
+    padding-top: 1px;
+    padding-right: 4px;
+    padding-bottom: 1px;
+    float:left;
+}
+.centerCompontentList {
+    content: ".";
+    display: block;
+    overflow: hidden;
+    width:688px;
+    margin:0 auto;
+    border:0;
+    padding: 0px;
+    float:left;
+    padding-left: 2px;
+    padding-top: 1px;
+    padding-right: 2px;
+    padding-bottom: 1px;
+}
+.rightCompontentList {
+    content: ".";
+    display: block;
+    overflow: hidden;
+    width:304px;
+    margin:0 auto;
+    border:0;
+    padding: 0px;
+    float:left;
+    padding: 1px 0 0;
+}
+.compontentRow {
+    width: 100%;
+    clear: both;
+    content: ".";
+    display: block;
+    overflow: hidden;
+    width:1000px;
+    margin:0 auto;
+    padding-left:2px;
+    padding-right:2px;
+    padding-top:1px;
+    padding-bottom:1px;
+}
+.column {
  float:left;
  overflow: auto;
+ border:1px solid;
+ margin: 2px;
+ background: none repeat scroll 0 0 white;
+ color:black;
+}
+.compontentLeft {
+ width: 300px;
+}
+.compontentRight {
+ width: 300px;
+}
+.compontentCenter {
+ width: 684px;
 }
 #rightColumn {
- width: 286px;
- overflow: auto;
- margin-top: 3px;
+ width: 300px;
 }
 
 #bodyColumn {
-  margin-right: 2px;
-  margin-left: 293px;
   width:705px;
 }
 #legend {
