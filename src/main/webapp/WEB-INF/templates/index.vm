@@ -46,11 +46,47 @@
 </div>
 <!--HEADER END-->
 <div id="bodyCompontentList">
-<div id="bodyColumn" style="margin-left:2px;float:left;">
-xxxxxxxxxxxxxxxxxx
+<div id="bodyColumn" style="margin-left:2px;float:left">
+<div style="margin: 2px;background: none repeat scroll 0 0 white;color:black;border:solid 1px;">
+<div class="idea">
+<img src="/i/site_photoref.jpg" alt="完整的网站技术参考手册">
+<h3>完整的网站技术参考手册</h3>
+<p>我们的参考手册涵盖了网站技术的方方面面。</p>
+<p>其中包括W3C的标准技术：HTML、XHTML、CSS、XML 。以及其他的技术，诸如JavaScript、PHP、ASP、SQL等等。</p>
 </div>
-<div id="rightColumn">
-xxxxxxxxxxxxxxxxxx
+
+<div class="idea">
+<img src="/i/site_photoexa.jpg" alt="在线实例测试工具">
+<h3>在线实例测试工具</h3>
+<p>在w3school，我们提供上千个实例。</p>
+<p>通过使用我们的在线编辑器，你可以编辑这些例子，并对代码进行实验。</p>
+</div>
+
+<div class="idea">
+<img src="i/site_photoqe.jpg" alt="快捷易懂的学习方式">
+<h3>快捷易懂的学习方式</h3>
+<p>一寸光阴一寸金，因此，我们为您提供快捷易懂的学习内容。</p>
+<p>在这里，您可以通过一种易懂的便利的模式获得您需要的任何知识。</p>
+</div>
+</div>
+</div>
+<div id="rightColumn" style="margin-right:2px;">
+<div style="margin: 2px;background: none repeat scroll 0 0 white;color:black;border:solid 1px;">
+<h2>热点链接</h2>
+<a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/puresystems/">IBM PureSystems 专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/data/cognos/">“体验魅力 IBM Cognos BI 10 系列”讲座</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/rational/agile/">敏捷转型最佳实践专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/web/lp/html5/">HTML5 专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/downloads/?S_TACT=105AGX52&amp;S_CMP=dcntop">IBM 软件下载中心</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/certify/">认证考试资源中心</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/rss/">订阅更多 dW RSS</a>
+</div>
+<div style="margin: 2px;background: none repeat scroll 0 0 white;color:black;border:solid 1px;">
+<h2>技术交流社区</h2>
+<img width="168" height="64" alt="立即加入 developerWorks 中文社区！" src="//www.ibm.com/developerworks/cn/i/hivis_visitnow-dwcommunity-cn.jpg">
+</div>
+<div style="margin: 2px;background: none repeat scroll 0 0 white;color:black;border:solid 1px;">
+<h2>软件下载</h2>
+</div>
+<div style="margin: 2px;background: none repeat scroll 0 0 white;color:black;border:solid 1px;">
+ssssssssssssssssssssssss
+</div>
+</div>
+<div style="height:100%">
 </div>
 </div>
 <!-- FOOTER_BEGIN -->
