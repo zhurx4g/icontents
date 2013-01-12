@@ -41,11 +41,13 @@
         </div>
     </div>
 #set($width="960px")
-#parse("modules/${skin}/LogoComponent.vm")
 #parse("modules/${skin}/NavComponent.vm")
 </div>
 <!--HEADER END-->
 <div id="bodyCompontentList">
+<table>
+<tr>
+<td valign="top">
 <div id="bodyColumn" style="margin-left:2px;float:left">
 <div style="margin: 2px;background: none repeat scroll 0 0 white;color:black;border:solid 1px;">
 <div class="idea">
@@ -70,6 +72,10 @@
 </div>
 </div>
 </div>
+
+#parse("modules/uyan.vm")
+</td>
+<td valign="top">
 <div id="rightColumn" style="margin-right:2px;">
 <div style="margin: 2px;background: none repeat scroll 0 0 white;color:black;border:solid 1px;">
 <h2>热点链接</h2>
@@ -95,22 +101,14 @@
 <h2>软件下载</h2>
 ssssssssssssssssssssssss
 </div>
-<div style="margin: 2px;background: none repeat scroll 0 0 white;color:black;border:solid 1px;">
-<h2>软件下载</h2>
-ssssssssssssssssssssssss
-</div>
-<div style="margin: 2px;background: none repeat scroll 0 0 white;color:black;border:solid 1px;">
-<h2>软件下载</h2>
-ssssssssssssssssssssssss
-</div>
-<div style="margin: 2px;background: none repeat scroll 0 0 white;color:black;border:solid 1px;">
-<h2>软件下载</h2>
-ssssssssssssssssssssssss
-</div>
 </div>
 <div style="height:100%">
 </div>
+</td>
+</tr>
+</table>
 </div>
+
 <!-- FOOTER_BEGIN -->
 <div id="footerCompontentList">
 #parse("modules/${skin}/CopyRightComponent.vm")
