@@ -105,6 +105,12 @@ function caculateOrder(){
         	componentHeightObj.attr('name','height'+totalCount);
         }else if(componentType=='MapComponent'){
         	updateMap(this,totalCount);
+        }else if(componentType=='ImageComponent'){
+		    var componentLinkObj = jQuery(this).find("input[id*='link']");
+		    componentLinkObj.attr('name','link'+totalCount);
+		    
+        	var componentContentObj = jQuery(this).find("input[id*='image']");
+        	componentContentObj.attr('name','image'+totalCount);
         }else if(componentType=='ArticleListComponent'){
 		    var componentTitleObj = jQuery(this).find("input[id*='title']");
 		    componentTitleObj.attr('name','title'+totalCount);
@@ -151,12 +157,18 @@ function caculateOrder(){
         if(componentType=='CatalogComponent'){
         }else if(componentType=='MapComponent'){
         	updateMap(this,totalCount);
-        }else if(componentType=='ArticleListComponent'){
-		    var componentTitleObj = jQuery(this).find("input[id*='title']");
-		    componentTitleObj.attr('name','title'+totalCount);
+        }else if(componentType=='ImageComponent'){
+		    var componentLinkObj = jQuery(this).find("input[id*='link']");
+		    componentLinkObj.attr('name','link'+totalCount);
 			
-			var componentContentObj = jQuery(this).find("input[id*='content']");
-			componentContentObj.attr('name','content'+totalCount);
+			var componentContentObj = jQuery(this).find("input[id*='image']");
+			componentContentObj.attr('name','image'+totalCount);
+        }else if(componentType=='ArticleListComponent'){
+        	var componentTitleObj = jQuery(this).find("input[id*='title']");
+        	componentTitleObj.attr('name','title'+totalCount);
+        	
+        	var componentContentObj = jQuery(this).find("input[id*='content']");
+        	componentContentObj.attr('name','content'+totalCount);
         }else if(componentType=='HtmlComponent'){
 		    var componentTitleObj = jQuery(this).find("input[id*='title']");
 		    componentTitleObj.attr('name','title'+totalCount);
@@ -356,6 +368,15 @@ function initAction(){
         jQuery('<div id="emptyComponent_1_'+componentCount_1+'" style="border: 0px;width:100%;"></div>').appendTo('#componentList1');
 		resetPageHeight();
 	});
+    jQuery("#btnLeftImage").click(function(){
+    	var data = {position:1,sequence:0,image:''};
+    	jQuery("#emptyComponent_1_"+componentCount_1).setTemplateElement("templateImageComponent");
+    	jQuery("#emptyComponent_1_"+componentCount_1).processTemplate(data);
+    	componentCount_1=componentCount_1+1;
+    	totalCount=totalCount+1;
+    	jQuery('<div id="emptyComponent_1_'+componentCount_1+'" style="border: 0px;width:100%;"></div>').appendTo('#componentList1');
+    	resetPageHeight();
+    });
     <!--右侧工具栏-->
     jQuery("#btnRightCatalog").click(function(){
 	    var data = {position:2};
@@ -396,6 +417,15 @@ function initAction(){
         jQuery('<div id="emptyComponent_2_'+componentCount_2+'" style="border: 0px;width:100%;"></div>').appendTo('#componentList2');
 		resetPageHeight();
 	});
+    jQuery("#btnRightImage").click(function(){
+    	var data = {position:2,sequence:0,image:''};
+    	jQuery("#emptyComponent_2_"+componentCount_2).setTemplateElement("templateImageComponent");
+    	jQuery("#emptyComponent_2_"+componentCount_2).processTemplate(data);
+    	componentCount_2=componentCount_2+1;
+    	totalCount=totalCount+1;
+    	jQuery('<div id="emptyComponent_2_'+componentCount_2+'" style="border: 0px;width:100%;"></div>').appendTo('#componentList2');
+    	resetPageHeight();
+    });
     <!--中间工具栏-->
     jQuery("#btnBodyFlash").click(function(){
 	    var data = {position:4,images:'5个图片地址,逗号分隔',content:'5个链接地址,逗号分隔'};

@@ -31,10 +31,10 @@
     <div class="logoComponent">
         <div>
         <a id="bannerLeft" href="/">
-            <img alt="" src="${config_logo}" height="70px" style="padding-top: 12px;" />
+            <img alt="" src="${config_logo}" style="padding-top: 6px;" />
         </a>
         </div>
-        <div style="width: 728; height: 90px; float: right;">
+        <div style="width: 728; height: 70px; float: right;">
         </div>
         <div class="clear">
         </div>
@@ -75,7 +75,9 @@
 </div>
 #end
 #if("true"==$config_uyan)
+<div class="column compontentCenter">
 #parse("modules/uyan.vm")
+</div>
 #end
 </div>
 <div class="rightCompontentList">
@@ -91,7 +93,7 @@
     #end
 #end
 </div>
-
+<div class="b4"></div>
 <!-- FOOTER_BEGIN -->
 <div id="footerCompontentList">
 #foreach($component in $article.footerComponentList)

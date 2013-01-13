@@ -46,15 +46,16 @@
 <!--HEADER END-->
 <div class="b4"></div>
 <div id="bodyCompontentList">
+    <!--
     <div class="compontentRow">
         <div class="column compontentCenter">
         <h2>热点链接</h2>
         <a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/puresystems/">IBM PureSystems 专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/data/cognos/">“体验魅力 IBM Cognos BI 10 系列”讲座</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/rational/agile/">敏捷转型最佳实践专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/web/lp/html5/">HTML5 专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/downloads/?S_TACT=105AGX52&amp;S_CMP=dcntop">IBM 软件下载中心</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/certify/">认证考试资源中心</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/rss/">订阅更多 dW RSS</a>
         </div>
-        <div class="column compontentRight">
-        <h2>热点链接</h2>
-        <a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/puresystems/">IBM PureSystems 专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/data/cognos/">“体验魅力 IBM Cognos BI 10 系列”讲座</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/rational/agile/">敏捷转型最佳实践专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/web/lp/html5/">HTML5 专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/downloads/?S_TACT=105AGX52&amp;S_CMP=dcntop">IBM 软件下载中心</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/certify/">认证考试资源中心</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/rss/">订阅更多 dW RSS</a>
-        </div>
+            <div class="column compontentRight">
+            <h2>热点链接</h2>
+            <a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/puresystems/">IBM PureSystems 专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/data/cognos/">“体验魅力 IBM Cognos BI 10 系列”讲座</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/rational/agile/">敏捷转型最佳实践专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/web/lp/html5/">HTML5 专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/downloads/?S_TACT=105AGX52&amp;S_CMP=dcntop">IBM 软件下载中心</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/certify/">认证考试资源中心</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/rss/">订阅更多 dW RSS</a>
+            </div>
     </div>
     <div class="compontentRow">
         <div class="column compontentLeft">
@@ -64,6 +65,47 @@
         <div class="column compontentCenter">
         <h2>热点链接</h2>
         <a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/puresystems/">IBM PureSystems 专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/data/cognos/">“体验魅力 IBM Cognos BI 10 系列”讲座</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/rational/agile/">敏捷转型最佳实践专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/web/lp/html5/">HTML5 专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/downloads/?S_TACT=105AGX52&amp;S_CMP=dcntop">IBM 软件下载中心</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/certify/">认证考试资源中心</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/rss/">订阅更多 dW RSS</a>
+        </div>
+    </div>
+    -->
+    <div class="centerCompontentList">
+        <div class="column compontentCenter">
+        <h2>热点链接</h2>
+        <a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/puresystems/">IBM PureSystems 专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/data/cognos/">“体验魅力 IBM Cognos BI 10 系列”讲座</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/rational/agile/">敏捷转型最佳实践专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/web/lp/html5/">HTML5 专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/downloads/?S_TACT=105AGX52&amp;S_CMP=dcntop">IBM 软件下载中心</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/certify/">认证考试资源中心</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/rss/">订阅更多 dW RSS</a>
+        </div>
+        <div class="column compontentCenter">
+        <h2>热点链接</h2>
+        <a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/puresystems/">IBM PureSystems 专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/data/cognos/">“体验魅力 IBM Cognos BI 10 系列”讲座</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/rational/agile/">敏捷转型最佳实践专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/web/lp/html5/">HTML5 专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/downloads/?S_TACT=105AGX52&amp;S_CMP=dcntop">IBM 软件下载中心</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/certify/">认证考试资源中心</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/rss/">订阅更多 dW RSS</a>
+        </div>
+        <div class="column compontentCenter">
+        <h2>热点链接</h2>
+        <a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/puresystems/">IBM PureSystems 专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/data/cognos/">“体验魅力 IBM Cognos BI 10 系列”讲座</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/rational/agile/">敏捷转型最佳实践专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/web/lp/html5/">HTML5 专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/downloads/?S_TACT=105AGX52&amp;S_CMP=dcntop">IBM 软件下载中心</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/certify/">认证考试资源中心</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/rss/">订阅更多 dW RSS</a>
+        </div>
+        <div class="column compontentCenter">
+        <h2>热点链接</h2>
+        <a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/puresystems/">IBM PureSystems 专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/data/cognos/">“体验魅力 IBM Cognos BI 10 系列”讲座</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/rational/agile/">敏捷转型最佳实践专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/web/lp/html5/">HTML5 专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/downloads/?S_TACT=105AGX52&amp;S_CMP=dcntop">IBM 软件下载中心</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/certify/">认证考试资源中心</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/rss/">订阅更多 dW RSS</a>
+        </div>
+        <div class="column compontentCenter">
+        <h2>热点链接</h2>
+        <a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/puresystems/">IBM PureSystems 专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/data/cognos/">“体验魅力 IBM Cognos BI 10 系列”讲座</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/rational/agile/">敏捷转型最佳实践专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/web/lp/html5/">HTML5 专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/downloads/?S_TACT=105AGX52&amp;S_CMP=dcntop">IBM 软件下载中心</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/certify/">认证考试资源中心</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/rss/">订阅更多 dW RSS</a>
+        </div>
+        <div class="column compontentCenter">
+        <h2>热点链接</h2>
+        <a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/puresystems/">IBM PureSystems 专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/data/cognos/">“体验魅力 IBM Cognos BI 10 系列”讲座</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/rational/agile/">敏捷转型最佳实践专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/web/lp/html5/">HTML5 专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/downloads/?S_TACT=105AGX52&amp;S_CMP=dcntop">IBM 软件下载中心</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/certify/">认证考试资源中心</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/rss/">订阅更多 dW RSS</a>
+        </div>
+    </div>
+    <div class="rightCompontentList">
+        <div class="column compontentRight">
+        <h2>热点链接</h2>
+        <a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/puresystems/">IBM PureSystems 专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/data/cognos/">“体验魅力 IBM Cognos BI 10 系列”讲座</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/rational/agile/">敏捷转型最佳实践专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/web/lp/html5/">HTML5 专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/downloads/?S_TACT=105AGX52&amp;S_CMP=dcntop">IBM 软件下载中心</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/certify/">认证考试资源中心</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/rss/">订阅更多 dW RSS</a>
+        <a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/puresystems/">IBM PureSystems 专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/data/cognos/">“体验魅力 IBM Cognos BI 10 系列”讲座</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/rational/agile/">敏捷转型最佳实践专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/web/lp/html5/">HTML5 专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/downloads/?S_TACT=105AGX52&amp;S_CMP=dcntop">IBM 软件下载中心</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/certify/">认证考试资源中心</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/rss/">订阅更多 dW RSS</a>
+        </div>
+        <div class="column compontentRight">
+        <h2>热点链接</h2>
+        <a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/puresystems/">IBM PureSystems 专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/data/cognos/">“体验魅力 IBM Cognos BI 10 系列”讲座</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/rational/agile/">敏捷转型最佳实践专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/web/lp/html5/">HTML5 专题</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/downloads/?S_TACT=105AGX52&amp;S_CMP=dcntop">IBM 软件下载中心</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/certify/">认证考试资源中心</a></li><li><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/rss/">订阅更多 dW RSS</a>
+        </div>
+        <div class="column compontentRight">
+            <img src="http://img2.126.net/xoimages/m/20130101/news/x/300x250.jpg" />
         </div>
     </div>
 </div>

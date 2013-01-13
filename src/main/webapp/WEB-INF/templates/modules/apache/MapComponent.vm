@@ -26,6 +26,6 @@
   initialize$!{component.sequence}$!{component.position}();
 </script>
 <div style="">
-<h2>联系方式</h2>
+<h2>$!{component.title}</h2>
 <div id="mapComponentCanvas$!{component.sequence}$!{component.position}" style="height: $!{component.height}px;"></div>
 </div>

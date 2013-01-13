@@ -1,0 +1,3 @@
+<a href="$!{component.link}" target="_blank">
+    <img alt="图片加载中..." src="$!{component.image}" />
+</a>
