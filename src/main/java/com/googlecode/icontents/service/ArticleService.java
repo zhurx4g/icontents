@@ -1,5 +1,7 @@
 package com.googlecode.icontents.service;
 
+import java.util.List;
+
 import com.googlecode.icontents.bean.Article;
 import com.googlecode.icontents.bean.component.ArticleComponent;
 
@@ -21,4 +23,6 @@ public interface ArticleService extends BaseService<Article> {
 	 * @return
 	 */
 	public Article getObjectByAlias(String articleAlias, boolean hasExtInfo);
+	
+	public List<Article> selectByCatalogId(long catalogId, int page, int size);
 }

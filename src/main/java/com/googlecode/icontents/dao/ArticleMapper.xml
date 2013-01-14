@@ -79,6 +79,16 @@
 			LIMIT #{offset},#{size}
 		]]>
 	</select>
+	<select id="selectByCatalogId" resultType="com.googlecode.icontents.bean.Article" parameterType="java.util.Map">
+		<![CDATA[
+			SELECT 
+			A.*,
+			(SELECT NAME FROM icontents_catalog C  WHERE A.CATALOGID=C.ID) catalog 
+			FROM icontents_article A where catalogId=#{catalogId}
+			ORDER BY updateTime DESC
+			LIMIT #{offset},#{size}
+		]]>
+	</select>
 	<select id="getTotal" resultType="java.lang.Integer" parameterType="java.util.Map">
 		<![CDATA[
 			SELECT COUNT(1) FROM icontents_article

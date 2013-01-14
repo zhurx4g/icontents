@@ -1,6 +1,9 @@
 package com.googlecode.icontents.bean.component;
 
+import java.util.List;
+
 import com.googlecode.icontents.annotation.Extended;
+import com.googlecode.icontents.bean.Article;
 
 public class CatalogArticleListComponent extends ArticleComponent {
 
@@ -12,6 +15,16 @@ public class CatalogArticleListComponent extends ArticleComponent {
     @Extended
     private long catalogId;
     
+    private List<Article> articleList;
+    
+    public List<Article> getArticleList() {
+        return articleList;
+    }
+
+    public void setArticleList(List<Article> articleList) {
+        this.articleList = articleList;
+    }
+
     public CatalogArticleListComponent(){}
     
     public CatalogArticleListComponent(ArticleComponent component){

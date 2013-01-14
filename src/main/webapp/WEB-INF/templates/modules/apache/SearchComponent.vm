@@ -1,0 +1,7 @@
+<div class="input-append">
+    <form method="get" action="http://www.baidu.com/s" target="_blank">
+        <a>搜索:</a>
+    <input type="text" size="20" data-control="home" placeholder="搜索" data-provide="typeahead" class="span4fix" name="wd">
+    <input type="submit" title="搜索" />
+    </form>
+</div>

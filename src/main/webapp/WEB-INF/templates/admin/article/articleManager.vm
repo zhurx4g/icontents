@@ -138,6 +138,7 @@
                                     <a id="btnLeftArticleList" class="primary button" style="padding: 5px 9px;" href="javascript:void(0)">文章列表</a>
                                     <a id="btnLeftMap" class="primary button" style="padding: 5px 9px;" href="javascript:void(0)">地图组件</a>
                                     <a id="btnLeftImage" class="primary button" style="padding: 5px 9px;" href="javascript:void(0)">图片组件</a>
+                                    <a id="btnLeftSearch" class="primary button" style="padding: 5px 9px;" href="javascript:void(0)">搜索组件</a>
                                 </td>
                             </tr>
 #elseif($articleLayout==2)
@@ -149,7 +150,7 @@
                                     <a id="btnRightHtml" class="primary button" style="padding: 5px 9px;" href="javascript:void(0)">HTML区域</a>
                                     <a id="btnRightArticleList" class="primary button" style="padding: 5px 9px;" href="javascript:void(0)">文章列表</a>
                                     <a id="btnRightMap" class="primary button" style="padding: 5px 9px;" href="javascript:void(0)">地图组件</a>
-                                    <a id="btnRightImage" class="primary button" style="padding: 5px 9px;" href="javascript:void(0)">图片组件</a>
+                                    <a id="btnRightSearch" class="primary button" style="padding: 5px 9px;" href="javascript:void(0)">搜索组件</a>
                                 </td>
                             </tr>
 #end
@@ -250,6 +251,7 @@
         #parse("inc/admin/modules/commonMap.vm")
         #parse("inc/admin/modules/commonQuickNav.vm")
         #parse("inc/admin/modules/commonImage.vm")
+        #parse("inc/admin/modules/commonSearch.vm")
         
         <!-- 中部模板结束 -->
         <!-- 中部模板 -->

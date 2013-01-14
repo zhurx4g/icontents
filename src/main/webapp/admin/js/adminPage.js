@@ -105,6 +105,7 @@ function caculateOrder(){
         	componentHeightObj.attr('name','height'+totalCount);
         }else if(componentType=='MapComponent'){
         	updateMap(this,totalCount);
+        }else if(componentType=='SearchComponent'){
         }else if(componentType=='ImageComponent'){
 		    var componentLinkObj = jQuery(this).find("input[id*='link']");
 		    componentLinkObj.attr('name','link'+totalCount);
@@ -157,6 +158,7 @@ function caculateOrder(){
         if(componentType=='CatalogComponent'){
         }else if(componentType=='MapComponent'){
         	updateMap(this,totalCount);
+        }else if(componentType=='SearchComponent'){
         }else if(componentType=='ImageComponent'){
 		    var componentLinkObj = jQuery(this).find("input[id*='link']");
 		    componentLinkObj.attr('name','link'+totalCount);
@@ -214,6 +216,9 @@ function caculateOrder(){
         }else if(componentType=='TabsComponent'){
         }else if(componentType=='LicenseComponent'){
         }else if(componentType=='CatalogArticleListComponent'){
+		    var componentTitleObj = jQuery(this).find("input[id*='title']");
+		    componentTitleObj.attr('name','title'+totalCount);
+		    
         	var componentCatalogObj = jQuery(this).find("select[id*='catalogId']");
         	componentCatalogObj.attr('name','catalogId'+totalCount);
         }else if(componentType=='HtmlComponent'){
@@ -377,6 +382,15 @@ function initAction(){
     	jQuery('<div id="emptyComponent_1_'+componentCount_1+'" style="border: 0px;width:100%;"></div>').appendTo('#componentList1');
     	resetPageHeight();
     });
+    jQuery("#btnLeftSearch").click(function(){
+    	var data = {position:1,sequence:0};
+    	jQuery("#emptyComponent_1_"+componentCount_1).setTemplateElement("templateSearchComponent");
+    	jQuery("#emptyComponent_1_"+componentCount_1).processTemplate(data);
+    	componentCount_1=componentCount_1+1;
+    	totalCount=totalCount+1;
+    	jQuery('<div id="emptyComponent_1_'+componentCount_1+'" style="border: 0px;width:100%;"></div>').appendTo('#componentList1');
+    	resetPageHeight();
+    });
     <!--右侧工具栏-->
     jQuery("#btnRightCatalog").click(function(){
 	    var data = {position:2};
@@ -420,6 +434,15 @@ function initAction(){
     jQuery("#btnRightImage").click(function(){
     	var data = {position:2,sequence:0,image:''};
     	jQuery("#emptyComponent_2_"+componentCount_2).setTemplateElement("templateImageComponent");
+    	jQuery("#emptyComponent_2_"+componentCount_2).processTemplate(data);
+    	componentCount_2=componentCount_2+1;
+    	totalCount=totalCount+1;
+    	jQuery('<div id="emptyComponent_2_'+componentCount_2+'" style="border: 0px;width:100%;"></div>').appendTo('#componentList2');
+    	resetPageHeight();
+    });
+    jQuery("#btnRightSearch").click(function(){
+    	var data = {position:2,sequence:0};
+    	jQuery("#emptyComponent_2_"+componentCount_2).setTemplateElement("templateSearchComponent");
     	jQuery("#emptyComponent_2_"+componentCount_2).processTemplate(data);
     	componentCount_2=componentCount_2+1;
     	totalCount=totalCount+1;

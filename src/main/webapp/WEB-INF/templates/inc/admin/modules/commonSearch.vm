@@ -1,0 +1,24 @@
+<textarea id="templateSearchComponent" rows="0" cols="0" style="display:none">
+    <!--
+    <div class="component" style="width:100%;margin:2px auto;" id="compItem_0_8_3">
+        <div class="componentTitle">
+            <span class="left">搜索组件</span>
+            <span class="close"><a href="javascript:void(0)" onclick="javascript:if(confirm('确定删除搜索组件'))$(this).parents('div:first').parents('div:first').parents('div:first').remove();">删除</a></span>
+        </div>
+        <div class="comItemContent">
+            <table name="fieldsTable" width="100%" border="0">
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="hidden" id="componentType" name="componentType" value="SearchComponent" />
+                            <input type="hidden" id="sequence" name="sequence" value="0" />
+                            <input type="hidden" id="position" name="position" value="{$T.position}" />
+                            选择系统导航栏后,前端页面会显示出搜索组件
+                        </td>
+                    </tr>          
+                </tbody>
+            </table>
+        </div>
+    </div>
+    -->
+</textarea>

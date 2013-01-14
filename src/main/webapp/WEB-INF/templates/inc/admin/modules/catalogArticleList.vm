@@ -9,6 +9,10 @@
             <table name="fieldsTable" width="100%" border="0">
                 <tbody>   
                     <tr>
+                        <td align="right" valign="top" width="120px" valign="top"><label><b>分类标题:</b></label></td>
+                        <td><input type="text" id="title" name="title" class="inputTag" value="{$T.title}" /></td>
+                    </tr>      
+                    <tr>
                         <td align="right" valign="top" width="120px" valign="top">
                             <label><b>文章分类:</b></label>
                             <input type="hidden" id="componentType" name="componentType" class="inputTag" value="CatalogArticleListComponent" />
@@ -31,7 +35,7 @@
 #end
                 </select>
                         </td>
-                    </tr>      
+                    </tr>
                 </tbody>
             </table>
         </div>

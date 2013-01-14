@@ -214,6 +214,8 @@ public class ArticleServiceImpl extends BaseServiceImpl<Article> implements Arti
 			return articleComponentTarget;
 		}else if(CatalogArticleListComponent.class.getSimpleName().equalsIgnoreCase(newArticleComponent.getComponentType())){
 		    CatalogArticleListComponent catalogArticleListComponent = (CatalogArticleListComponent)(newArticleComponent);
+		    catalogArticleListComponent.setName(catalogService.getObjectById(catalogArticleListComponent.getCatalogId()).getName());
+		    catalogArticleListComponent.setArticleList(selectByCatalogId(catalogArticleListComponent.getCatalogId(),1,10));
 		}else if(SiteMapComponent.class.getSimpleName().equalsIgnoreCase(newArticleComponent.getComponentType())){
 			SiteMapComponent siteMapComponent = (SiteMapComponent)(newArticleComponent);
 			siteMapComponent.setCatalogList(catalogService.select(0, Integer.MAX_VALUE));
@@ -229,6 +231,11 @@ public class ArticleServiceImpl extends BaseServiceImpl<Article> implements Arti
 		return articleComponentMapper.getArticleComponentById(articleId, sequence, position);
 	}
 
+	public List<Article> selectByCatalogId(long catalogId, int page, int size){
+        if(page<=0)page=1;
+        return articleMapper.selectByCatalogId(catalogId, (page-1)*size, size);
+	}
+	
 	@Override
 	public Article getObjectByAlias(String articleAlias, boolean hasExtInfo) {
 		int articleId = articleMapper.getArticleIdByAlias(articleAlias);
