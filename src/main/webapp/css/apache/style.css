@@ -494,7 +494,7 @@ a.newWindow,a.newWindow:link,a.newWindow:visited,a.newWindow:active,a.newWindow:
 	padding-right: 18px;
 }
 
-h1,h2 {
+h2 {
 	border: none;
 	background-color: #525D76;
 	color: white;
@@ -504,7 +504,12 @@ h1,h2 {
 	margin-top: 0px;
 	margin-bottom: 0px;
 }
-
+.contentTitle {
+    font-size: 26px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 31px;
+}
 h3 {
 	padding: 4px 4px 4px 6px;
 	border: solid 1px #525D76;

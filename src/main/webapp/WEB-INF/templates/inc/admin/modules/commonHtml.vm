@@ -7,7 +7,7 @@
         </div>
         <div class="comItemContent">
             <table name="fieldsTable" width="100%" border="0">
-                <tbody>   
+                <tbody>
                     <tr>
                         <td colspan="4" width="120px" align="left" valign="top">
                             <label><b>模块标题:</b></label><br/>

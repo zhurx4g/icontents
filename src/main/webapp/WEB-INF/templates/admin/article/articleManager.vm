@@ -73,12 +73,32 @@
             
             jQuery("#emptyComponent_4_"+componentCount_4).setTemplateElement("templateDefaultHtmlComponent");
             jQuery("#emptyComponent_4_"+componentCount_4).processTemplate(data);
+
+            componentCount_4=componentCount_4+1;
+            totalCount=totalCount+1;
+            jQuery('<div id="emptyComponent_4_'+componentCount_4+'" style="border: 0px;width:100%;"></div>').appendTo('#componentList4');
             
+            var dataHtml = {position:4,content:''};
+            dataHtml['totalCount']=totalCount;
+            
+            jQuery("#emptyComponent_4_"+componentCount_4).setTemplateElement("templateHtmlContentComponent");
+            jQuery("#emptyComponent_4_"+componentCount_4).processTemplate(dataHtml);
+
             componentCount_4=componentCount_4+1;
             totalCount=totalCount+1;
             jQuery('<div id="emptyComponent_4_'+componentCount_4+'" style="border: 0px;width:100%;"></div>').appendTo('#componentList4');
             resetPageHeight();
-                
+#else
+            var dataHtml = {position:4,content:''};
+            dataHtml['totalCount']=totalCount;
+            
+            jQuery("#emptyComponent_4_"+componentCount_4).setTemplateElement("templateHtmlContentComponent");
+            jQuery("#emptyComponent_4_"+componentCount_4).processTemplate(dataHtml);
+
+            componentCount_4=componentCount_4+1;
+            totalCount=totalCount+1;
+            jQuery('<div id="emptyComponent_4_'+componentCount_4+'" style="border: 0px;width:100%;"></div>').appendTo('#componentList4');
+            resetPageHeight();
 #end
             caculateOrder();
             
@@ -252,6 +272,7 @@
         #parse("inc/admin/modules/commonQuickNav.vm")
         #parse("inc/admin/modules/commonImage.vm")
         #parse("inc/admin/modules/commonSearch.vm")
+        #parse("inc/admin/modules/commonHtmlContentComponent.vm")
         
         <!-- 中部模板结束 -->
         <!-- 中部模板 -->

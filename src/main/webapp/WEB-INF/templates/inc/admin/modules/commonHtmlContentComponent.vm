@@ -1,0 +1,25 @@
+<textarea id="templateHtmlContentComponent" rows="0" cols="0">
+<![CDATA[
+    <div class="component" style="width:100%;margin:2px auto;" id="compItem_0_8_3">
+        <div class="comItemContent">
+            <table name="fieldsTable" width="100%" border="0">
+                <tbody>
+                    <tr>
+                        <td colspan="4" width="120px" align="left" valign="top">
+                            <input type="hidden" id="componentType" name="componentType" class="inputTag" value="HtmlContentComponent" />
+                            <input type="hidden" id="sequence" name="sequence" class="inputTag" value="0" />
+                            <input type="hidden" id="position" name="position" class="inputTag" value="{$T.position}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" width="100%">
+                            <label><b>文章内容:</b></label><br/>
+                            <textarea id="content{$T.totalCount}" style="width:100%;" cols="100px" rows="40" onblur='onTextareaBlur(this);' onfocus='onTextareafocus(this);' name="content">{$T.content}</textarea>
+                        </td>
+                    </tr>           
+                </tbody>
+            </table>
+        </div>
+    </div>
+]]>
+</textarea>

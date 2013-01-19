@@ -214,6 +214,13 @@ function caculateOrder(){
         	updateMap(this,totalCount);
         }else if(componentType=='SiteMapComponent'){
         }else if(componentType=='TabsComponent'){
+        }else if(componentType=='HtmlContentComponent'){
+			var componentContentObj = jQuery(this).find("textarea[name*='content']");
+			componentContentObj.attr('name','content'+totalCount);
+			
+			if(componentContentObj.css('display')=='none'){
+				componentContentObj.text(KE.html(componentContentObj.attr('id')));
+			}
         }else if(componentType=='LicenseComponent'){
         }else if(componentType=='CatalogArticleListComponent'){
 		    var componentTitleObj = jQuery(this).find("input[id*='title']");

@@ -9,10 +9,6 @@
         <to>/error.do</to>
     </rule>
     <rule>
-        <from>^/image</from>
-        <to>/image.do</to>
-    </rule>
-    <rule>
         <from>^/licenseApply.html</from>
         <to>/licenseApply.do</to>
     </rule>
