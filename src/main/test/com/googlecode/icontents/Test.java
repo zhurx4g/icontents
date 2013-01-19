@@ -1,5 +1,7 @@
 package com.googlecode.icontents;
 
+import java.util.List;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -13,7 +15,7 @@ public class Test {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext-test.xml");
 		
 //		UserService userService = context.getBean(UserService.class);
 //		
@@ -33,27 +35,12 @@ public class Test {
 //		cccList.add(new NavComponent());
 //		article.setBodyComponentList(cccList);
 //		articleService.update(article);
-		System.out.println("------------------------------------------------->");
-
-		System.out.println(articleService.insert(article));
-		System.out.println("newId:"+article.getId());
-//		UserService userService = context.getBean(UserService.class);
-//		
-//		System.out.println(userService.select(0, 20));
-		
-//		Article art = articleService.getArticleById(709941434);
-		
-//		System.out.println(art);
-//		System.out.println(art.getHeaderComponentList());
-//		System.out.println(art.getLeftComponentList());
-//		List<Article> articleList = articleService.select(0, 10);
+		List<Article> articleList = articleService.select(0, 10);
 ////		
 //		System.out.println(articleList.size());
-//		for(Article art:articleList){
-//		    System.out.println(art);
-////		    art.setTitle(art.getTitle()+"xxxx");
-//		    articleService.update(art);
-//		}
+		for(Article art:articleList){
+		    System.out.println("[新闻]" + art.getTitle());
+		}
 //		System.out.println(articleService.getArticleById(1360932585));
 		//NumberUtils.toInt("123");
 	}
