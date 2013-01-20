@@ -1,6 +1,10 @@
-<textarea id="templateHtmlContentComponent" rows="0" cols="0">
+<textarea id="templateHtmlContentComponent" rows="0" cols="0" style="display:none;">
 <![CDATA[
     <div class="component" style="width:100%;margin:2px auto;" id="compItem_0_8_3">
+        <div class="componentTitle">
+            <span class="left">文章内容区域</span>
+            <span class="close"><a href="javascript:void(0)" onclick="javascript:if(confirm('确定删除文章内容区域'))$(this).parents('div:first').parents('div:first').remove();">删除</a></span>
+        </div>
         <div class="comItemContent">
             <table name="fieldsTable" width="100%" border="0">
                 <tbody>

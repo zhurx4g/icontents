@@ -253,7 +253,7 @@
             </table>
         </form>
     </div>
-    <p style="display:none">
+    <p style="display:none;width:0px;height:0px;">
         #parse("inc/admin/modules/articleInfo.vm")
         <!-- 头部模板 -->
         #set($position="0")

@@ -1,5 +1,5 @@
 <textarea id="templateHtmlComponent" rows="0" cols="0">
-<![CDATA[
+<!--
     <div class="component" style="width:100%;margin:2px auto;" id="compItem_0_8_3">
         <div class="componentTitle">
             <span class="left">HTML区域</span>
@@ -27,6 +27,5 @@
             </table>
         </div>
     </div>
-
-]]>
+    -->
 </textarea>
