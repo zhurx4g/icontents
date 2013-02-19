@@ -13,7 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.googlecode.icontents.bean.Article;
@@ -24,7 +23,7 @@ import com.googlecode.icontents.service.ArticleService;
 @Controller
 public class ImageRotatorDataController {
     
-    private Log logger = LogFactory.getLog(ImageRotatorDataController.class);
+    protected Log logger = LogFactory.getLog(ImageRotatorDataController.class);
     
 	@Resource
 	private ArticleService articleService;
@@ -33,8 +32,8 @@ public class ImageRotatorDataController {
 	public ModelAndView data(HttpServletRequest request, ModelMap model)
 			throws Exception {
 	    long articleId = ServletRequestUtils.getLongParameter(request, "articleId", 1l);
-	    int sequence = ServletRequestUtils.getIntParameter(request, "sequence", 0);
-	    int position = ServletRequestUtils.getIntParameter(request, "position", 0);
+	    //int sequence = ServletRequestUtils.getIntParameter(request, "sequence", 0);
+	    //int position = ServletRequestUtils.getIntParameter(request, "position", 0);
 	    
 		Article article = articleService.getObjectById(articleId);
 		List<ArticleComponent> articleList = article.getBodyComponentList();
@@ -46,8 +45,6 @@ public class ImageRotatorDataController {
 		        break;
 		    }
 		}
-		
-		logger.error("++++++++++" + flashComponent);
 		
 		if(flashComponent==null){
 		    return null;
