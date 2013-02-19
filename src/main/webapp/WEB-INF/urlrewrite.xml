@@ -21,7 +21,7 @@
         <to last="true">/article.do?articleAlias=$1</to>
     </rule>
     <rule>
-        <from>^/data/imageRotatorData/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/</from>
+        <from>^/data/imageRotatorData/([a-zA-Z0-9]+)-([a-zA-Z0-9]+)-([a-zA-Z0-9]+).xml</from>
         <to last="true">/data/imageRotatorData.do?articleId=$1&amp;sequence=$2&amp;position=$3</to>
     </rule>
     <rule>

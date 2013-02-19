@@ -32,7 +32,11 @@
     <div class="logoComponent">
         <div>
         <a id="bannerLeft" href="/">
+#if(${config_logo})
             <img alt="" src="$!{config_logo}" height="70px" style="padding-top: 12px;" />
+#else
+    <b>$!{config_name}</b>
+#end
         </a>
         </div>
         <div style="width: 728; height: 90px; float: right;">

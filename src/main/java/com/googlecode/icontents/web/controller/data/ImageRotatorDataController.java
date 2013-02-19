@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.googlecode.icontents.bean.Article;
 import com.googlecode.icontents.bean.component.ArticleComponent;
 import com.googlecode.icontents.bean.component.FlashComponent;
 import com.googlecode.icontents.service.ArticleService;
@@ -35,14 +36,22 @@ public class ImageRotatorDataController {
 	    int sequence = ServletRequestUtils.getIntParameter(request, "sequence", 0);
 	    int position = ServletRequestUtils.getIntParameter(request, "position", 0);
 	    
-	    logger.error("++++++articleId+++" + articleId);
-	    logger.error("+++++sequence+++++" + sequence);
-	    logger.error("+++++position+++++" + position);
-		ArticleComponent articleComponent = articleService.getArticleComponentById(articleId, sequence, position);
+		Article article = articleService.getObjectById(articleId);
+		List<ArticleComponent> articleList = article.getBodyComponentList();
 		
-		FlashComponent flashComponent = new FlashComponent(articleComponent);
+		FlashComponent flashComponent = null;
+		for(ArticleComponent comp:articleList){
+		    if(FlashComponent.class.getSimpleName().equals(comp.getComponentType())){
+		        flashComponent = new FlashComponent(comp);
+		        break;
+		    }
+		}
+		
 		logger.error("++++++++++" + flashComponent);
 		
+		if(flashComponent==null){
+		    return null;
+		}
 		String images = flashComponent.getImages();
 		String links = flashComponent.getContent();
 		
