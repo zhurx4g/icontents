@@ -47,7 +47,7 @@ public class ConfigAdminController extends AbstractAdminController {
             }
         }
         
-        List<Config> configList = configService.getConfig();
+        List<Config> configList = configService.selectAll();
         Map<String,String> configMap = new HashMap<String, String>();
         
         for(Config config:configList){

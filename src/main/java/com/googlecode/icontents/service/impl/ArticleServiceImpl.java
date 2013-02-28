@@ -41,12 +41,12 @@ public class ArticleServiceImpl extends BaseServiceImpl<Article> implements Arti
 	}
 
 	@Override
-	public int insert(Article article) {
+	public Article insert(Article article) {
 		if(article==null){
-			return Constants.ERROR;
+			return null;
 		}
 		
-		int result = super.insert(article);
+		Article result = super.insert(article);
 		List<ArticleComponent> componentList = null;
 		
 		//header

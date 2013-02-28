@@ -3,14 +3,11 @@ package com.googlecode.icontents.bean;
 import java.io.Serializable;
 import java.util.List;
 
-import com.googlecode.icontents.annotation.AutoGennerateId;
-
 /**
  * 导航设置
  * @author zhurx
  *
  */
-@AutoGennerateId
 public class Nav extends ExtendableObject implements Serializable{
     /**
      * 

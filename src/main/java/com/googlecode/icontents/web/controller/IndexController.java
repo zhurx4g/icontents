@@ -60,7 +60,7 @@ public class IndexController extends AbstractController {
 	public ModelAndView index(HttpServletRequest request, ModelMap model) throws Exception {
 	    model.addAttribute("contextPath", request.getContextPath());
 	    
-	    List<Config> configList = configService.getConfig();
+	    List<Config> configList = configService.selectAll();
 	    Map<String,String> configMap = new HashMap<String, String>();
         for(Config config:configList){
             configMap.put(config.getKey(), config.getValue());
@@ -76,7 +76,7 @@ public class IndexController extends AbstractController {
     public ModelAndView article(HttpServletRequest request, @RequestParam("articleId") long articleId, @RequestParam(value = "articleAlias", required=false) String articleAlias, ModelMap model) throws Exception {
         model.addAttribute("contextPath", request.getContextPath());
         
-        List<Config> configList = configService.getConfig();
+        List<Config> configList = configService.selectAll();
         Map<String,String> configMap = new HashMap<String, String>();
         for(Config config:configList){
             configMap.put(config.getKey(), config.getValue());

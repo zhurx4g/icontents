@@ -7,7 +7,7 @@ public interface BaseService<T> {
      * 插入
      * @param obj
      */
-    public int insert(T obj);
+    public T insert(T obj);
     
     /**
      * 更新
@@ -23,6 +23,7 @@ public interface BaseService<T> {
      */
     public List<T> select(int page,int size);
     
+    public List<T> selectAll();
     /**
      * 查询
      * @param page

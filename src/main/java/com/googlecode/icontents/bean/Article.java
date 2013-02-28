@@ -6,7 +6,6 @@ import java.util.List;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 
-import com.googlecode.icontents.annotation.AutoGennerateId;
 import com.googlecode.icontents.bean.component.ArticleComponent;
 import com.googlecode.icontents.util.JacksonUtils;
 
@@ -15,7 +14,6 @@ import com.googlecode.icontents.util.JacksonUtils;
  * @author zhurx
  *
  */
-@AutoGennerateId
 public class Article extends ExtendableObject implements Serializable {
 
 	/**

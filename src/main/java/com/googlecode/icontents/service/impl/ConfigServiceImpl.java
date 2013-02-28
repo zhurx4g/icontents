@@ -1,7 +1,5 @@
 package com.googlecode.icontents.service.impl;
 
-import java.util.List;
-
 import javax.annotation.Resource;
 
 import org.apache.log4j.Logger;
@@ -22,15 +20,4 @@ public class ConfigServiceImpl extends BaseServiceImpl<Config> implements Config
     public void setBaseDaoHandlewired() {
         setBaseDao(configMapper);
     }
-
-    @Override
-    public Config getConfigByKey(String key) {
-        return configMapper.getConfigByKey(key);
-    }
-
-    @Override
-    public List<Config> getConfig() {
-        return configMapper.getConfig();
-    }
-
 }

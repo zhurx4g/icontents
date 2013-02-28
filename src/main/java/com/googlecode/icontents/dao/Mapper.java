@@ -9,7 +9,7 @@ public interface Mapper<T> {
 	 * 
 	 * @param object
 	 */
-	public int insert(@Param("obj") T object);
+	public T insert(@Param("obj") T object);
 	
     /**
      * 

@@ -47,7 +47,6 @@ package com.googlecode.icontents.bean;
 import java.io.Serializable;
 import java.util.Date;
 
-import com.googlecode.icontents.annotation.AutoGennerateId;
 import com.googlecode.icontents.util.JacksonUtils;
 
 /**
@@ -59,7 +58,6 @@ import com.googlecode.icontents.util.JacksonUtils;
  * 
  * @author Rafael Steil
  */
-@AutoGennerateId
 public class User extends ExtendableObject implements Serializable
 {
 	/**

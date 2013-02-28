@@ -8,15 +8,15 @@ package com.googlecode.icontents.web.servlet;
  * @version 1.0
  */
 
-import java.io.IOException;
-import java.io.OutputStream;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.Random;
-import javax.imageio.ImageIO;
 
+import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

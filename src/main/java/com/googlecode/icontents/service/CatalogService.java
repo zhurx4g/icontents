@@ -1,7 +1,5 @@
 package com.googlecode.icontents.service;
 
-import java.util.List;
-
 import com.googlecode.icontents.bean.Catalog;
 
 

@@ -1,15 +1,11 @@
 package com.googlecode.icontents.bean;
 
 import java.io.Serializable;
-import java.util.HashMap;
 import java.util.List;
-
-import com.googlecode.icontents.annotation.AutoGennerateId;
 
 /**
  * 分类
  */
-@AutoGennerateId
 public class Catalog extends ExtendableObject implements Serializable{
 
 	/**

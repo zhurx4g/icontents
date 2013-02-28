@@ -2,12 +2,10 @@ package com.googlecode.icontents.service.impl;
 
 import java.util.List;
 
-import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.InitializingBean;
 
-import com.googlecode.icontents.annotation.AutoGennerateId;
 import com.googlecode.icontents.dao.Mapper;
 import com.googlecode.icontents.service.BaseService;
 
@@ -55,27 +53,8 @@ public abstract class BaseServiceImpl<T> implements BaseService<T>,InitializingB
     }
 
     @Override
-    public int insert(T obj) {
-        System.out.println("-->" + obj);
-        int rowNum = mapper.insert(obj);
-        long id = mapper.getCurrentId();
-        
-        System.out.println("idddddd="+id);
-        boolean isAutoGennerateKey = obj.getClass().isAnnotationPresent(AutoGennerateId.class);
-        
-        if(isAutoGennerateKey) {
-            AutoGennerateId annotation = obj.getClass().getAnnotation(AutoGennerateId.class);
-            
-            try {
-                BeanUtils.setProperty(obj, annotation.value(), id);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }else{
-            
-        }
-        System.out.println("===>" + obj);
-        return rowNum;
+    public T insert(T obj) {
+        return mapper.insert(obj);
     }
 
     @Override
@@ -87,5 +66,9 @@ public abstract class BaseServiceImpl<T> implements BaseService<T>,InitializingB
     @Override
     public void update(T obj) {
         mapper.update(obj);
+    }
+    
+    public List<T> selectAll(){
+    	return select(0, Integer.MAX_VALUE);
     }
 }
