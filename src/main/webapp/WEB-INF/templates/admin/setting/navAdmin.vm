@@ -63,7 +63,7 @@
       <div class="popContent">
         <div class="popTitle"> <span class="left">添加分类</span> <span class="close"><a href="javascript:hidePop()">关闭</a></span> </div>
         <div class="popForm">
-          <form id="catalogForm" name="catalogForm" action="$!{contextPath}/admin/article/catalog.do" method="POST" >
+          <form id="catalogForm" name="catalogForm" action="$!{contextPath}/admin/setting/navAdmin.html" method="POST" >
 			<input id="action" name="action" type="hidden" value="add"/>
 			<input id="id" name="id" type="hidden" value="" />
 			<table width="100%">

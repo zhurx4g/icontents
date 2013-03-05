@@ -19,4 +19,9 @@
             SELECT * FROM icontents_config
         ]]>
     </select>
+    <select id="select" resultType="com.googlecode.icontents.bean.Config">
+        <![CDATA[
+            SELECT * FROM icontents_config
+        ]]>
+    </select>
 </mapper>

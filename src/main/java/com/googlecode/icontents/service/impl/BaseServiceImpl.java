@@ -2,6 +2,7 @@ package com.googlecode.icontents.service.impl;
 
 import java.util.List;
 
+import org.apache.commons.lang.math.NumberUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.InitializingBean;
@@ -60,6 +61,7 @@ public abstract class BaseServiceImpl<T> implements BaseService<T>,InitializingB
     @Override
     public List<T> select(int page, int size) {
         if(page<=0)page=1;
+        size = NumberUtils.min(new int[]{100,NumberUtils.max(new int[]{10,size})});
         return mapper.select((page-1)*size, size);
     }
 

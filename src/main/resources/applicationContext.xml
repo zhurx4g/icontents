@@ -60,8 +60,12 @@
     </bean>
     <bean id="transactionFactory" class="org.apache.ibatis.transaction.managed.ManagedTransactionFactory">
     </bean>
-    <bean id="handlerMapping"
-        class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+    <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+         <property name="interceptors">
+            <list>
+                <ref bean="initInterceptor" />
+            </list>
+        </property>
     </bean>
     <!-- scan for mappers and let them be autowired -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
