@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 public class InitInterceptor extends AbstraceHandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        //request.setAttribute("contextPath", request.getContextPath());
+        request.setAttribute("contextPath", request.getContextPath());
         return true;
     }
 }

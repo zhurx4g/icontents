@@ -42,13 +42,10 @@ public abstract class AbstractAdminController extends ParameterizableViewControl
     @Override
     protected final ModelAndView handleRequestInternal(HttpServletRequest request,
             HttpServletResponse response) throws Exception {
-    	User loginUser = (User)request.getSession().getAttribute("loginUser");
+    	User loginUser = (User)request.getSession().getAttribute("loginAdminUser");
     	String contextPath = request.getContextPath();
-    	if(loginUser==null&&!(this instanceof LoginAdminController)){
-    		
-    		if(!(this instanceof LogoutAdminController)){
-    			return new ModelAndView(new RedirectView(contextPath + ADMIN_LOGIN_URL));
-    		}
+    	if(loginUser==null){
+			return new ModelAndView(new RedirectView(contextPath + ADMIN_LOGIN_URL));
     	}
     	
     	if(loginUser!=null&&loginUser.getLevel()==0){

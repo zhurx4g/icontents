@@ -1,0 +1,55 @@
+<a href="#" class="button" style="padding:5px;9px;" onclick="javascript:showPop();"><span class="plus icon"></span>添加分类</a>
+    <table class="tbl sortable" cellspacing="1" cellpadding="0" width="100%">
+        <thead>
+            <tr>
+                <td>分类</td>
+                <td>顺序</td>
+                <td>操作人</td>
+                <td width="140px">操作时间</td>
+                <td width="140px">操作</td>
+            </tr>
+        </thead>
+        <tbody id="comList">
+            #foreach($nav in $navList)
+                <tr #if($velocityCount%2==0)class="even"#end>
+                        <td>
+                            <b>$!{catalog.name}($!{catalog.subCatalog})</b>
+                        </td>
+                        <td>$!{catalog.sequence}</td>
+                        <td>${catalog.creator}</td>
+                        <td>$dt.format("yyyy-MM-dd hh:mm:ss",${catalog.createTime})</td>
+                        <td>
+                            <a class="button" style="padding: 2px 9px;" href="javascript:void(0);" onclick="editFn('$!{catalog.id}','$!{catalog.parentId}','$!{catalog.name}','$!{catalog.sequence}','$!{catalog.weight}','$!{catalog.icon}','$!{catalog.image}','$!{catalog.description}','$!{catalog.link}')">
+                                <span class="pen icon"></span>
+                                编辑</a>
+                                #if($nav.subCatalog&&$nav.subCatalog==0)
+                                    <a class="button" style="padding: 2px 9px;" href="$!{contextPath}/admin/article/catalog.do?action=delete&id=$!{catalog.id}" onclick="return deleteFn(this,'确定删除文章分类$!{catalog.name}');">
+                                        <span class="trash icon"></span>
+                                        删除</a>
+                                #end
+                        </td>
+                </tr>
+                #foreach($subCatalog in $nav.subCatalogList)
+                    <tr>
+                        <td>$!{subCatalog.name}($!{subCatalog.subCatalog})</td>
+                        <td>$!{subCatalog.sequence}</td>
+                        <td>${subCatalog.creator}</td>
+                        <td>$dt.format("yyyy-MM-dd hh:mm:ss",${subCatalog.createTime})</td>
+                        <td>
+                            <a class="button pen" style="padding: 2px 9px;" href="javascript:void(0);" onclick="editFn('$!{subCatalog.id}','$!{subCatalog.parentId}','$!{subCatalog.name}','$!{subCatalog.sequence}','$!{subCatalog.weight}','$!{subCatalog.icon}','$!{subCatalog.image}','$!{subCatalog.description}','$!{subCatalog.link}')">
+                                <span class="pen icon"></span>
+                                编辑</a>
+                                #if($subCatalog.subCatalog&&$subCatalog.subCatalog==0)
+                                    <a class="button trash" style="padding: 2px 9px;" href="$!{contextPath}/admin/article/catalog.do?action=delete&id=$!{subCatalog.id}" onclick="return deleteFn(this,'确定删除文章分类$!{catalog.name}');">
+                                        <span class="trash icon"></span>
+                                        删除</a>
+                                #end
+                        </td>
+                    </tr>
+                #end
+            #end
+        </tbody>
+    </table>
+</td>
+</tr>
+</table>

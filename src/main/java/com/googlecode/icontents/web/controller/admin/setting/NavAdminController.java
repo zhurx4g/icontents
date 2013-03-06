@@ -16,15 +16,16 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.googlecode.icontents.bean.Nav;
 import com.googlecode.icontents.service.NavService;
-import com.googlecode.module.web.controller.AbstractController;
+import com.googlecode.icontents.web.controller.AbstractController;
 
 @Controller
+@RequestMapping(value="admin/setting/nav/")
 public class NavAdminController extends AbstractController {
 
     @Resource
     private NavService navService;
 
-    @RequestMapping(value="admin/setting/navList.do", method=RequestMethod.GET)
+    @RequestMapping(value="list.do", method=RequestMethod.GET)
     public ModelAndView list(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
         model.put("date", new Date());
         model.put("tabIndex", ServletRequestUtils.getStringParameter(request, "tabIndex", "0"));
@@ -34,22 +35,29 @@ public class NavAdminController extends AbstractController {
         
         List<Nav> navList = navService.select(page, size);
         model.addAttribute("navList", navList);
-        return new ModelAndView("admin/setting/navAdmin",model);
+        model.addAttribute("viewName", "admin/setting/nav/list");
+        return new ModelAndView(getCommonViewName(),model);
     }
-    @RequestMapping(value="admin/setting/navAdd.do", method=RequestMethod.POST)
+    @RequestMapping(value="get.do", method=RequestMethod.GET)
+    public ModelAndView get(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
+        int navId = ServletRequestUtils.getIntParameter(request, "navId", 0);
+        model.addAttribute("nav", navService.getObjectById(navId));
+        return list(request, response, model);
+    }
+    @RequestMapping(value="add.do", method=RequestMethod.POST)
     public ModelAndView add(Nav nav, HttpServletRequest request, HttpServletResponse response, ModelMap model) {
         nav.setCreateUserId(0);
         navService.insert(nav);
         return list(request, response, model);
     }
     
-    @RequestMapping(value="admin/setting/navRemove.do", method=RequestMethod.GET)
+    @RequestMapping(value="remove.do", method=RequestMethod.GET)
     public ModelAndView remove(Nav nav, HttpServletRequest request, HttpServletResponse response, ModelMap model) {
         int id = ServletRequestUtils.getIntParameter(request, "id", -1);
         navService.removeObjectById(id);
         return list(request, response, model);
     }
-    @RequestMapping(value="admin/setting/navUpdate.do", method=RequestMethod.POST)
+    @RequestMapping(value="update.do", method=RequestMethod.POST)
     public ModelAndView update(Nav nav, HttpServletRequest request, HttpServletResponse response, ModelMap model) {
         navService.update(nav);
         return list(request, response, model);

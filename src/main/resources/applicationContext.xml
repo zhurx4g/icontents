@@ -64,6 +64,7 @@
          <property name="interceptors">
             <list>
                 <ref bean="initInterceptor" />
+                <ref bean="loginAdminInterceptor" />
             </list>
         </property>
     </bean>

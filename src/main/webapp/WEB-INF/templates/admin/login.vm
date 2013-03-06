@@ -54,7 +54,7 @@
         </tr>
         <tr>
 			<td>验证码:</td>
-			<td align="left"><input id="vcode" name="vcode" type="password" class="input required" value=""/><img height="20px" src="$!{contextPath}/user/image"/></td>
+			<td align="left"><input id="vcode" name="vcode" type="text" class="input required" value=""/><img height="20px" src="$!{contextPath}/user/image"/></td>
 		</tr>
         <tr>
     		<td></td>

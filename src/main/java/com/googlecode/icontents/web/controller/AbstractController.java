@@ -1,5 +1,7 @@
 package com.googlecode.icontents.web.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.BeansException;
@@ -17,6 +19,9 @@ public class AbstractController implements ApplicationContextAware {
     
     private ApplicationContext applicationContext;
 
+    public int getSize(HttpServletRequest request){
+        return SIZE;
+    }
     public ApplicationContext getApplicationContext() {
 		return applicationContext;
 	}
@@ -25,4 +30,8 @@ public class AbstractController implements ApplicationContextAware {
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
     }
+	
+	public String getCommonViewName(){
+	    return "admin/common";
+	}
 }

@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>$!{systemName}</title>
+    <link rel="stylesheet" type="text/css" href="$!{contextPath}/admin/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="$!{contextPath}/admin/css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="$!{contextPath}/css/css3buttons.css" />
+    <link type="text/css" rel="stylesheet" href="$!{contextPath}/css/jquery-ui-1.8.6.custom.css" />
+    <link rel="stylesheet" type="text/css" href="$!{contextPath}/admin/css/common.css" />
+    <script type="text/javascript" src="$!{contextPath}/admin/js/common.js" ></script>
+    <script language="javascript" type="text/javascript" src="$!{contextPath}/js/sorttable.js"></script>
+    <script type="text/javascript" src="$!{contextPath}/js/jquery-1.4.2.min.js" ></script>
+    <script type="text/javascript" src="$!{contextPath}/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="$!{contextPath}/js/jquery-ui-1.8.5.custom.min.js"></script>
+</head>
+<body>
+<div class="wrapper">
+#parse("inc/admin/header.vm")
+     <div class="mainbox clearfix">
+           <table width="100%">
+            <tr>
+                <td width="200px">
+                   <pre>
+            asdf
+            asdf
+            asdf
+            as
+            df
+            asdf
+            </pre>
+                </td>
+                <td width="1px" style="border: 1px solid;height:500px"></td>
+                <td valign="top">
+#if(${viewName})
+#parse("${viewName}.vm")
+#else
+#parse("admin/blank.vm")
+#end
+                </td>
+                </tr>
+            </table>
+     </div>  
+</div>
+<div class="copyright"> Powered by iContents </div>
+<script type="text/javascript">
+(function(){
+    var colL = document.getElementById("colL"), colR = document.getElementById("colR");
+    document.getElementById("switch").onclick = function(){
+          if( colL.style.display != "none" ) {
+              colL.style.display = "none";
+              colR.style.borderLeft = "0px";
+              this.className = "switch switch_change";
+          } else {
+              colL.style.display = "block";
+              colR.style.borderLeft = "180px solid #DDEEF6";
+              this.className = "switch";
+          }
+        
+    };
+})();
+</script>
+</body>
+</html>

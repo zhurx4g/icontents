@@ -1,7 +1,5 @@
 package com.googlecode.icontents.web.controller.admin;
 
-import java.util.Map;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,13 +7,16 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.googlecode.icontents.bean.User;
 import com.googlecode.icontents.service.UserService;
+import com.googlecode.icontents.web.controller.AbstractController;
 
 /**
  * 登录控制页面
@@ -23,20 +24,22 @@ import com.googlecode.icontents.service.UserService;
  *
  */
 @Controller
-@RequestMapping(value="admin/login.do")
-public class LoginAdminController extends AbstractAdminController{
+@RequestMapping(value="admin/")
+public class LoginAdminController extends AbstractController{
 
 	@Resource
 	private UserService userService;
 	
-	@Override
-	protected ModelAndView handleAdminRequestInternal(
-			HttpServletRequest request, HttpServletResponse response,
-			User adminUser,Map<String,Object> model) throws Exception {
-		String contextPath = (String)model.get("contextPath");
+    @RequestMapping(value="login.do", method=RequestMethod.GET)
+    public ModelAndView get(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
+        return new ModelAndView(getViewName(),model);
+    }
+    @RequestMapping(value="login.do", method=RequestMethod.POST)
+    public ModelAndView login(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
+		String contextPath = request.getContextPath();
 		
 		if(request.getSession().getAttribute("loginUser")!=null){
-			return new ModelAndView(new RedirectView(contextPath + ADMIN_INDEX_URL));
+			return new ModelAndView(new RedirectView(contextPath + "/admin/index.html"));
 		}
 		
 		String userName = ServletRequestUtils.getStringParameter(request, "username", "");
@@ -71,12 +74,11 @@ public class LoginAdminController extends AbstractAdminController{
 		if(loginUser==null){
 			model.put("error", "用户不存在或者密码错误");
 		}else{
-		    System.out.println("password:" + DigestUtils.md5Hex(password));
 			if(DigestUtils.md5Hex(password).equals(loginUser.getPassword())){
-				request.getSession().setAttribute("loginUser", loginUser);
+				request.getSession().setAttribute("loginAdminUser", loginUser);
 				
 				if(loginUser.getLevel()==1){
-					return new ModelAndView(new RedirectView(contextPath + ADMIN_INDEX_URL));
+					return new ModelAndView(new RedirectView(contextPath + "/admin/index.html"));
 				}else{
 					return new ModelAndView(new RedirectView(contextPath + "/"));
 				}
@@ -87,14 +89,15 @@ public class LoginAdminController extends AbstractAdminController{
 		
 		return new ModelAndView(getViewName(),model);
 	}
-
-	public static void main(String[] args) {
-	    System.out.println(DigestUtils.md5Hex(DigestUtils.md5Hex("root")));
-        System.out.println(DigestUtils.md5Hex(DigestUtils.md5Hex("qwertyuiop")));
-    }
 	
-	@Override
-	protected boolean hasAuth(User adminUser) {
-		return false;
-	}
+    @RequestMapping(value="logout.do")
+    public ModelAndView logout(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
+        request.getSession().removeAttribute("loginAdminUser");
+        String contextPath = request.getContextPath();
+        return new ModelAndView(new RedirectView(contextPath + "/admin/login.html"));
+    }
+    
+	private String getViewName() {
+        return "admin/login";
+    }
 }
