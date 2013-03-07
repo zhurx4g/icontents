@@ -19,6 +19,6 @@ public class IndexAdminController extends AbstractController {
     @RequestMapping(value="index.do", method=RequestMethod.GET)
     public ModelAndView get(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
         model.put("tabIndex", ServletRequestUtils.getStringParameter(request, "tabIndex", "0"));
-        return new ModelAndView(getCommonViewName(),model);
+        return new ModelAndView("admin/index",model);
     }
 }

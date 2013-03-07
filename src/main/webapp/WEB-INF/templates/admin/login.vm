@@ -10,10 +10,10 @@
 	<link rel="stylesheet" type="text/css" href="$!{contextPath}/admin/css/common.css" />
 	<link rel="stylesheet" type="text/css" href="$!{contextPath}/css/css3buttons.css" />
     <style type="text/css">
-    body{padding:0; margin:0; text-align:center; font-size:14px; background:#fff;color:#000000;}
+    body{padding:0; margin:0; text-align:center; font-size:9pt; background:#efefef;color:#000000;}
     ul,li,form{padding:0; margin:0;}
-    .loginBox{margin:120px auto 0; width:500px;background:#F7F7F7; border:1px solid #BDC6D3;}
-    .title{ height:36px; clear:both;border-bottom:1px solid #BDC6D3; background:#1E50A2; color:#fff; font-weight:bold; line-height:36px;}
+    .loginBox{margin:120px auto 0; width:500px;background:#FFFFFF; border:1px solid #BDC6D3;}
+    .title{ height:25px; clear:both;border-bottom:1px solid #BDC6D3; background: #E3E6E8;line-height:25px;}
     .loginBlock{margin:0 auto; width:370px; clear:both; padding:12px 0 0;}
     .loginBlock li{text-align:left; padding:15px 0 0; list-style-type:none;}
     .input{width:180px; border:1px solid #ccc; height:19px;}
@@ -22,7 +22,7 @@
     .list_of_channels{background:#CCC; font-size:14px;}
     .list_of_channels a{background:#FFF; display:block; float:left; width:120px; padding:5px; color:#333; text-decoration:none; overflow:hidden;}
     .list_of_channels a:hover{text-decoration:underline; color:#CC0000; background:#EEE;}
-	.loginTable td, tr, th {font-size:14px;}
+	.loginTable td, tr, th {font-size:9pt;}
     </style>
     <script type="text/javascript">
 	jQuery(document).ready(function(){
@@ -43,17 +43,17 @@
 <form name="loginForm" id="loginForm" action="${contextPath}/admin/login.html" method="post" style="padding: 10px;">
     <table class="loginTable" style="width:100%;">
         <tr>
-    		<td width="80px" align="right">账号<font color="red">*</font>：</td><td colspan="2" align='left'><input name="username" id="username" type="text" class="input required" value=""/></td>
+    		<td width="80px" align="right">账号<font color="red">*</font>:</td><td colspan="2" align='left'><input name="username" id="username" type="text" class="input required" value=""/></td>
         </tr>
         <tr>
-    		<td width="80px" align="right">密码<font color="red">*</font>：</td>
+    		<td width="80px" align="right">密码<font color="red">*</font>:</td>
 			<td colspan="2" align='left'>
 				<input id="password1" name="password1" type="password" onblur="jQuery('#password').val(jQuery.md5(jQuery('#password1').val()));" class="input required" value=""/>
 				<input name="password" id="password" type="hidden" class="input" value=""/>
 			</td>
         </tr>
         <tr>
-			<td>验证码:</td>
+			<td align="right">验证码:</td>
 			<td align="left"><input id="vcode" name="vcode" type="text" class="input required" value=""/><img height="20px" src="$!{contextPath}/user/image"/></td>
 		</tr>
         <tr>

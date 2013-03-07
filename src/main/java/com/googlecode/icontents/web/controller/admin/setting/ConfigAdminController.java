@@ -19,21 +19,16 @@ import com.googlecode.icontents.bean.Config;
 import com.googlecode.icontents.bean.User;
 import com.googlecode.icontents.service.ConfigService;
 import com.googlecode.icontents.web.ActionsConstant;
-import com.googlecode.icontents.web.controller.admin.AbstractAdminController;
+import com.googlecode.icontents.web.controller.AbstractController;
 
 @Controller
-@RequestMapping(value="admin/setting/configAdmin.do")
-public class ConfigAdminController extends AbstractAdminController {
+@RequestMapping(value="admin/setting")
+public class ConfigAdminController extends AbstractController {
 
     @Resource
     private ConfigService configService;
     
-    @Override
-    protected boolean hasAuth(User adminUser) {
-        return true;
-    }
-
-    @Override
+    @RequestMapping(value="configAdmin.do")
     protected ModelAndView handleAdminRequestInternal(HttpServletRequest request, HttpServletResponse response,
             User adminUser, Map<String, Object> model) throws Exception {
         String action = ServletRequestUtils.getStringParameter(request, ActionsConstant.ACTION, ActionsConstant.LIST);
@@ -56,7 +51,6 @@ public class ConfigAdminController extends AbstractAdminController {
         }
         model.put("configList", configList);
         model.put("configMap", configMap);
-        return new ModelAndView(getViewName(),model);
+        return new ModelAndView("admin/setting/configAdmin",model);
     }
-
 }
