@@ -15,43 +15,39 @@
 </head>
 <body>
 <div class="crumbBar fS14">
-     <a class="fB" href="#">微博后台系统</a> &gt; <span>系统设置</span>
+     <b><span>微博后台系统</span> &gt; <span>系统设置</span></b>
 </div>
 <span class="blank"></span>
-<div class="tblbox" >
    <form id="configForm" name="adminUserForm" action="/admin/setting/configAdmin.do" method="post" >
    <input type="hidden" class="inputTag" id="action" name="action" value="update" />
-   <table class="tbl sortable" cellspacing="0" cellpadding="0">
-       <thead>
-
-            <tr>
-               <td class="name" width="120px">名称</td>
-               <td class="account">值</td>
-            </tr>
-       </thead>
+   <table class="sortable" cellspacing="0" cellpadding="0" width="100%">
        <tbody>
             <tr>
-                <td align="right"><b>网站首页文章ID:</b></td>
+               <th width="120px">名称</th>
+               <th>值</th>
+            </tr>
+            <tr>
+                <td align="right">网站首页文章ID:</td>
                 <td><input type="text" class="inputTag" name="config_index" value="$!configMap.get("config_index")" style="width:98%" /></td>                
             </tr>
             <tr>
-                <td align="right"><b>网站名称:</b></td>
+                <td align="right">网站名称:</td>
                 <td><input type="text" class="inputTag" name="config_name" value="$!configMap.get("config_name")" style="width:98%" /></td>                
             </tr>
             <tr>
-                <td align="right"><b>META关键字:</b></td>
+                <td align="right">META关键字:</td>
                 <td><input type="text" class="inputTag" name="config_meta_keywords" value="$!configMap.get("config_meta_keywords")" style="width:98%" /></td>                
             </tr>
             <tr>
-                <td align="right"><b>META描述:</b></td>
+                <td align="right">META描述:</td>
                 <td><input type="text" class="inputTag" name="config_meta_description" value="$!configMap.get("config_meta_description")" style="width:98%" /></td>                
             </tr>
             <tr>
-                <td align="right"><b>网站LOGO:</b></td>
+                <td align="right">网站LOGO:</td>
                 <td><input type="text" class="inputTag" name="config_logo" value="$!configMap.get("config_logo")" style="width:98%" /></td>                
             </tr>
             <tr>
-                <td align="right"><b>启用友言:</b></td>
+                <td align="right">启用友言:</td>
                 <td>
                     <select name="config_uyan" style="width:200px;">
                         <option value="true" #if($!configMap.get("config_uyan")=="true")selected#end>开启</option>
@@ -59,7 +55,7 @@
                     </select>
             </tr>
             <tr>
-                <td align="right"><b>网站版权:</b></td>
+                <td align="right">网站版权:</td>
                 <td><input type="text" class="inputTag" name="config_copyright" value="$!configMap.get("config_copyright")" style="width:98%" /></td>                
             </tr>
             <tr>
@@ -69,8 +65,5 @@
        </tbody>
    </table>
    </form>
-</div>
-    
-#parse("inc/admin/footerJs.vm")
 </body>
 </html>

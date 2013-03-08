@@ -62,7 +62,7 @@
             { name:"文章管理", open:true,
                 children: [
                     { name:"文章列表",url:"$!{contextPath}/admin/article/articleList.do",target:"main"},
-                    { name:"文章分类"}
+                    { name:"文章分类",url:"$!{contextPath}/admin/article/articleList.do",target:"main",click:"showTab(this);"}
                 ]},
             { name:"父节点2 - 折叠",open:true,
                 children: [
@@ -91,12 +91,27 @@
                 { name:"系统设置", open:true,
                 children: [
                     { name:"导航设置",url:"$!{contextPath}admin/setting/nav/list.do",target:"main"},
-                    { name:"全局设置",url:"$!{contextPath}/admin/setting/configAdmin.do",target:"main"}
+                    { name:"全局设置",click:"showTab(this,'$!{contextPath}/admin/setting/configAdmin.do');"}
                 ]}
         ];
         $(document).ready(function(){
             $.fn.zTree.init($("#treeNavgation"), setting, zNodes);
         });
+        function showTab(node,link) {
+            var tabs = mini.get("mainTabs");
+            var id = "tab$" + node.id;
+            var tab = tabs.getTab(id);
+            if (!tab) {
+                tab = {};
+                tab.name = id;
+                tab.title = node.text;
+                tab.showCloseButton = true;
+                tab.url = link;
+                tabs.addTab(tab);
+            }
+            tabs.activeTab(tab);
+            return false;
+        }
         //-->
     </SCRIPT>
 </head>

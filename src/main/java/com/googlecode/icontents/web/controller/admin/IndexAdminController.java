@@ -17,8 +17,14 @@ import com.googlecode.icontents.web.controller.AbstractController;
 public class IndexAdminController extends AbstractController {
 	
     @RequestMapping(value="index.do", method=RequestMethod.GET)
-    public ModelAndView get(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
+    public ModelAndView index(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
         model.put("tabIndex", ServletRequestUtils.getStringParameter(request, "tabIndex", "0"));
         return new ModelAndView("admin/index",model);
+    }
+    
+    @RequestMapping(value="default.do", method=RequestMethod.GET)
+    public ModelAndView get(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
+        model.put("tabIndex", ServletRequestUtils.getStringParameter(request, "tabIndex", "0"));
+        return new ModelAndView("admin/default",model);
     }
 }

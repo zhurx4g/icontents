@@ -6,7 +6,7 @@
 body
 {
     font-family:Tahoma, Verdana, 宋体;   
-    font-size:12px;
+    font-size:14px;
     line-height:22px;
 }
 table
@@ -1291,14 +1291,11 @@ a:hover.mini-tabs-leftButton,a:hover.mini-tabs-rightButton
     color: #201F35;  
     border: 1px solid #999999;
     color: black;
-    font: 9pt Tahoma;
+    font: 14px Tahoma;
     padding: 3px 10px 3px 10px;
     text-align: center;
     cursor:pointer;
     white-space:nowrap;
-    
-            
-    
 }
 .mini-tab-hover
 {    
@@ -1322,6 +1319,7 @@ a:hover.mini-tabs-leftButton,a:hover.mini-tabs-rightButton
     line-height:16px;
     padding-left:2px;
     padding-right:2px;
+    font-weight:bold;
 }
 .mini-tab .mini-tab-icon
 {
@@ -1699,6 +1697,7 @@ a:hover.mini-tabs-leftButton,a:hover.mini-tabs-rightButton
 {
     overflow:auto;
     position:relative;
+    font-size:12px;
 }
 
 .mini-layout-proxy
