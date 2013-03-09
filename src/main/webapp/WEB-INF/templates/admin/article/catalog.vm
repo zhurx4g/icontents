@@ -140,7 +140,7 @@
             <td>文章模板</td>
             <td>操作人</td>
             <td width="140px">操作时间</td>
-            <td width="140px">操作</td>
+            <td width="160px">操作</td>
           </tr>
         </thead>
         <tbody id="comList">

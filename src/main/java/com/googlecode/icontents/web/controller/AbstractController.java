@@ -1,5 +1,9 @@
 package com.googlecode.icontents.web.controller;
 
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.logging.Log;
@@ -33,5 +37,30 @@ public class AbstractController implements ApplicationContextAware {
 	
 	public String getCommonViewName(){
 	    return "admin/common";
+	}
+	
+    @SuppressWarnings("unchecked")
+	public Map<String,String> getParamMap(HttpServletRequest request){
+        Map<String,String> dataMap = new HashMap<String,String>();
+        
+        Enumeration<String> enumer = request.getParameterNames();
+        
+        while(enumer.hasMoreElements()){
+            String key = enumer.nextElement();
+            String value = request.getParameter(key);
+            dataMap.put(key, value==null?"":value.trim());
+        }
+        
+        return dataMap;
+    }
+    
+    private int size = 20;
+    
+	public int getSize() {
+		return size;
+	}
+
+	public void setSize(int size) {
+		this.size = size;
 	}
 }

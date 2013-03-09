@@ -16,19 +16,18 @@ import com.googlecode.icontents.bean.Catalog;
 import com.googlecode.icontents.bean.User;
 import com.googlecode.icontents.service.CatalogService;
 import com.googlecode.icontents.web.ActionsConstant;
-import com.googlecode.icontents.web.controller.admin.AbstractAdminController;
+import com.googlecode.icontents.web.controller.AbstractController;
 
 @Controller
-@RequestMapping(value="admin/article/catalog.do")
-public class CatalogAdminController extends AbstractAdminController {
+@RequestMapping(value="admin/article/catalog")
+public class CatalogAdminController extends AbstractController {
 
 	@Resource
 	private CatalogService catalogService;
 	
-	@Override
-	protected ModelAndView handleAdminRequestInternal(
-			HttpServletRequest request, HttpServletResponse response,
-			User adminUser,Map<String,Object> model) throws Exception {
+	@RequestMapping(value="list.do")
+	protected ModelAndView list(HttpServletRequest request, HttpServletResponse response,
+			User adminUser,Map<String,Object> model) {
 		model.put("date", new Date());
 		model.put("tabIndex", ServletRequestUtils.getStringParameter(request, "tabIndex", "0"));
 		
@@ -59,12 +58,6 @@ public class CatalogAdminController extends AbstractAdminController {
 		}
 		
 		model.put("catalogList", catalogService.select(page, size));
-		return new ModelAndView(getViewName(),model);
+		return new ModelAndView("admin/article/catalog",model);
 	}
-
-	@Override
-	protected boolean hasAuth(User adminUser) {
-		return false;
-	}
-
 }
