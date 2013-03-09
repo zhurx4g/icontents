@@ -123,7 +123,8 @@
       </div>
     </div>
 
-	<div class="crumbBar fS14"> <a class="fB" href="#">文章管理</a> > <a class="fB" href="#">文章分类</a></div>
+    <span class="blank"></span>
+	<div class="crumbBar fS14"><b><span>微博后台系统</span> &gt; <span>文章管理</span>&gt; <span>文章分类</span></b></div>
 	<div class="authorityBar">
 		<span class="left">
 			<a href="#" class="button" style="padding:5px;9px;" onclick="javascript:showPop();"><span class="plus icon"></span>添加分类</a>

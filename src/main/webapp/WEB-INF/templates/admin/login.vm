@@ -41,7 +41,7 @@
 <div class="loginBox" id="loginBox">
 <div class="title" style="cursor:pointer;">请输入用户名和密码登录</div>
 <form name="loginForm" id="loginForm" action="${contextPath}/admin/login.html" method="post" style="padding: 10px;">
-    <table class="loginTable" style="width:100%;">
+    <table class="loginTable" style="width:100%;border:0px;">
         <tr>
     		<td width="80px" align="right">账号<font color="red">*</font>:</td><td colspan="2" align='left'><input name="username" id="username" type="text" class="input required" value=""/></td>
         </tr>

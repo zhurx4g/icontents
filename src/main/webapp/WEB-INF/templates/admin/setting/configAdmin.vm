@@ -14,6 +14,7 @@
 <script type="text/javascript" src="/admin/js/common.js" ></script>
 </head>
 <body>
+<span class="blank"></span>
 <div class="crumbBar fS14">
      <b><span>微博后台系统</span> &gt; <span>系统设置</span></b>
 </div>
