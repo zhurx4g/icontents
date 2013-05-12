@@ -16,7 +16,7 @@ public class CatalogServiceImpl extends BaseServiceImpl<Catalog> implements Cata
 	static Logger logger = Logger.getLogger(CatalogServiceImpl.class);
 	@Resource
 	private CatalogMapper catalogMapper;
-	
+	 
 	@Override
 	public void setBaseDaoHandlewired() {
 		setBaseDao(catalogMapper);

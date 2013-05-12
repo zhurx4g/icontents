@@ -3,6 +3,7 @@ package com.googlecode.icontents.dao;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Update;
 
 import com.googlecode.icontents.bean.component.ArticleComponent;
 
@@ -12,6 +13,7 @@ public interface ArticleComponentMapper extends Mapper<ArticleComponent> {
 	 * 删除文章的所有组件
 	 * @param articleId
 	 */
+	@Update("")
 	public void removeByArticleId(@Param("articleId") long articleId);
 	/**
 	 * 获取特定位置的组件列表

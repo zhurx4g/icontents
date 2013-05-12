@@ -3,6 +3,7 @@ package com.googlecode.icontents.dao;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 import com.googlecode.icontents.bean.User;
 
@@ -21,6 +22,7 @@ public interface UserMapper extends Mapper<User> {
 	 * @param userName
 	 * @return
 	 */
+	@Select("SELECT * FROM icontents_user WHERE USERNAME=#{userName}")
 	public User getUserByUserName(@Param("userName") String userName);
 
 	/**
